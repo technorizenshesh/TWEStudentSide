@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.TutorSelectionActivity">
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_20"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/margin_20"
+                android:layout_height="@dimen/margin_20"
+                android:onClick="backWantTutor"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:src="@drawable/back"/>
+
+
+        </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14dp"
+        android:text="I want tutor for"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/margin_25" />
+
+        <LinearLayout
+            android:id="@+id/LL_MySelf"
+            android:background="@drawable/edit_bgbutton_white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_70"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_25"
+            android:padding="@dimen/margin_10"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="@dimen/margin_30"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center"
+                android:src="@drawable/girl_working"/>
+
+            <TextView
+                android:id="@+id/txt_mySelf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Self"
+                android:textStyle="bold"
+                android:textSize="@dimen/textsize_18"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/color_txtBlue"/>
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL_My_child"
+            android:background="@drawable/edit_bgbutton_white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_70"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_25"
+            android:padding="@dimen/margin_10"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="@dimen/margin_30"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center"
+                android:src="@drawable/father"/>
+
+            <TextView
+                android:id="@+id/my_child"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My child"
+                android:textStyle="bold"
+                android:textSize="@dimen/textsize_18"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/color_txtBlue"/>
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL_Friend_Relative"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_70"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_25"
+            android:padding="@dimen/margin_10"
+            android:background="@drawable/edit_bgbutton"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:tint="@color/color_yellow"
+                android:layout_width="@dimen/margin_30"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center"
+                android:src="@drawable/friends_talking"/>
+
+            <TextView
+                android:id="@+id/txt_frnd_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Friend / Relative"
+                android:textStyle="bold"
+                android:textSize="@dimen/textsize_18"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/colorWhite"/>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="@dimen/margin_280"
+            android:layout_height="@dimen/margin_50"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginRight="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_20"
+            android:gravity="center"
+            android:onClick="ContinueInit"
+            android:background="@drawable/edit_bgbutton"
+            android:orientation="vertical">
+
+
+
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Continue"
+                android:onClick="ContinueInit"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

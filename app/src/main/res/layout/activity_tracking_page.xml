@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue_map_screen"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.TrackingPageActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_15"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_black">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_weight="1">
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_350"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_30"
+                    android:background="@drawable/round_shapeyellowbg"
+                    android:backgroundTint="@color/edit_darkBlue"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/margin_20"
+                        android:layout_marginRight="@dimen/margin_20"
+                        android:layout_marginTop="@dimen/margin_100"
+                        android:gravity="center_vertical">
+
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:layout_width="@dimen/margin_70"
+                            android:layout_height="@dimen/margin_70"
+                            android:layout_gravity="center"
+                            android:src="@drawable/home_banner3" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="@dimen/margin_20"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Olivia Parker"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/margin_20"/>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="#78954"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/textsize_18"/>
+
+
+
+                        </LinearLayout>
+
+
+                        <ImageView
+                            android:layout_width="@dimen/margin_30"
+                            android:layout_height="@dimen/margin_30"
+                            android:layout_gravity="center"
+                            android:src="@drawable/telephone" />
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_50"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/margin_50"
+                        android:layout_marginLeft="@dimen/margin_20"
+                        android:layout_marginRight="@dimen/margin_20"
+                        android:background="@drawable/white_outline"
+                        android:gravity="center_vertical">
+
+
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="View Tutor Information"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/margin_20"/>
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_100"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_350"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/yellow_curvebg"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="@dimen/margin_20"
+                        android:layout_margin="@dimen/margin_15"
+                        android:orientation="horizontal">
+
+
+
+
+
+                        <ImageView
+                            android:layout_width="@dimen/margin_25"
+                            android:layout_height="@dimen/margin_25"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/margin_20"
+                            android:src="@drawable/tik" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Started"
+                            android:textColor="@color/color_txtBlue"
+                            android:textSize="@dimen/textsize_18"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_15"
+                                android:text="On the Way"
+                                android:textColor="@color/color_txtBlue"
+                                android:textStyle="bold"
+                                android:buttonTint="@color/color_txtBlue"
+                                android:checked="true"/>
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_15"
+                                android:textColor="@color/colorGray"
+                                android:text="Reached"/>
+
+
+
+
+
+
+
+                        </RadioGroup>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_60"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/margin_320"
+                        android:background="@drawable/white_round_cornerbg"
+                        android:backgroundTint="@color/colorWhite"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/mask" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:text="Arriving in 8 Mins"
+                                android:textColor="@color/color_txtBlue"
+                                android:textSize="@dimen/textsize_18"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="@dimen/margin_30"
+                                android:layout_height="@dimen/margin_30"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="@dimen/margin_20"
+                                android:src="@drawable/ic_optionmenu" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

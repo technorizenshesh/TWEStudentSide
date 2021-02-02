@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MyLessonPackageActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_50"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:adjustViewBounds="true"
+                android:onClick="backPressFromMyLesson"
+                android:scaleType="fitCenter"
+                android:src="@drawable/back" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="My Lesson Package"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textsize_20"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:layout_marginTop="@dimen/margin_15"
+            android:layout_marginRight="@dimen/margin_15"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txt1Tab"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="@drawable/color_pink"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="Individual Class"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+
+            <TextView
+                android:id="@+id/txt3Tab"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/color_gray"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:padding="@dimen/margin_3"
+                android:text="Group Class"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="14dp"
+                tools:ignore="RtlCompat"
+                />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/margin_20"
+            android:id="@+id/recycler_bookdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_50"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/color_yellowbg"
+                                android:padding="5dp"
+                                android:text="Hourly"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="@dimen/margin_15"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="saving 0%"
+                                android:textColor="@color/color_txtBlue"
+                                android:textSize="@dimen/textsize_15"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_hr_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_marginRight="@dimen/margin_15"
+                                android:text="Actual Price Rs.1000"
+                                android:textColor="@color/colorGray"
+                                android:textSize="@dimen/textsize_16" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_marginRight="@dimen/margin_15"
+                                android:text="1000/hr"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/textsize_20" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/margin_300"
+                    android:layout_height="@dimen/_45dp"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginLeft="@dimen/margin_20"
+                    android:layout_marginTop="@dimen/margin_25"
+                    android:layout_marginRight="@dimen/margin_20"
+                    android:background="@drawable/color_pink"
+                    android:onClick="continueLessonInit"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/textsize_12"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:onClick="continueLessonInit"
+                        android:text="Book Now"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/textsize14"
+                        android:textStyle="bold" />
+
+
+
+                </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_50"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/color_yellowbg"
+                                    android:padding="5dp"
+                                    android:text="Weekly"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="@dimen/margin_15"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="saving 05%"
+                                    android:textColor="@color/color_txtBlue"
+                                    android:textSize="@dimen/textsize_15"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:gravity="end"
+                                android:orientation="horizontal">
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/margin_40"
+                                        android:layout_marginRight="@dimen/margin_15"
+                                        android:text="2,850"
+                                        android:layout_gravity="center_horizontal"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/textsize_25" />
+
+
+
+                                    <TextView
+                                        android:id="@+id/txt_weekly_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/margin_40"
+                                    android:layout_marginRight="@dimen/margin_15"
+                                    android:text="Actual Price Rs.3̶0̶0̶0̶"
+                                    android:textColor="@color/colorGray"
+                                    android:textSize="@dimen/textsize_16" />
+
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/margin_40"
+                                    android:layout_marginRight="@dimen/margin_15"
+                                    android:text="950/hr"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="@dimen/margin_35"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/textsize_20" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="@dimen/margin_300"
+                        android:layout_height="@dimen/_45dp"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginLeft="@dimen/margin_20"
+                        android:layout_marginTop="@dimen/margin_25"
+                        android:layout_marginRight="@dimen/margin_20"
+                        android:background="@drawable/color_pink"
+                        android:onClick="continueLessonInit"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/textsize_12"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:onClick="continueLessonInit"
+                            android:text="Book Now"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/textsize14"
+                            android:textStyle="bold" />
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_50"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/color_yellowbg"
+                                    android:padding="5dp"
+                                    android:text="Monthly"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="@dimen/margin_15"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="saving 10%"
+                                    android:textColor="@color/color_txtBlue"
+                                    android:textSize="@dimen/textsize_15"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:gravity="end"
+                                android:orientation="horizontal">
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/margin_40"
+                                        android:layout_marginRight="@dimen/margin_15"
+                                        android:text="10,800"
+                                        android:layout_gravity="center_horizontal"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/textsize_25" />
+
+
+
+                                    <TextView
+                                        android:id="@+id/txt_monthly_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/margin_40"
+                                        android:layout_marginRight="@dimen/margin_15"
+                                        android:text="Actual Price Rs.120̶0̶0̶"
+                                        android:textColor="@color/colorGray"
+                                        android:textSize="@dimen/textsize_16" />
+
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/margin_40"
+                                    android:layout_marginRight="@dimen/margin_15"
+                                    android:text="900/hr"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="@dimen/margin_35"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/textsize_20" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="@dimen/margin_300"
+                        android:layout_height="@dimen/_45dp"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginLeft="@dimen/margin_20"
+                        android:layout_marginTop="@dimen/margin_25"
+                        android:layout_marginRight="@dimen/margin_20"
+                        android:background="@drawable/color_pink"
+                        android:onClick="continueLessonInit"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/textsize_12"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:onClick="continueLessonInit"
+                            android:text="Book Now"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/textsize14"
+                            android:textStyle="bold" />
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_50"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/color_yellowbg"
+                                    android:padding="5dp"
+                                    android:text="Full Course"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="@dimen/margin_15"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="saving 20%"
+                                    android:textColor="@color/color_txtBlue"
+                                    android:textSize="@dimen/textsize_15"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:gravity="end"
+                                android:orientation="horizontal">
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/margin_40"
+                                        android:layout_marginRight="@dimen/margin_15"
+                                        android:text="30,600"
+                                        android:layout_gravity="center_horizontal"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/textsize_25" />
+
+
+
+                                    <TextView
+                                        android:id="@+id/txt_fullcourse_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/margin_40"
+                                        android:layout_marginRight="@dimen/margin_15"
+                                        android:text="Actual Price Rs.36̶0̶0̶0̶"
+                                        android:textColor="@color/colorGray"
+                                        android:textSize="@dimen/textsize_16" />
+
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/margin_40"
+                                    android:layout_marginRight="@dimen/margin_15"
+                                    android:text="850/hr"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="@dimen/margin_35"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/textsize_20" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="@dimen/margin_300"
+                        android:layout_height="@dimen/_45dp"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginLeft="@dimen/margin_20"
+                        android:layout_marginTop="@dimen/margin_25"
+                        android:layout_marginRight="@dimen/margin_20"
+                        android:background="@drawable/color_pink"
+                        android:onClick="continueLessonInit"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/textsize_12"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:onClick="continueLessonInit"
+                            android:text="Book Now"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/textsize14"
+                            android:textStyle="bold" />
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

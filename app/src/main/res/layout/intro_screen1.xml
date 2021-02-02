@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_20"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_25"
+            android:textColor="@color/edit_darkBlue"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="How It Work"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize14"
+            android:textColor="@color/colorBlack"
+            android:gravity="center"
+            android:text="Here's why 2 million people use TwE "/>
+
+
+
+        <ImageView
+        android:layout_width="@dimen/margin_200"
+        android:layout_height="@dimen/margin_200"
+        android:src="@drawable/a"
+        android:layout_marginTop="@dimen/margin_50"
+        android:id="@+id/imageView" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_25"
+            android:textColor="@color/edit_darkBlue"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_20"
+            android:gravity="center"
+            android:text="Match"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize13"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="@dimen/margin_5"
+            android:gravity="center"
+            android:text="@string/welcome1_text"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

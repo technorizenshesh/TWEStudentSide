@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TWEStudentSide</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
+    <string name="skip">Skip</string>
+    <string name="welcome1_text">Find your perfect teacher in under 3 minutes. Need help finding the right teacher? Call our friendly student counselors at 7019820293</string>
+    <string name="welsome">Welcome</string>
+    <string name="Category">Category</string>
+    <string name="Sub_Category">Sub-Category</string>
+    <string name="Subjects">Subjects</string>
+    <string name="facebook_app_id">809370726293914</string>
+    <string name="Rs">\u20B9</string>
+    <string name="checkInternet">Please Check Your Internet Connection</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome2_text">Your instructor will motivate, support, and inspire you. Meet up with your teacher in person or connect with them online anywhere around the world!</string>
+    <string name="welcome3_text">Each lesson is customized to help you grow. Learn faster and easier than ever with personal attention from an expert instructor.</string>
+    <string name="olvia_parker">Ask a Question\nBecause of my experience as an english teacher,\nthese lesson greatly improve your reading\nskills and confidence.\n About Olivia Parker.</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna tortor, semper eu feugiat eu, vehicula vitae lacus.</string>
+    <string name="welcome4_text">Success in learning often depends on finding the right teacher; someone that not only has expertise in the subject, but also knows how to inspire. The teaching style that works for one student may not work for another. As a parent or student, how do you find the right match? TWE bridges this gap</string>
+    <string name="month450">₹<b>450</b>/month</string>
+    <string name="month650">₹<b>650</b>/month</string>
+    <string name="month1000">₹<b>1000</b>/month</string>
+    <string name="signup_policy">By creating an account, you agree to the\nTWE <b>terms of use</b> and <b>privacy policy.</b></string>
+</resources>

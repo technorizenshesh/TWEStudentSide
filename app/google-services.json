@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "792056729435",
+    "project_id": "twestudentside",
+    "storage_bucket": "twestudentside.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792056729435:android:93f7e0cf04a77601e0d47e",
+        "android_client_info": {
+          "package_name": "com.tech.twestudentside"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792056729435-t573p2qmnq57tqmlvp8gvaqfm7cpfa45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw4WDWU22JJa_CEJzAJa5wph-X2Qd9xkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792056729435-t573p2qmnq57tqmlvp8gvaqfm7cpfa45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
