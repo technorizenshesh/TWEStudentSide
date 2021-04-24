@@ -1,107 +1,83 @@
 package com.tech.twestudentside.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tech.twestudentside.R;
-import com.tech.twestudentside.model.DaysModel;
 import com.tech.twestudentside.model.pricelistModel;
-
 import java.util.ArrayList;
 
-/**
- * A custom adapter to use with the RecyclerView widget.
- */
-public class PriceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class PriceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    int pos = 0;
+    /* renamed from: c */
+    String f446c = "";
     private Context mContext;
-    private ArrayList<pricelistModel> modelList;
-    private OnItemClickListener mItemClickListener;
-    String c="";
-    int row_index=0;
-    public PriceAdapter(Context context, ArrayList<pricelistModel> modelList) {
-        this.mContext = context;
-        this.modelList = modelList;
+    /* access modifiers changed from: private */
+    public OnItemClickListener mItemClickListener;
+    /* access modifiers changed from: private */
+    public ArrayList<pricelistModel> modelList;
+    int pos = 0;
+    int row_index = 0;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int i, pricelistModel pricelistmodel);
     }
 
-    public void updateList(ArrayList<pricelistModel> modelList) {
-        this.modelList = modelList;
+    public PriceAdapter(Context context, ArrayList<pricelistModel> modelList2) {
+        this.mContext = context;
+        this.modelList = modelList2;
+    }
+
+    public void updateList(ArrayList<pricelistModel> modelList2) {
+        this.modelList = modelList2;
         notifyDataSetChanged();
     }
 
-    @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.price_item, viewGroup, false);
-        return new ViewHolder(view);
+        return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.price_item, viewGroup, false));
     }
 
-    @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        //Here you can fill your row view
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolder) {
-
-            final pricelistModel model = getItem(position);
-
-            final ViewHolder genericViewHolder = (ViewHolder) holder;
-
+            pricelistModel model = getItem(position);
+            ViewHolder genericViewHolder = (ViewHolder) holder;
             genericViewHolder.txt_time.setText(model.getDay());
-            genericViewHolder.txt_discount.setText("saving  "+model.getDiscount());
-
-            // genericViewHolder.txt_time_one.setText(model.getTie_one());
+            TextView access$100 = genericViewHolder.txt_discount;
+            access$100.setText("saving  " + model.getDiscount());
         }
     }
 
-
-    @Override
     public int getItemCount() {
-        return modelList.size();
+        return this.modelList.size();
     }
 
-    public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
-        this.mItemClickListener = mItemClickListener;
+    public void SetOnItemClickListener(OnItemClickListener mItemClickListener2) {
+        this.mItemClickListener = mItemClickListener2;
     }
 
     private pricelistModel getItem(int position) {
-        return modelList.get(position);
-    }
-
-
-    public interface OnItemClickListener {
-
-        void onItemClick(View view, int position, pricelistModel model);
-
+        return this.modelList.get(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-
-        private TextView txt_time;
-        private TextView txt_discount;
+        /* access modifiers changed from: private */
+        public TextView txt_discount;
+        /* access modifiers changed from: private */
+        public TextView txt_time;
 
         public ViewHolder(final View itemView) {
             super(itemView);
-
-            this.txt_time=itemView.findViewById(R.id.txt_time);
-            this.txt_discount=itemView.findViewById(R.id.txt_discount);
-
+            this.txt_time = (TextView) itemView.findViewById(R.id.txt_time);
+            this.txt_discount = (TextView) itemView.findViewById(R.id.txt_discount);
             itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
                 public void onClick(View view) {
-                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
+                    PriceAdapter.this.mItemClickListener.onItemClick(itemView, ViewHolder.this.getAdapterPosition(), (pricelistModel) PriceAdapter.this.modelList.get(ViewHolder.this.getAdapterPosition()));
                 }
             });
         }
     }
-
-
-
 }
-

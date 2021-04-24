@@ -1,148 +1,99 @@
 package com.tech.twestudentside.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.tech.twestudentside.Preference;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.tech.twestudentside.R;
-import com.tech.twestudentside.adapter.AdapterRecomended;
+import com.tech.twestudentside.Preference;
 import com.tech.twestudentside.adapter.GetFav_Adapter;
 import com.tech.twestudentside.listner.FragmentListener;
 import com.tech.twestudentside.model.GetFavModel;
 import com.tech.twestudentside.model.GetFavModelOne;
-import com.tech.twestudentside.model.home_model;
-import com.tech.twestudentside.model.home_model_data;
 import com.tech.twestudentside.utils.RetrofitClients;
 import com.tech.twestudentside.utils.SessionManager;
-
 import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class FavouriteFragment extends Fragment {
-
     FragmentListener listener;
-    private RecyclerView recycler_get_fav;
     GetFav_Adapter mAdapter;
+    ArrayList<GetFavModelOne> modelList = new ArrayList<>();
     ProgressBar progressBar;
-    TextView txt_empty_tutor;
+    private RecyclerView recycler_get_fav;
     private SessionManager sessionManager;
-    ArrayList<GetFavModelOne> modelList=new ArrayList<>();
+    TextView txt_empty_tutor;
 
-    public FavouriteFragment(FragmentListener listener) {
-        this.listener = listener;
+    public FavouriteFragment(FragmentListener listener2) {
+        this.listener = listener2;
     }
 
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_favourite, container, false);
-
-        recycler_get_fav= view.findViewById(R.id.recycler_get_fav);
-        progressBar= view.findViewById(R.id.progressBar);
-        txt_empty_tutor= view.findViewById(R.id.txt_empty_tutor);
-        sessionManager = new SessionManager(getActivity());
-
-        modelList.clear();
-
-        if (sessionManager.isNetworkAvailable()) {
-
-            progressBar.setVisibility(View.VISIBLE);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_favourite, container, false);
+        this.recycler_get_fav = (RecyclerView) view.findViewById(R.id.recycler_get_fav);
+        this.progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        this.txt_empty_tutor = (TextView) view.findViewById(R.id.txt_empty_tutor);
+        this.sessionManager = new SessionManager((Activity) getActivity());
+        this.modelList.clear();
+        if (this.sessionManager.isNetworkAvailable()) {
+            this.progressBar.setVisibility(View.VISIBLE);
             getFavApi();
-
-        }else {
-            Toast.makeText(getActivity(), R.string.checkInternet, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), R.string.checkInternet, Toast.LENGTH_LONG).show();
         }
-
-
-        return  view;
+        return view;
     }
 
-    private void setAdapter(ArrayList<GetFavModelOne> modelList) {
-
-        mAdapter = new GetFav_Adapter(getActivity(), this.modelList,FavouriteFragment.this);
-
-        recycler_get_fav.setHasFixedSize(true);
-
-        // use a linear layout manager
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        recycler_get_fav.setLayoutManager(linearLayoutManager);
-        recycler_get_fav.setAdapter(mAdapter);
-
-        mAdapter.SetOnItemClickListener(new GetFav_Adapter.OnItemClickListener() {
-            @Override
+    /* access modifiers changed from: private */
+    public void setAdapter(ArrayList<GetFavModelOne> arrayList) {
+        this.mAdapter = new GetFav_Adapter(getActivity(), this.modelList, this);
+        this.recycler_get_fav.setHasFixedSize(true);
+        this.recycler_get_fav.setLayoutManager(new LinearLayoutManager(getActivity()));
+        this.recycler_get_fav.setAdapter(this.mAdapter);
+        this.mAdapter.SetOnItemClickListener(new GetFav_Adapter.OnItemClickListener() {
             public void onItemClick(View view, int position, GetFavModelOne model) {
-
             }
         });
     }
 
     public void getFavApi() {
-        String UserId =  Preference.get(getActivity(),Preference.KEY_USER_ID);
-
-        Call<GetFavModel> call = RetrofitClients
-                .getInstance()
-                .getApi()
-                .get_fav(UserId);
-
-        call.enqueue(new Callback<GetFavModel>() {
-            @Override
+        RetrofitClients.getInstance().getApi().get_fav(Preference.get(getActivity(), Preference.KEY_USER_ID)).enqueue(new Callback<GetFavModel>() {
             public void onResponse(Call<GetFavModel> call, Response<GetFavModel> response) {
-
                 try {
-
                     GetFavModel finallyPr = response.body();
-
-                    progressBar.setVisibility(View.GONE);
-
-                    String status   = finallyPr.getStatus ();
+                    FavouriteFragment.this.progressBar.setVisibility(View.GONE);
+                    String status = finallyPr.getStatus();
                     String message = finallyPr.getMessage();
-
                     if (status.equalsIgnoreCase("1")) {
-
-                        modelList= (ArrayList<GetFavModelOne>) finallyPr.getResult();
-
-                        setAdapter(modelList);
-
-                    } else {
-                        progressBar.setVisibility(View.GONE);
-                        txt_empty_tutor.setVisibility(View.VISIBLE);
+                        FavouriteFragment.this.modelList = (ArrayList) finallyPr.getResult();
+                        FavouriteFragment.this.setAdapter(FavouriteFragment.this.modelList);
+                        return;
                     }
-
+                    FavouriteFragment.this.progressBar.setVisibility(View.GONE);
+                    FavouriteFragment.this.txt_empty_tutor.setVisibility(View.VISIBLE);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    txt_empty_tutor.setVisibility(View.VISIBLE);
+                    FavouriteFragment.this.txt_empty_tutor.setVisibility(View.VISIBLE);
                 }
             }
 
-            @Override
             public void onFailure(Call<GetFavModel> call, Throwable t) {
-                progressBar.setVisibility(View.GONE);
-                txt_empty_tutor.setVisibility(View.VISIBLE);
+                FavouriteFragment.this.progressBar.setVisibility(View.GONE);
+                FavouriteFragment.this.txt_empty_tutor.setVisibility(View.VISIBLE);
             }
         });
-
     }
-
 }

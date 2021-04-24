@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
     <item>
-        <bitmap
-            android:gravity="top|left"
-            android:tint="@android:color/holo_green_dark"
-            android:src="@drawable/ic_dot" />
+        <bitmap android:gravity="top|left|center_vertical|center_horizontal|center" android:src="@drawable/ic_dot" android:tint="@android:color/holo_green_dark"/>
     </item>
     <item>
-        <bitmap
-            android:gravity="center"
-            android:tint="@android:color/holo_red_dark"
-            android:src="@drawable/ic_dot" />
+        <bitmap android:gravity="center" android:src="@drawable/ic_dot" android:tint="@android:color/holo_red_dark"/>
     </item>
-
     <item android:left="80dp">
-        <bitmap
-            android:gravity="right"
-            android:tint="@android:color/holo_blue_dark"
-            android:src="@drawable/ic_dot"/>
+        <bitmap android:gravity="right" android:src="@drawable/ic_dot" android:tint="@android:color/holo_blue_dark"/>
     </item>
 </layer-list>

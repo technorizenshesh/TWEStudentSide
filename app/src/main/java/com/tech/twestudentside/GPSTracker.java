@@ -18,7 +18,7 @@ import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
-public class GPSTracker extends Service implements LocationListener {
+public class GPSTracker extends Service implements LocationListener{
 
     private Context mContext;
 
@@ -151,7 +151,6 @@ public class GPSTracker extends Service implements LocationListener {
         if(location != null){
             longitude = location.getLongitude();
         }
-
         // return longitude
         return longitude;
     }

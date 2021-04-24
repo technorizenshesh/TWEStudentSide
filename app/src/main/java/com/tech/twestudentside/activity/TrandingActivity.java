@@ -1,272 +1,282 @@
 package com.tech.twestudentside.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.makeramen.roundedimageview.RoundedImageView;
-import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
-import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
-import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.tech.twestudentside.Preference;
 import com.tech.twestudentside.R;
-import com.tech.twestudentside.adapter.AdapterRecomended;
-import com.tech.twestudentside.adapter.AdapterRelatedProperty;
-import com.tech.twestudentside.adapter.SliderAdapterExample;
+import com.tech.twestudentside.GPSTracker;
+import com.tech.twestudentside.Preference;
 import com.tech.twestudentside.model.Get_detailsModel;
-import com.tech.twestudentside.model.RelatedPropertyModel;
-import com.tech.twestudentside.model.SliderItem;
-import com.tech.twestudentside.model.home_model;
-import com.tech.twestudentside.model.home_model_data;
+import com.tech.twestudentside.model.RelatedModel;
+import com.tech.twestudentside.model.RelatedModelData;
 import com.tech.twestudentside.utils.RetrofitClients;
 import com.tech.twestudentside.utils.SessionManager;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TrandingActivity extends AppCompatActivity {
+import static android.view.View.GONE;
 
-    SliderView sliderView;
-    private SliderAdapterExample adapter;
-    ImageView iv_back;
-
-    ArrayList<RelatedPropertyModel> arrayList;
-    RecyclerView recyclerView1;
-    int[] icons = {R.drawable.penthouse,R.drawable.penthouse,R.drawable.penthouse,
-            R.drawable.penthouse,R.drawable.penthouse,R.drawable.penthouse};
+public class TrandingActivity extends AppCompatActivity implements OnMapReadyCallback {
+    /* access modifiers changed from: private */
+    public ProgressBar progressBar;
+    String TutorDetails_Id = "";
+    ArrayList<RelatedModelData> arrayList = new ArrayList<>();
+    TextView distance;
+    GPSTracker gpsTracker;
+    int[] icons = {R.drawable.penthouse, R.drawable.penthouse, R.drawable.penthouse, R.drawable.penthouse, R.drawable.penthouse, R.drawable.penthouse};
     String[] iconsName = {"Villas,Township,Penthouse,Compound,Office,Plots"};
-
-    String TutorDetails_Id ="";
-   private ProgressBar progressBar;
-    private SessionManager sessionManager;
-
+    ImageView iv_back;
+    Double lat;
+    String latitude = "";
+    Double lon;
+    String longitude = "";
+    FusedLocationProviderClient mFusedLocationClient;
+    GoogleMap mGoogleMap;
+    SupportMapFragment mapFrag;
+    RoundedImageView profile_img;
+    RecyclerView recyclerView1;
+    SliderView sliderView;
+    TextView txt_Affilation;
+    TextView txt_Certification;
     TextView txt_Education;
     TextView txt_Experience;
     TextView txt_Language;
-    TextView txt_Certification;
-    TextView txt_Affilation;
+    TextView txt_abouts;
     TextView txt_address;
-    TextView txt_tutor_name;
-    TextView txt_year_count;
-    TextView distance;
+    TextView txt_empty_tutor;
     TextView txt_gender;
     TextView txt_payment_per_hr;
+    TextView txt_tutor_name;
+    TextView txt_year_count;
+    //private SliderAdapterExample adapter;
+    private SessionManager sessionManager;
 
-    RoundedImageView profile_img;
+    public TrandingActivity() {
+        Double valueOf = Double.valueOf(0.0d);
+        this.lat = valueOf;
+        this.lon = valueOf;
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            getWindow().getDecorView().setSystemUiVisibility(1280);
         }
         setContentView(R.layout.activity_tranding);
-
-        iv_back = findViewById(R.id.iv_back);
-        txt_Education = findViewById(R.id.txt_Education);
-        txt_Experience = findViewById(R.id.txt_Experience);
-        txt_Language = findViewById(R.id.txt_Language);
-        txt_Certification = findViewById(R.id.txt_Certification);
-        txt_Affilation = findViewById(R.id.txt_Affilation);
-        profile_img = findViewById(R.id.profile_img);
-        txt_tutor_name = findViewById(R.id.txt_tutor_name);
-        txt_year_count = findViewById(R.id.txt_year_count);
-        distance = findViewById(R.id.distance);
-        txt_gender = findViewById(R.id.txt_gender);
-        txt_payment_per_hr = findViewById(R.id.txt_payment_per_hr);
-        txt_address = findViewById(R.id.txt_address);
-
-        progressBar = findViewById(R.id.progressBar);
-
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
+        this.txt_empty_tutor = (TextView) findViewById(R.id.txt_empty_tutor);
+        this.iv_back = (ImageView) findViewById(R.id.iv_back);
+        this.txt_Education = (TextView) findViewById(R.id.txt_Education);
+        this.txt_Experience = (TextView) findViewById(R.id.txt_Experience);
+        this.txt_Language = (TextView) findViewById(R.id.txt_Language);
+        this.txt_Certification = (TextView) findViewById(R.id.txt_Certification);
+        this.txt_Affilation = (TextView) findViewById(R.id.txt_Affilation);
+        this.profile_img = (RoundedImageView) findViewById(R.id.profile_img);
+        this.txt_tutor_name = (TextView) findViewById(R.id.txt_tutor_name);
+        this.txt_year_count = (TextView) findViewById(R.id.txt_year_count);
+        this.distance = (TextView) findViewById(R.id.distance);
+        this.txt_gender = (TextView) findViewById(R.id.txt_gender);
+        this.txt_payment_per_hr = (TextView) findViewById(R.id.txt_payment_per_hr);
+        this.txt_address = (TextView) findViewById(R.id.txt_address);
+        this.txt_abouts = (TextView) findViewById(R.id.txt_abouts);
+        this.progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        this.iv_back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                onBackPressed();
+                TrandingActivity.this.onBackPressed();
             }
         });
-
-
-        sessionManager = new SessionManager(TrandingActivity.this);
-
-        recyclerView1 = findViewById(R.id.recycler_viewTranding2);
-        arrayList = new ArrayList<>();
-
-        recyclerView1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
-                false));
-        recyclerView1.setItemAnimator(new DefaultItemAnimator());
-
-        for (int i = 0; i < icons.length - 1; i++) {
-            RelatedPropertyModel relatedPropertyModel = new RelatedPropertyModel();
-            relatedPropertyModel.setImage(icons[i]);
-            //itemModel.setName(iconsName[i]);
-
-            //add in array list
-            arrayList.add(relatedPropertyModel);
-        }
-
-        AdapterRelatedProperty adapterRelatedProperty = new AdapterRelatedProperty(this, arrayList);
-        recyclerView1.setAdapter(adapterRelatedProperty);
-
-        if (sessionManager.isNetworkAvailable()) {
-
-            progressBar.setVisibility(View.VISIBLE);
-
+        this.sessionManager = new SessionManager((Activity) this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_viewTranding2);
+        this.recyclerView1 = recyclerView;
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        this.recyclerView1.setItemAnimator(new DefaultItemAnimator());
+     /*   if (this.sessionManager.isNetworkAvailable()) {
+            this.progressBar.setVisibility(View.VISIBLE);
             getHomeDetailsApi();
-
-        }else {
-
-            Toast.makeText(TrandingActivity.this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
+            getRelatedApi();
+        } else {
+            Toast.makeText(this, R.string.checkInternet, Toast.LENGTH_LONG).show();
+        }*/
+        GPSTracker gPSTracker = new GPSTracker(this);
+        this.gpsTracker = gPSTracker;
+        if (gPSTracker.canGetLocation()) {
+            this.latitude = String.valueOf(this.gpsTracker.getLatitude());
+            this.longitude = String.valueOf(this.gpsTracker.getLongitude());
+        } else {
+            this.gpsTracker.showSettingsAlert();
         }
-
+        this.mFusedLocationClient = LocationServices.getFusedLocationProviderClient((Activity) this);
+        SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        this.mapFrag = supportMapFragment;
+        supportMapFragment.getMapAsync(this);
     }
 
     public void MapOpenInit(View view) {
-        startActivity(new Intent(TrandingActivity.this, MapActivity.class));
+        startActivity(new Intent(this, MapActivity.class));
     }
 
     public void lessonInitTranding(View view) {
-        startActivity(new Intent(TrandingActivity.this, ReserveSpotActivity.class));
-
+        startActivity(new Intent(this, ReserveSpotActivity.class));
     }
 
     public void call_Video(View view) {
-        startActivity(new Intent(TrandingActivity.this, VideoCallingActivity.class));
+        startActivity(new Intent(this, VideoCallingActivity.class));
     }
 
     public void attendance(View view) {
-        startActivity(new Intent(TrandingActivity.this,AttendanceActivity.class));
-
+        startActivity(new Intent(this, AttendanceActivity.class));
     }
 
     public void PhotoGalleryInit(View view) {
-        startActivity(new Intent(TrandingActivity.this,PortFoliyoActivity.class));
+        startActivity(new Intent(this, PortFoliyoActivity.class));
     }
 
     private void getHomeDetailsApi() {
-
-        String  TutorDetails_Id = Preference.get(TrandingActivity.this,Preference.KEY_Tutor_id);
-
-        Call<Get_detailsModel> call = RetrofitClients
-                .getInstance()
-                .getApi()
-                .get_student_details(TutorDetails_Id);
-
-        call.enqueue(new Callback<Get_detailsModel>() {
-            @Override
+        RetrofitClients.getInstance().getApi().get_student_details(Preference.get(this, Preference.KEY_Tutor_id)).enqueue(new Callback<Get_detailsModel>() {
             public void onResponse(Call<Get_detailsModel> call, Response<Get_detailsModel> response) {
-
                 try {
-
                     Get_detailsModel finallyPr = response.body();
-
-                    progressBar.setVisibility(View.GONE);
-
-                    String status   = finallyPr.getStatus ();
+                    TrandingActivity.this.progressBar.setVisibility(View.VISIBLE);
+                    String status = finallyPr.getStatus();
                     String message = finallyPr.getMessage();
-
                     if (status.equalsIgnoreCase("1")) {
-
                         String userName = finallyPr.getResult().getTutorDetails().getUsername();
-                        String ProfileImage = finallyPr.getResult().getProfileImage();
+                        String ProfileImage = finallyPr.getResult().getImage();
                         String Gender = finallyPr.getResult().getGender();
                         String Lat = finallyPr.getResult().getTutorDetails().getLat();
-                        String Long = finallyPr.getResult().getTutorDetails().getLon();
+                        String lon = finallyPr.getResult().getTutorDetails().getLon();
                         String Dob = finallyPr.getResult().getDob();
-                        String PerHour_payment = finallyPr.getResult().getPerHourPayment();
+                        String perHourPayment = finallyPr.getResult().getPerHourPayment();
                         String Educaation = finallyPr.getResult().getEducation();
                         String Language = finallyPr.getResult().getLanguage();
                         String Certification = finallyPr.getResult().getCertification();
                         String Affilation = finallyPr.getResult().getAffiliations();
-
-                        txt_tutor_name.setText(userName);
-                        txt_gender.setText(Gender);
-                        txt_payment_per_hr.setText(PerHour_payment);
-                        txt_Education.setText(Educaation);
-                        txt_Language.setText(Language);
-                        txt_Certification.setText(Certification);
-                        txt_Affilation.setText(Affilation);
-                      //  txt_address.setText(finallyPr.getResult().getAffiliations());
-
-                        txt_year_count.setText(getAge(Dob)+" years");
-
-                        Toast.makeText(TrandingActivity.this, "Success", Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(TrandingActivity.this, message, Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
+                        String str = status;
+                        String TeacherDistace = finallyPr.getResult().getTeachDistance();
+                        TrandingActivity.this.distance.setText(TeacherDistace);
+                        if (finallyPr.getResult().getAddressDetails() != null) {
+                            String Address = finallyPr.getResult().getAddressDetails().getAddress();
+                            String str2 = TeacherDistace;
+                            String str3 = Lat;
+                            TrandingActivity.this.lat = Double.valueOf(finallyPr.getResult().getAddressDetails().getLat());
+                            TrandingActivity.this.lon = Double.valueOf(finallyPr.getResult().getAddressDetails().getLon());
+                            TrandingActivity.this.txt_address.setText(Address);
+                        } else {
+                            String str4 = Lat;
+                        }
+                        if (ProfileImage != null) {
+                            ((RequestBuilder) ((RequestBuilder) Glide.with((FragmentActivity) TrandingActivity.this).load(ProfileImage).circleCrop()).placeholder((int) R.drawable.home_banner3)).into((ImageView) TrandingActivity.this.profile_img);
+                        }
+                        TrandingActivity.this.txt_tutor_name.setText(userName);
+                        TrandingActivity.this.txt_gender.setText(Gender);
+                        TextView textView = TrandingActivity.this.txt_payment_per_hr;
+                        textView.setText("$" + finallyPr.getResult().getTotalChargesIndividual());
+                        TrandingActivity.this.txt_Education.setText(Educaation);
+                        TrandingActivity.this.txt_Language.setText(Language);
+                        TrandingActivity.this.txt_Certification.setText(Certification);
+                        TrandingActivity.this.txt_Affilation.setText(Affilation);
+                        TrandingActivity.this.txt_abouts.setText(finallyPr.getResult().getAbout().toString());
+                        if (Dob == null || Dob.equalsIgnoreCase("")) {
+                        } else {
+                            String[] datrrr = Dob.split("-");
+                            Get_detailsModel get_detailsModel = finallyPr;
+                            String[] strArr = datrrr;
+                            String CalcuAge = TrandingActivity.this.getAge(Integer.parseInt(datrrr[2]), Integer.parseInt(datrrr[1]), Integer.parseInt(datrrr[0]));
+                            TextView textView2 = TrandingActivity.this.txt_year_count;
+                            textView2.setText(CalcuAge + " Years");
+                        }
+                        Toast.makeText(TrandingActivity.this, "Success", Toast.LENGTH_LONG).show();
+                        return;
                     }
-
+                    String str5 = status;
+                    Toast.makeText(TrandingActivity.this, message, Toast.LENGTH_LONG).show();
+                    TrandingActivity.this.progressBar.setVisibility(GONE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
 
-            @Override
             public void onFailure(Call<Get_detailsModel> call, Throwable t) {
-                progressBar.setVisibility(View.GONE);
+                TrandingActivity.this.progressBar.setVisibility(GONE);
             }
         });
+    }
+/*
 
+    private void getRelatedApi() {
+        RetrofitClients.getInstance().getApi().related_tutor(this.sessionManager.getUserID(), this.latitude, this.longitude).enqueue(new Callback<RelatedModel>() {
+            public void onResponse(Call<RelatedModel> call, Response<RelatedModel> response) {
+                try {
+                    RelatedModel finallyPr = response.body();
+                    TrandingActivity.this.progressBar.setVisibility(GONE);
+                    String status = finallyPr.getStatus();
+                    String message = finallyPr.getMessage();
+                    if (!status.equalsIgnoreCase("1")) {
+                        TrandingActivity.this.progressBar.setVisibility(GONE);
+                        TrandingActivity.this.txt_empty_tutor.setVisibility(GONE);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TrandingActivity.this.txt_empty_tutor.setVisibility(GONE);
+                }
+            }
+
+            public void onFailure(Call<RelatedModel> call, Throwable t) {
+                TrandingActivity.this.progressBar.setVisibility(GONE);
+                TrandingActivity.this.txt_empty_tutor.setVisibility(GONE);
+            }
+        });
+    }
+*/
+
+    public void onMapReady(GoogleMap googleMap) {
+        this.mGoogleMap = googleMap;
+        googleMap.setMapType(3);
+        LatLng latLng = new LatLng(this.lat.doubleValue(), this.lon.doubleValue());
+        this.mGoogleMap.addMarker(new MarkerOptions().position(latLng).title("First Pit Stop").icon(BitmapDescriptorFactory.defaultMarker(0.0f)));
+        this.mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12.0f));
     }
 
-    private int getAge(String dobString){
-
-        Date date = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            date = sdf.parse(dobString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        if(date == null) return 0;
-
+    /* access modifiers changed from: private */
+    public String getAge(int year, int month, int day) {
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
-
-        dob.setTime(date);
-
-        int year = dob.get(Calendar.YEAR);
-        int month = dob.get(Calendar.MONTH);
-        int day = dob.get(Calendar.DAY_OF_MONTH);
-
-        dob.set(year, month+1, day);
-
-        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+        dob.set(year, month, day);
+        int age = today.get(1) - dob.get(1);
+        if (today.get(6) < dob.get(6)) {
             age--;
         }
-        return age;
+        return new Integer(age).toString();
     }
 }

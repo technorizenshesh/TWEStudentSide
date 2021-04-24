@@ -18,6 +18,10 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.cashfree.com/release' }
+        maven{
+            url "https://dl.bintray.com/infideap2/Drawer-Behavior"
+        }
     }
 }
 

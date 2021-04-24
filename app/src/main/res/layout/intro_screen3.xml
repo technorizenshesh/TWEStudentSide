@@ -1,68 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/margin_20"
-    android:background="@color/colorWhite">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textsize_25"
-            android:textColor="@color/edit_darkBlue"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="How It Work"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textsize14"
-            android:textColor="@color/colorBlack"
-            android:gravity="center"
-            android:text="Here's why 2 million people use TwE "/>
-
-
-
-
-        <ImageView
-            android:layout_width="@dimen/margin_200"
-            android:layout_height="@dimen/margin_200"
-            android:src="@drawable/c"
-            android:layout_marginTop="@dimen/margin_50"
-            android:id="@+id/imageView" />
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textsize_25"
-            android:textColor="@color/edit_darkBlue"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/margin_20"
-            android:gravity="center"
-            android:text="Master"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textsize13"
-            android:textColor="@color/colorGray"
-            android:textStyle="bold"
-            android:layout_margin="@dimen/margin_10"
-            android:layout_marginTop="@dimen/margin_5"
-            android:gravity="center"
-            android:text="@string/welcome3_text"/>
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@color/colorWhite" android:padding="@dimen/margin_20" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="How It Work"/>
+        <TextView android:textSize="@dimen/textsize14" android:textColor="@color/colorBlack" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Here&apos;s why 2 million people use TwE "/>
+        <ImageView android:id="@+id/imageView" android:layout_width="@dimen/margin_200" android:layout_height="@dimen/margin_200" android:layout_marginTop="@dimen/margin_50" android:src="@drawable/c"/>
+        <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20" android:text="Master"/>
+        <TextView android:textSize="@dimen/textsize13" android:textStyle="bold" android:textColor="@color/colorGray" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_10" android:layout_marginTop="@dimen/margin_5" android:text="@string/welcome3_text"/>
     </LinearLayout>
-
-
 </RelativeLayout>

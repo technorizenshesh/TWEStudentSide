@@ -1,133 +1,91 @@
 package com.tech.twestudentside.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tech.twestudentside.Preference;
 import com.tech.twestudentside.R;
-import com.tech.twestudentside.fragments.FavouriteFragment;
-import com.tech.twestudentside.model.GetFavModelOne;
-import com.tech.twestudentside.model.home_model_data;
-import com.tech.twestudentside.utils.RetrofitClients;
-
-import org.json.JSONObject;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import com.tech.twestudentside.model.SearchDataModel;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-
-/**
- * A custom adapter to use with the RecyclerView widget.
- */
 public class Search_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private Context mContext;
-    private ArrayList<home_model_data> modelList;
-    private Search_Adapter.OnItemClickListener mItemClickListener;
+    /* access modifiers changed from: private */
+    public OnItemClickListener mItemClickListener;
+    /* access modifiers changed from: private */
+    public ArrayList<SearchDataModel> modelList;
 
-    public Search_Adapter(Context context, ArrayList<home_model_data> modelList) {
-        this.mContext = context;
-        this.modelList = modelList;
+    public interface OnItemClickListener {
+        void onItemClick(View view, int i, SearchDataModel searchDataModel);
     }
 
-    public void updateList(ArrayList<home_model_data> modelList) {
-        this.modelList = modelList;
+    public Search_Adapter(Context context, ArrayList<SearchDataModel> modelList2) {
+        this.mContext = context;
+        this.modelList = modelList2;
+    }
+
+    public void updateList(ArrayList<SearchDataModel> modelList2) {
+        this.modelList = modelList2;
         notifyDataSetChanged();
     }
 
-    @Override
-    public Search_Adapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_search, viewGroup, false);
-
-        return new Search_Adapter.ViewHolder(view);
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_search, viewGroup, false));
     }
 
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        //Here you can fill your row view
-
-        if (holder instanceof Search_Adapter.ViewHolder) {
-
-            final home_model_data model = getItem(position);
-
-            final Search_Adapter.ViewHolder genericViewHolder = (Search_Adapter.ViewHolder) holder;
-
-             genericViewHolder.txt_tutorName.setText(model.getTutorDetails().getUsername());
-             genericViewHolder.txt_gender.setText(model.getGender());
-           //  genericViewHolder.txt_price.setText(model.getTotalChargesIndividual());
-             genericViewHolder.txt_distance.setText(model.getDistance());
-
-
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ViewHolder) {
+            SearchDataModel model = getItem(position);
+            ViewHolder genericViewHolder = (ViewHolder) holder;
+            genericViewHolder.txt_tutorName.setText(model.getUsername());
+            genericViewHolder.txt_gender.setText(model.getTutorDetails().getGender());
+            genericViewHolder.txt_distance.setText(model.getTutorDetails().getTeachDistance());
+            TextView access$300 = genericViewHolder.txt_suject;
+            access$300.setText("Subjec : " + model.getTutorDetails().getSubjectName());
         }
     }
 
-    @Override
     public int getItemCount() {
-
-        return modelList.size();
+        return this.modelList.size();
     }
 
-    public void SetOnItemClickListener(final Search_Adapter.OnItemClickListener mItemClickListener) {
-        this.mItemClickListener = mItemClickListener;
+    public void SetOnItemClickListener(OnItemClickListener mItemClickListener2) {
+        this.mItemClickListener = mItemClickListener2;
     }
 
-    private home_model_data getItem(int position) {
-        return modelList.get(position);
-    }
-
-
-    public interface OnItemClickListener {
-
-        void onItemClick(View view, int position, home_model_data model);
-
+    private SearchDataModel getItem(int position) {
+        return this.modelList.get(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView txt_tutorName;
         private TextView txt_Dob;
-        private TextView txt_gender;
+        /* access modifiers changed from: private */
+        public TextView txt_distance;
+        /* access modifiers changed from: private */
+        public TextView txt_gender;
         private TextView txt_price;
-        private TextView txt_distance;
-
+        /* access modifiers changed from: private */
+        public TextView txt_suject;
+        /* access modifiers changed from: private */
+        public TextView txt_tutorName;
 
         public ViewHolder(final View itemView) {
             super(itemView);
-
-            this.txt_tutorName = itemView.findViewById(R.id.txt_tutorName);
-            this.txt_Dob = itemView.findViewById(R.id.txt_Dob);
-            this.txt_gender = itemView.findViewById(R.id.txt_gender);
-            this.txt_price = itemView.findViewById(R.id.txt_price);
-            this.txt_distance = itemView.findViewById(R.id.txt_distance);
-
+            this.txt_tutorName = (TextView) itemView.findViewById(R.id.txt_tutorName);
+            this.txt_Dob = (TextView) itemView.findViewById(R.id.txt_Dob);
+            this.txt_gender = (TextView) itemView.findViewById(R.id.txt_gender);
+            this.txt_price = (TextView) itemView.findViewById(R.id.txt_price);
+            this.txt_distance = (TextView) itemView.findViewById(R.id.txt_distance);
+            this.txt_suject = (TextView) itemView.findViewById(R.id.txt_suject);
             itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
                 public void onClick(View view) {
 
-                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
-
+                    Search_Adapter.this.mItemClickListener.onItemClick(itemView, ViewHolder.this.getAdapterPosition(), (SearchDataModel) Search_Adapter.this.modelList.get(ViewHolder.this.getAdapterPosition()));
                 }
             });
         }
     }
-
-
 }
-

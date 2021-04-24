@@ -1,780 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    tools:context=".activity.TutorPaymentDetailsActivity">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin_200"
-                android:fitsSystemWindows="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_home" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-
-                <LinearLayout
-                    android:id="@+id/layout_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:orientation="vertical">
-
-                        <ProgressBar
-                            android:id="@+id/progressBar3"
-                            style="?android:attr/progressBarStyleHorizontal"
-                            android:layout_width="@dimen/margin_80"
-                            android:layout_height="@dimen/margin_80"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/circular_shape"
-                            android:backgroundTint="@color/colorGray"
-                            android:indeterminate="false"
-                            android:max="100"
-                            android:progress="75"
-                            android:progressDrawable="@drawable/circular_progress_bar"
-                            android:progressTint="@color/colorWhite" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="8dp"
-                            android:gravity="center"
-                            android:text="75%"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/textsize_20"
-                            android:textStyle="bold" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="@color/colorBackground" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="@dimen/margin_200" android:src="@drawable/bg_home" android:scaleType="fitXY"/>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@+id/layout_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20">
+                    <RelativeLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp">
+                        <ProgressBar android:id="@+id/progressBar3" android:background="@drawable/circular_shape" android:layout_width="@dimen/margin_80" android:layout_height="@dimen/margin_80" android:max="100" android:progress="75" android:indeterminate="false" android:progressDrawable="@drawable/circular_progress_bar" android:layout_centerInParent="true" android:progressTint="@color/colorWhite" android:backgroundTint="@color/colorGray" style="?android:attr/progressBarStyleHorizontal"/>
+                        <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8dp" android:text="75%" android:layout_centerInParent="true"/>
                     </RelativeLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_10"
-                        android:orientation="vertical">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="@dimen/padding_5"
-                            android:text="Olivia Parker"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/textsize_20"
-                            android:textStyle="bold" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="@dimen/padding_5"
-                            android:text="Subject-3"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/textsize_15"
-                            android:textStyle="bold" />
-
-
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10">
+                        <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorWhite" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Olivia Parker"/>
+                        <TextView android:textSize="@dimen/textsize_15" android:textStyle="bold" android:textColor="@color/colorWhite" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subject-3"/>
                     </LinearLayout>
-
                 </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/layout_progress"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_15"
-                        android:layout_weight="1"
-                        android:text="Next Payment"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/textsize_16"
-                        android:textStyle="bold" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:text="Sept 2020"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/textsize_16"
-                        android:textStyle="bold" />
-
-
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/layout_progress">
+                    <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15" android:text="Next Payment" android:layout_weight="1"/>
+                    <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15" android:text="Sept 2020"/>
                 </LinearLayout>
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_5"
-                    android:padding="@dimen/margin_10"
-                    android:layout_marginBottom="@dimen/margin_15"
-                    android:orientation="horizontal">
-
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="@dimen/margin_150"
-                        android:layout_height="@dimen/margin_190"
-                        android:background="@color/color_yellow"
-                        app:cardBackgroundColor="@color/color_yellow"
-                        app:cardCornerRadius="@dimen/margin_15"
-                        app:cardElevation="4dp"
-                        app:cardMaxElevation="5dp"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardUseCompatPadding="true">
-
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/margin_50"
-                                android:text="8"
-                                android:layout_marginTop="@dimen/margin_15"
-                                android:textColor="@color/edit_darkBlue"
-                                android:textSize="@dimen/margin_40"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sep"
-                                android:textColor="@color/edit_darkBlue"
-                                android:textSize="@dimen/textsize_20"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="@dimen/padding_5"
-                                android:text="$950"
-                                android:textColor="@color/edit_darkBlue"
-                                android:textSize="@dimen/textsize_25"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="@dimen/margin_150"
-                        android:layout_height="@dimen/margin_190"
-                        android:background="#265ea3"
-                        app:cardBackgroundColor="#265ea3"
-                        android:theme="@style/CardView"
-                        android:layout_marginLeft="@dimen/textsize_20"
-                        app:cardCornerRadius="@dimen/margin_15"
-                        app:cardElevation="4dp"
-                        app:cardMaxElevation="5dp"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardUseCompatPadding="true">
-
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/margin_50"
-                                android:text="8"
-                                android:layout_marginTop="@dimen/margin_15"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/margin_40"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sep"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/textsize_20"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="@dimen/padding_5"
-                                android:text="$950"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/textsize_25"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="@dimen/margin_150"
-                        android:layout_height="@dimen/margin_190"
-                        android:background="@color/colorWhite"
-                        app:cardBackgroundColor="@color/colorWhite"
-                        android:layout_marginLeft="@dimen/textsize_20"
-                        app:cardCornerRadius="@dimen/margin_15"
-                        app:cardElevation="4dp"
-                        app:cardMaxElevation="5dp"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardUseCompatPadding="true">
-
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/margin_50"
-                                android:text="8"
-                                android:layout_marginTop="@dimen/margin_15"
-                                android:textColor="@color/edit_darkBlue"
-                                android:textSize="@dimen/margin_40"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="May"
-                                android:textColor="@color/edit_darkBlue"
-                                android:textSize="@dimen/textsize_20"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="@dimen/padding_5"
-                                android:text="$950"
-                                android:textColor="@color/edit_darkBlue"
-                                android:textSize="@dimen/textsize_25"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="@dimen/margin_150"
-                        android:layout_height="@dimen/margin_190"
-                        android:background="@color/account_txtcolour"
-                        app:cardBackgroundColor="@color/account_txtcolour"
-                        android:layout_marginLeft="@dimen/textsize_20"
-                        app:cardCornerRadius="@dimen/margin_15"
-                        app:cardElevation="4dp"
-                        app:cardMaxElevation="5dp"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardUseCompatPadding="true">
-
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/margin_50"
-                                android:text="8"
-                                android:layout_marginTop="@dimen/margin_15"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/margin_40"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="May"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/textsize_20"
-                                android:textStyle="bold" />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="@dimen/padding_5"
-                                android:text="$950"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/textsize_25"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-
-
-
-                </LinearLayout>
+                <HorizontalScrollView android:scrollbars="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="horizontal" android:padding="@dimen/margin_10" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/padding_5" android:layout_marginBottom="@dimen/margin_15">
+                        <androidx.cardview.widget.CardView android:background="@color/color_yellow" android:layout_width="@dimen/margin_150" android:layout_height="@dimen/margin_190" app:cardBackgroundColor="@color/color_yellow" app:cardCornerRadius="@dimen/margin_15" app:cardElevation="4dp" app:cardMaxElevation="5dp" app:cardPreventCornerOverlap="true" app:cardUseCompatPadding="true">
+                            <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <TextView android:textSize="@dimen/margin_40" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:layout_width="wrap_content" android:layout_height="@dimen/margin_50" android:layout_marginTop="@dimen/margin_15" android:text="8"/>
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sep"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$950"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView android:theme="@style/CardView" android:background="#265ea3" android:layout_width="@dimen/margin_150" android:layout_height="@dimen/margin_190" android:layout_marginLeft="@dimen/textsize_20" app:cardBackgroundColor="#265ea3" app:cardCornerRadius="@dimen/margin_15" app:cardElevation="4dp" app:cardMaxElevation="5dp" app:cardPreventCornerOverlap="true" app:cardUseCompatPadding="true">
+                            <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <TextView android:textSize="@dimen/margin_40" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="@dimen/margin_50" android:layout_marginTop="@dimen/margin_15" android:text="8"/>
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sep"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/colorWhite" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$950"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView android:background="@color/colorWhite" android:layout_width="@dimen/margin_150" android:layout_height="@dimen/margin_190" android:layout_marginLeft="@dimen/textsize_20" app:cardBackgroundColor="@color/colorWhite" app:cardCornerRadius="@dimen/margin_15" app:cardElevation="4dp" app:cardMaxElevation="5dp" app:cardPreventCornerOverlap="true" app:cardUseCompatPadding="true">
+                            <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <TextView android:textSize="@dimen/margin_40" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:layout_width="wrap_content" android:layout_height="@dimen/margin_50" android:layout_marginTop="@dimen/margin_15" android:text="8"/>
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="May"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/edit_darkBlue" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$950"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView android:background="@color/account_txtcolour" android:layout_width="@dimen/margin_150" android:layout_height="@dimen/margin_190" android:layout_marginLeft="@dimen/textsize_20" app:cardBackgroundColor="@color/account_txtcolour" app:cardCornerRadius="@dimen/margin_15" app:cardElevation="4dp" app:cardMaxElevation="5dp" app:cardPreventCornerOverlap="true" app:cardUseCompatPadding="true">
+                            <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <TextView android:textSize="@dimen/margin_40" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="@dimen/margin_50" android:layout_marginTop="@dimen/margin_15" android:text="8"/>
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="May"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/colorWhite" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$950"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
                 </HorizontalScrollView>
-
-                <androidx.core.widget.NestedScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_50"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Fees Breakdown"
-                        android:textStyle="bold"
-                        android:layout_marginTop="@dimen/margin_25"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/account_txtcolour"
-                        android:textSize="@dimen/textsize_25"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_60"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Course Fee"
-                            android:textStyle="bold"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_20"
-                            android:textColor="#5b5b5b"
-                            android:gravity="end" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B93,000"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
+                <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_50">
+                        <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:gravity="center" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_25" android:text="Fees Breakdown"/>
+                        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_60">
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="#5b5b5b" android:gravity="end" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Course Fee"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹3,000"/>
+                            </LinearLayout>
+                            <LinearLayout android:orientation="vertical" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_15" android:textStyle="bold" android:textColor="#5b5b5b" android:gravity="end" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Course Fee"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹10,000"/>
+                            </LinearLayout>
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="#5b5b5b" android:paddingLeft="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="In escrow"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingLeft="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹2,000"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_60">
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="#5b5b5b" android:gravity="end" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Paid"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹15,000"/>
+                            </LinearLayout>
+                            <LinearLayout android:orientation="vertical" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_15" android:textStyle="bold" android:textColor="#5b5b5b" android:gravity="end" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Course Fee"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹10,000"/>
+                            </LinearLayout>
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="#5b5b5b" android:paddingLeft="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Remaining"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingLeft="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹3,000"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_60">
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="#5b5b5b" android:gravity="end" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="In Progress"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹15,000"/>
+                            </LinearLayout>
+                            <LinearLayout android:orientation="vertical" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_15" android:textStyle="bold" android:textColor="#5b5b5b" android:gravity="end" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Course Fee"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingRight="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹10,000"/>
+                            </LinearLayout>
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15">
+                                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="#5b5b5b" android:paddingLeft="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Released"/>
+                                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/account_txtcolour" android:paddingLeft="@dimen/padding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹3,000"/>
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:visibility="invisible"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Course Fee"
-                            android:textStyle="bold"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_15"
-                            android:textColor="#5b5b5b"
-                            android:gravity="end" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B910,000"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_15"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="In escrow"
-                            android:textStyle="bold"
-                            android:paddingLeft="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_20"
-                            android:textColor="#5b5b5b"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B92,000"
-                            android:textStyle="bold"
-                            android:paddingLeft="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-
-
-
-
-
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_60"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Total Paid"
-                            android:textStyle="bold"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_20"
-                            android:textColor="#5b5b5b"
-                            android:gravity="end" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B915,000"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:visibility="invisible"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Course Fee"
-                            android:textStyle="bold"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_15"
-                            android:textColor="#5b5b5b"
-                            android:gravity="end" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B910,000"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_15"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Remaining"
-                            android:textStyle="bold"
-                            android:paddingLeft="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_20"
-                            android:textColor="#5b5b5b"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B93,000"
-                            android:textStyle="bold"
-                            android:paddingLeft="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-
-
-
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_60"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="In Progress"
-                            android:textStyle="bold"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_20"
-                            android:textColor="#5b5b5b"
-                            android:gravity="end" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B915,000"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:visibility="invisible"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Course Fee"
-                            android:textStyle="bold"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_15"
-                            android:textColor="#5b5b5b"
-                            android:gravity="end" />
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B910,000"
-                            android:paddingRight="@dimen/padding_5"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_15"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Released"
-                            android:textStyle="bold"
-                            android:paddingLeft="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_20"
-                            android:textColor="#5b5b5b"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\u20B93,000"
-                            android:textStyle="bold"
-                            android:paddingLeft="@dimen/padding_5"
-                            android:textSize="@dimen/textsize_25"
-                            android:textColor="@color/account_txtcolour"/>
-
-
-
-
-
-
-
-                    </LinearLayout>
-
-
-
-
-
-
-                </LinearLayout>
-
-
-                </LinearLayout>
                 </androidx.core.widget.NestedScrollView>
-
-
-
-
             </LinearLayout>
-
-
         </RelativeLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

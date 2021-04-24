@@ -1,260 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.PurchasePlanActivity">
-
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_15"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_back"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/margin_10"
-                    android:adjustViewBounds="true"
-                    android:onClick="backPressPurchase"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/back" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="Purchase Plan"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_20"
-                    android:textStyle="bold" />
-
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_15">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ImageView android:layout_gravity="center_vertical" android:id="@+id/iv_back" android:layout_width="21dp" android:layout_height="21dp" android:layout_marginLeft="@dimen/margin_10" android:src="@drawable/back" android:scaleType="fitCenter" android:adjustViewBounds="true" android:onClick="backPressPurchase"/>
+                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Purchase Plan"/>
             </LinearLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="start"
-                android:text="Free tails on all Plans"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textsize_20"
-                android:textStyle="bold" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="start"
-                android:text="Trusted by 40,000 business in over 120 countries"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textsize14" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_50"
-                android:orientation="horizontal">
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/margin_40"
-                    android:layout_marginRight="@dimen/margin_15"
-                    android:gravity="start"
-                    android:text="Rs.1000/hr"
-                    android:textColor="@color/color_txtBlue"
-                    android:textSize="@dimen/textsize_25" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:text="Actual Price Rs.1200"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/textsize_16" />
-
-
+            <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="start" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Free tails on all Plans"/>
+            <TextView android:textSize="@dimen/textsize14" android:textColor="@color/colorBlack" android:gravity="start" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Trusted by 40,000 business in over 120 countries"/>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_50">
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1">
+                    <TextView android:textSize="@dimen/textsize_25" android:textColor="@color/color_txtBlue" android:gravity="start" android:layout_width="wrap_content" android:layout_height="@dimen/margin_40" android:layout_marginRight="@dimen/margin_15" android:text="Rs.1000/hr"/>
+                    <TextView android:textSize="@dimen/textsize_16" android:textColor="@color/colorBlack" android:layout_width="wrap_content" android:layout_height="@dimen/margin_40" android:layout_marginRight="@dimen/margin_15" android:text="Actual Price Rs.1200"/>
                 </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="start"
-                    android:text="Saving20%"
-                    android:textColor="@color/color_txtBlue"
-                    android:textSize="@dimen/textsize_18" />
-
-
-
+                <TextView android:textSize="@dimen/textsize_18" android:textColor="@color/color_txtBlue" android:gravity="start" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Saving20%"/>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_45dp"
-                android:layout_gravity="bottom|center"
-                android:layout_marginLeft="@dimen/margin_20"
-                android:layout_marginTop="@dimen/margin_25"
-                android:layout_marginRight="@dimen/margin_20"
-                android:background="@drawable/bg_purchasebtn"
-                android:onClick="purchasePlanInit"
-                android:orientation="horizontal">
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/textsize_12"
-                    android:layout_weight="1"
-                    android:gravity="start"
-                    android:text="Purchase"
-                    android:onClick="purchasePlanInit"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/textsize14"
-                    android:textStyle="bold" />
-
-
-                <ImageView
-                    android:layout_width="@dimen/margin_20"
-                    android:layout_height="@dimen/margin_20"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/margin_15"
-                    android:gravity="end"
-                    android:onClick="purchasePlanInit"
-                    android:src="@drawable/left_arrow"
-                    app:tint="@color/colorWhite" />
-
+            <LinearLayout android:layout_gravity="bottom|center_vertical|center_horizontal|center" android:orientation="horizontal" android:background="@drawable/bg_purchasebtn" android:layout_width="match_parent" android:layout_height="@dimen/_45dp" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_25" android:layout_marginRight="@dimen/margin_20" android:onClick="purchasePlanInit">
+                <TextView android:textSize="@dimen/textsize14" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="start" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/textsize_12" android:text="Purchase" android:layout_weight="1" android:onClick="purchasePlanInit" android:textAllCaps="true"/>
+                <ImageView android:gravity="end" android:layout_gravity="center" android:layout_width="@dimen/margin_20" android:layout_height="@dimen/margin_20" android:layout_marginRight="@dimen/margin_15" android:src="@drawable/left_arrow" android:onClick="purchasePlanInit" app:tint="@color/colorWhite"/>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_50"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hourly no Discount"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_txtBlue"
-                    android:textSize="@dimen/textsize_20" />
-
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Weekly 5% discount"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_txtBlue"
-                    android:textSize="@dimen/textsize_16" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Monthly 10% discount"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_txtBlue"
-                    android:textSize="@dimen/textsize_16" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Full Program 20%"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_txtBlue"
-                    android:textSize="@dimen/textsize_16" />
-
-
-
-
-
-
-
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_50">
+                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/color_txtBlue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hourly no Discount"/>
+                <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/color_txtBlue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Weekly 5% discount"/>
+                <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/color_txtBlue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Monthly 10% discount"/>
+                <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/color_txtBlue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Full Program 20%"/>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_45dp"
-                android:layout_gravity="bottom|center"
-                android:layout_marginLeft="@dimen/margin_20"
-                android:layout_marginTop="@dimen/margin_25"
-                android:layout_marginRight="@dimen/margin_20"
-                android:background="@drawable/bg_purchasebtn"
-                android:onClick="purchasePlanInit"
-                android:orientation="horizontal">
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/textsize_12"
-                    android:layout_weight="1"
-                    android:gravity="start"
-                    android:text="Purchase"
-                    android:onClick="purchasePlanInit"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/textsize14"
-                    android:textStyle="bold" />
-
-
-                <ImageView
-                    android:layout_width="@dimen/margin_20"
-                    android:layout_height="@dimen/margin_20"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/margin_15"
-                    android:gravity="end"
-                    android:onClick="purchasePlanInit"
-                    android:src="@drawable/left_arrow"
-                    app:tint="@color/colorWhite" />
-
-
+            <LinearLayout android:layout_gravity="bottom|center_vertical|center_horizontal|center" android:orientation="horizontal" android:background="@drawable/bg_purchasebtn" android:layout_width="match_parent" android:layout_height="@dimen/_45dp" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_25" android:layout_marginRight="@dimen/margin_20" android:onClick="purchasePlanInit">
+                <TextView android:textSize="@dimen/textsize14" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="start" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/textsize_12" android:text="Purchase" android:layout_weight="1" android:onClick="purchasePlanInit" android:textAllCaps="true"/>
+                <ImageView android:gravity="end" android:layout_gravity="center" android:layout_width="@dimen/margin_20" android:layout_height="@dimen/margin_20" android:layout_marginRight="@dimen/margin_15" android:src="@drawable/left_arrow" android:onClick="purchasePlanInit" app:tint="@color/colorWhite"/>
             </LinearLayout>
-
-
-
         </LinearLayout>
-
-
     </androidx.core.widget.NestedScrollView>
-
 </RelativeLayout>

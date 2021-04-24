@@ -1,220 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
-    <ProgressBar
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerInParent="true"
-        android:id="@+id/progressBar"
-        android:background="@drawable/progresh_background"
-        android:elevation="6dp"
-        android:padding="5dp"
-        android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/colorPrimary"
-        android:visibility="gone"/>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/margin_20"
-                android:layout_height="@dimen/margin_20"
-                android:onClick="backTake"
-                android:layout_marginLeft="@dimen/margin_10"
-                android:src="@drawable/back"/>
-
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ProgressBar android:id="@+id/progressBar" android:background="@drawable/progresh_background" android:padding="5dp" android:visibility="gone" android:layout_width="40dp" android:layout_height="40dp" android:indeterminate="true" android:layout_centerInParent="true" android:elevation="6dp" android:indeterminateTint="@color/colorPrimary" android:indeterminateTintMode="src_atop"/>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+            <ImageView android:layout_width="@dimen/margin_20" android:layout_height="@dimen/margin_20" android:layout_marginLeft="@dimen/margin_10" android:src="@drawable/back" android:onClick="backTake"/>
         </LinearLayout>
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_marginTop="@dimen/margin_20"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_14dp"
-                    android:text="Where would you like to teach?"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_20" />
-
-                <LinearLayout
-                    android:id="@+id/LL_student_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin_70"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/margin_25"
-                    android:padding="@dimen/margin_10"
-                    android:background="@drawable/edit_bgbutton_white"
-                    android:orientation="horizontal">
-
-
-                    <ImageView
-                        android:layout_width="@dimen/margin_30"
-                        android:layout_height="@dimen/margin_30"
-                        android:layout_gravity="center"
-                        android:src="@drawable/student_homeicons"/>
-
-                    <TextView
-                        android:id="@+id/txt_student_home"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Student Home"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/textsize_18"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:layout_marginLeft="@dimen/margin_15"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:textColor="@color/txt_Darkblue"/>
-
-
+        <androidx.core.widget.NestedScrollView android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/margin_20">
+                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorBlack" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_14dp" android:text="Where would you like to teach?"/>
+                <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@+id/LL_student_home" android:background="@drawable/edit_bgbutton_white" android:padding="@dimen/margin_10" android:layout_width="match_parent" android:layout_height="@dimen/margin_70" android:layout_margin="@dimen/margin_25">
+                    <ImageView android:layout_gravity="center" android:layout_width="@dimen/margin_30" android:layout_height="@dimen/margin_30" android:src="@drawable/student_homeicons"/>
+                    <TextView android:textSize="@dimen/textsize_18" android:textStyle="bold" android:textColor="@color/txt_Darkblue" android:layout_gravity="center" android:id="@+id/txt_student_home" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15" android:layout_marginRight="@dimen/margin_15" android:text="Student Home" android:layout_weight="1"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:background="@drawable/edit_bgbutton_white"
-                    android:id="@+id/LL_tutor_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin_70"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/margin_25"
-                    android:padding="@dimen/margin_10"
-                    android:orientation="horizontal">
-
-
-                    <ImageView
-                        android:layout_width="@dimen/margin_30"
-                        android:layout_height="@dimen/margin_30"
-                        android:layout_gravity="center"
-                        android:src="@drawable/t_blackboard_yellow"/>
-
-                    <TextView
-                        android:id="@+id/txt_tutor_home"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tutor Home"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/textsize_18"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:layout_marginLeft="@dimen/margin_15"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:textColor="@color/color_txtBlue"/>
-
-
-
-
-
-
-
-
-
-
+                <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@+id/LL_tutor_home" android:background="@drawable/edit_bgbutton_white" android:padding="@dimen/margin_10" android:layout_width="match_parent" android:layout_height="@dimen/margin_70" android:layout_margin="@dimen/margin_25">
+                    <ImageView android:layout_gravity="center" android:layout_width="@dimen/margin_30" android:layout_height="@dimen/margin_30" android:src="@drawable/t_blackboard_yellow"/>
+                    <TextView android:textSize="@dimen/textsize_18" android:textStyle="bold" android:textColor="@color/color_txtBlue" android:layout_gravity="center" android:id="@+id/txt_tutor_home" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15" android:layout_marginRight="@dimen/margin_15" android:text="Tutor Home" android:layout_weight="1"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:background="@drawable/edit_bgbutton"
-                    android:id="@+id/LL_online"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin_70"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/margin_25"
-                    android:padding="@dimen/margin_10"
-                    android:orientation="horizontal">
-
-
-                    <ImageView
-                        android:layout_width="@dimen/margin_30"
-                        android:layout_height="@dimen/margin_30"
-                        android:layout_gravity="center"
-                        android:src="@drawable/onine_"
-                        app:tint="@color/color_yellow" />
-
-                    <TextView
-                        android:id="@+id/txt_online"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Online"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/textsize_18"
-                        android:layout_marginRight="@dimen/margin_15"
-                        android:layout_marginLeft="@dimen/margin_15"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:textColor="@color/colorWhite"/>
-
-
-
-
-
-
-
-
-
+                <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@+id/LL_online" android:background="@drawable/edit_bgbutton" android:padding="@dimen/margin_10" android:layout_width="match_parent" android:layout_height="@dimen/margin_70" android:layout_margin="@dimen/margin_25">
+                    <ImageView android:layout_gravity="center" android:layout_width="@dimen/margin_30" android:layout_height="@dimen/margin_30" android:src="@drawable/onine_" app:tint="@color/color_yellow"/>
+                    <TextView android:textSize="@dimen/textsize_18" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_gravity="center" android:id="@+id/txt_online" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_15" android:layout_marginRight="@dimen/margin_15" android:text="Online" android:layout_weight="1"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/LL_submit"
-                    android:layout_width="@dimen/margin_280"
-                    android:layout_height="@dimen/margin_50"
-                    android:layout_marginLeft="@dimen/margin_20"
-                    android:layout_marginRight="@dimen/margin_20"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:gravity="center"
-                    android:onClick="ContinueTakeClasses"
-                    android:background="@drawable/edit_bgbutton"
-                    android:orientation="vertical">
-
-
-
-
-                    <TextView
-                        android:id="@+id/tv_login"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Continue"
-                        android:onClick="ContinueInit"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/LL_submit" android:background="@drawable/edit_bgbutton" android:layout_width="@dimen/margin_280" android:layout_height="@dimen/margin_50" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_20" android:layout_marginRight="@dimen/margin_20" android:onClick="ContinueTakeClasses">
+                    <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:id="@+id/tv_login" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Continue" android:onClick="ContinueInit" android:textAllCaps="true"/>
                 </LinearLayout>
-
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
-
     </LinearLayout>
-
 </RelativeLayout>

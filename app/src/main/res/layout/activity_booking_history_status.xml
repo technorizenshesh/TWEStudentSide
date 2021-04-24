@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:id="@+id/RR_tootlbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_50">
+
+            <RelativeLayout
+                android:id="@+id/RR_back"
+                android:layout_width="@dimen/margin_50"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/back"
+                    android:layout_width="@dimen/margin_20"
+                    android:layout_height="@dimen/margin_20">
+
+                </ImageView>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="Booking Hstory Status"
+                android:textColor="@color/account_txtcolour"
+                android:textSize="@dimen/textsize_16"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@+id/RR_tootlbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_empty_tutor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="No Tutors"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textsize_15"
+                android:textStyle="bold"
+                android:visibility="gone"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_booking_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

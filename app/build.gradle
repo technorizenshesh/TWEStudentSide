@@ -15,15 +15,28 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    dataBinding {
+        enabled true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    allprojects {
+        repositories {
+            maven {
+                url 'https://jitpack.io'
+            }
+        }
     }
 }
 
@@ -63,6 +76,7 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
     implementation 'id.zelory:compressor:2.1.0'
 
+    implementation 'com.github.joielechong:countrycodepicker:2.4.1'
 
     //Google Login
     //noinspection GradleCompatible
@@ -88,6 +102,37 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:11.8.0'
     implementation 'com.android.support:multidex:1.0.3'
 
+    //CropingImage
+    implementation 'com.karumi:dexter:6.0.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'id.zelory:compressor:2.1.0'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
+    // Cash free SDK
+    implementation 'com.cashfree.pg:android-sdk:1.5.2'
+
+    //doPayment - If OTP Auto read enabled
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.0'
+
+    //doUPIPayment
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //doGPayPayment
+    //Dependencies used by all payment functions
+
+    //doGPayPayment  - Also add the google maven repository as shown in the consecutive step
+    implementation 'com.cashfree.pg:gpay-sdk:1.0.0'
+    implementation 'com.google.android.gms:play-services-tasks:15.0.1'
+
+    // implementation files ("libs/google-pay-client-api-1.0.0.aar")
+    implementation 'com.google.android.gms:play-services-tasks:17.2.0'
+
+    //doAmazonPayment
+    implementation 'androidx.browser:browser:1.0.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

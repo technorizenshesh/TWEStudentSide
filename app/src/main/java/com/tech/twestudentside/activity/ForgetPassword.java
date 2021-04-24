@@ -1,7 +1,6 @@
 package com.tech.twestudentside.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -13,150 +12,105 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
+import com.facebook.share.internal.ShareConstants;
 import com.tech.twestudentside.R;
 import com.tech.twestudentside.utils.RetrofitClients;
 import com.tech.twestudentside.utils.SessionManager;
-
+import java.io.IOException;
+import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ForgetPassword extends AppCompatActivity {
-
-    private SessionManager sessionManager;
+    /* access modifiers changed from: private */
+    public LinearLayout LL_submit;
     private String android_id;
-    private String email="";
-    private ProgressBar progressBar;
-
     private EditText edt_email;
-    private LinearLayout LL_submit;
+    private String email = "";
+    /* access modifiers changed from: private */
+    public ProgressBar progressBar;
+    private SessionManager sessionManager;
     private TextView txt_login;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget_password);
-
-        //android device Id
-        android_id = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
-
+        setContentView((int) R.layout.activity_forget_password);
+        this.android_id = Settings.Secure.getString(getContentResolver(), "android_id");
         setUi();
     }
 
     private void setUi() {
-        edt_email=findViewById(R.id.edt_email);
-        progressBar=findViewById(R.id.progressBar);
-        LL_submit=findViewById(R.id.LL_submit);
-        txt_login=findViewById(R.id.txt_login);
-        sessionManager = new SessionManager(ForgetPassword.this);
-
-
-        txt_login.setOnClickListener(new View.OnClickListener() {
-            @Override
+        this.edt_email = (EditText) findViewById(R.id.edt_email);
+        this.progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        this.LL_submit = (LinearLayout) findViewById(R.id.LL_submit);
+        this.txt_login = (TextView) findViewById(R.id.txt_login);
+        this.sessionManager = new SessionManager((Activity) this);
+        this.txt_login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                startActivity(new Intent(ForgetPassword.this, LoginActivity.class));
-
+                ForgetPassword.this.startActivity(new Intent(ForgetPassword.this, LoginActivity.class));
             }
         });
-        LL_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
+        this.LL_submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                validation();
+                ForgetPassword.this.validation();
             }
         });
     }
-    private void validation() {
 
-        email = edt_email.getText().toString();
-
-        if(!isValidEmail(email))
-        {
-            Toast.makeText(this, "Please Enter email.", Toast.LENGTH_SHORT).show();
-
-        }else
-        {
-            if (sessionManager.isNetworkAvailable()) {
-
-                LL_submit.setEnabled(false);
-                progressBar.setVisibility(View.VISIBLE);
-
-                forgetMethod();
-
-            }else {
-                Toast.makeText(this, R.string.checkInternet, Toast.LENGTH_SHORT).show();
-            }
+    /* access modifiers changed from: private */
+    public void validation() {
+        String obj = this.edt_email.getText().toString();
+        this.email = obj;
+        if (!isValidEmail(obj)) {
+            Toast.makeText(this, "Please Enter email.", Toast.LENGTH_LONG).show();
+        } else if (this.sessionManager.isNetworkAvailable()) {
+            this.LL_submit.setEnabled(false);
+            this.progressBar.setVisibility(View.VISIBLE);
+            forgetMethod();
+        } else {
+            Toast.makeText(this, R.string.checkInternet, Toast.LENGTH_LONG).show();
         }
     }
+
     public static boolean isValidEmail(CharSequence target) {
-        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+        return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-
-
     private void forgetMethod() {
-
-        Call<ResponseBody> call = RetrofitClients
-                .getInstance()
-                .getApi()
-                .forgotPassword(email);
-
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
+        RetrofitClients.getInstance().getApi().forgotPassword(this.email).enqueue(new Callback<ResponseBody>() {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
                 try {
-
                     JSONObject jsonObject = new JSONObject(response.body().string());
-                    String status   = jsonObject.getString ("status");
-                    String message = jsonObject.getString("message");
-
-                    //   JSONObject resultOne = jsonObject.getJSONObject("result");
-
-                    //  String UserId = resultOne.getString("id");
-
+                    String status = jsonObject.getString("status");
+                    String message = jsonObject.getString(ShareConstants.WEB_DIALOG_PARAM_MESSAGE);
                     if (status.equalsIgnoreCase("1")) {
-
-                        LL_submit.setEnabled(true);
-
-                        progressBar.setVisibility(View.GONE);
-
-                        //sessionManager.saveUserId(UserId);
-
-                        Toast.makeText(ForgetPassword.this, message, Toast.LENGTH_SHORT).show();
-
-                        startActivity(new Intent(ForgetPassword.this, LoginActivity.class));
-
-                    } else {
-                        Toast.makeText(ForgetPassword.this, message, Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
-                        LL_submit.setEnabled(true);
-                        Toast.makeText(ForgetPassword.this, message, Toast.LENGTH_SHORT).show();
+                        ForgetPassword.this.LL_submit.setEnabled(true);
+                        ForgetPassword.this.progressBar.setVisibility(View.GONE);
+                        Toast.makeText(ForgetPassword.this, message, Toast.LENGTH_LONG).show();
+                        ForgetPassword.this.startActivity(new Intent(ForgetPassword.this, LoginActivity.class));
+                        return;
                     }
-
+                    Toast.makeText(ForgetPassword.this, message, Toast.LENGTH_LONG).show();
+                    ForgetPassword.this.progressBar.setVisibility(View.GONE);
+                    ForgetPassword.this.LL_submit.setEnabled(true);
+                    Toast.makeText(ForgetPassword.this, message, Toast.LENGTH_LONG).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
             }
 
-            @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                progressBar.setVisibility(View.GONE);
-                LL_submit.setEnabled(true);
-                Toast.makeText(ForgetPassword.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                ForgetPassword.this.progressBar.setVisibility(View.GONE);
+                ForgetPassword.this.LL_submit.setEnabled(true);
+                Toast.makeText(ForgetPassword.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }

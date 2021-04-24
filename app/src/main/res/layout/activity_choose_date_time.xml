@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    tools:context=".activity.ChooseDateTimeActivity">
+    android:background="@color/colorBackground">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,17 +22,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:onClick="backDate"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/margin_10"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/back" />
-
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:adjustViewBounds="true"
+                    android:onClick="backDate"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/back" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -46,168 +42,69 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize_20"
                     android:textStyle="bold" />
-
-
             </LinearLayout>
-
-            <!-- <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_15"
-            android:orientation="vertical">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="16dp"
-            app:cardBackgroundColor="@color/colorWhite"
-            app:cardCornerRadius="8dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_15"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/margin_15"
-                android:layout_height="@dimen/margin_15"
-                android:layout_gravity="center_vertical"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/back" />
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:text="Tommorow, 9 Dec"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textsize_16"/>
-
-
-            <ImageView
-                android:layout_width="@dimen/margin_15"
-                android:layout_height="@dimen/margin_15"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/margin_10"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/back_opposit" />
-
-        </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        </LinearLayout>-->
-
-
 
             <CalendarView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/margin_60"
-                />
-
-
-
+                android:layout_height="@dimen/margin_60" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_25"
                 android:orientation="vertical">
-
-
 
                 <TextView
                     android:layout_width="@dimen/margin_120"
                     android:layout_height="@dimen/margin_25"
                     android:layout_gravity="start"
+                    android:background="@drawable/morn_bg"
                     android:gravity="center"
                     android:padding="@dimen/margin_2"
                     android:text="Morning"
-                    android:background="@drawable/morn_bg"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize13"
                     android:textStyle="bold" />
-
-
-
-
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:gravity="center"
                     android:layout_marginTop="@dimen/margin_15"
+                    android:gravity="center"
                     android:text="10:00    11:00    12:00"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_16"/>
-
-
-
-
-
-
-
-
-
-
+                    android:textSize="@dimen/textsize_16" />
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_25"
                 android:orientation="vertical">
-
-
 
                 <TextView
                     android:layout_width="@dimen/margin_160"
                     android:layout_height="@dimen/margin_25"
                     android:layout_gravity="start"
+                    android:background="@drawable/after_bg"
                     android:gravity="center"
                     android:padding="@dimen/margin_2"
                     android:text="Afternoon"
-                    android:background="@drawable/after_bg"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize13"
                     android:textStyle="bold" />
-
-
-
-
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:gravity="center"
                     android:layout_marginTop="@dimen/margin_15"
+                    android:gravity="center"
                     android:text="12:00    01:00    02:00    03:00    04:00"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_16"/>
-
-
-
-
-
-
-
-
-
-
+                    android:textSize="@dimen/textsize_16" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -215,89 +112,52 @@
                 android:layout_marginTop="@dimen/margin_25"
                 android:orientation="vertical">
 
-
-
                 <TextView
                     android:layout_width="@dimen/margin_180"
                     android:layout_height="@dimen/margin_25"
                     android:layout_gravity="start"
+                    android:background="@drawable/night_bg"
                     android:gravity="center"
                     android:padding="@dimen/margin_2"
                     android:text="Evening &amp; Night"
-                    android:background="@drawable/night_bg"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize13"
                     android:textStyle="bold" />
-
-
-
-
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:gravity="center"
                     android:layout_marginTop="@dimen/margin_15"
+                    android:gravity="center"
                     android:text="05:00    06:00    07:00    08:00    09:00    10:00"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_16"/>
-
-
-
-
-
-
-
-
-
-
+                    android:textSize="@dimen/textsize_16" />
             </LinearLayout>
-
-
-
 
             <LinearLayout
                 android:layout_width="@dimen/margin_280"
                 android:layout_height="@dimen/_45dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/margin_20"
-                android:layout_marginRight="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_60"
+                android:layout_marginRight="@dimen/margin_20"
+                android:background="@drawable/edit_bgbutton"
                 android:gravity="center"
                 android:onClick="ContinueDateAndTimeId"
-                android:layout_gravity="center"
-                android:background="@drawable/edit_bgbutton"
                 android:orientation="vertical">
-
-
-
 
                 <TextView
                     android:id="@+id/tv_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Continue"
                     android:onClick="ContinueDateAndTimeId"
+                    android:text="Continue"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
-
             </LinearLayout>
-
-
-
-
-
-
         </LinearLayout>
-
-
-
-
-
-
     </androidx.core.widget.NestedScrollView>
-
 </RelativeLayout>

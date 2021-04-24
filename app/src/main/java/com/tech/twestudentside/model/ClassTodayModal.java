@@ -1,53 +1,47 @@
 package com.tech.twestudentside.model;
 
 public class ClassTodayModal {
-
-
     private String name;
     private String orderId;
-
+    private String payment;
     private String rating;
 
-    private String payment;
-
-
-    public ClassTodayModal(String name, String orderId, String rating, String payment) {
-        this.name = name;
-        this.orderId = orderId;
-        this.rating = rating;
-        this.payment = payment;
+    public ClassTodayModal(String name2, String orderId2, String rating2, String payment2) {
+        this.name = name2;
+        this.orderId = orderId2;
+        this.rating = rating2;
+        this.payment = payment2;
     }
-
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name2) {
+        this.name = name2;
     }
 
     public String getOrderId() {
-        return orderId;
+        return this.orderId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setOrderId(String orderId2) {
+        this.orderId = orderId2;
     }
 
     public String getRating() {
-        return rating;
+        return this.rating;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setRating(String rating2) {
+        this.rating = rating2;
     }
 
     public String getPayment() {
-        return payment;
+        return this.payment;
     }
 
-    public void setPayment(String payment) {
-        this.payment = payment;
+    public void setPayment(String payment2) {
+        this.payment = payment2;
     }
 }

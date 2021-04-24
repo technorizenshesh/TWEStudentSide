@@ -1,206 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.RatingActivity">
-
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_50"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_5"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/margin_20"
-                    android:layout_weight="1"
-                    android:text="Ratings"
-                    android:textColor="@color/color_txtBlue"
-                    android:textSize="@dimen/textsize_20"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="@dimen/margin_25"
-                    android:layout_height="@dimen/margin_25"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/margin_25"
-                    android:gravity="center_vertical"
-                    android:src="@drawable/outline" />
-
-                <ImageView
-                    android:layout_width="@dimen/margin_25"
-                    android:layout_height="@dimen/margin_25"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/margin_25"
-                    android:gravity="center_vertical"
-                    android:src="@drawable/notification" />
-
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_50">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5">
+                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/color_txtBlue" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:text="Ratings" android:layout_weight="1"/>
+                <ImageView android:gravity="center_vertical" android:layout_gravity="center" android:layout_width="@dimen/margin_25" android:layout_height="@dimen/margin_25" android:layout_marginRight="@dimen/margin_25" android:src="@drawable/outline"/>
+                <ImageView android:gravity="center_vertical" android:layout_gravity="center" android:layout_width="@dimen/margin_25" android:layout_height="@dimen/margin_25" android:layout_marginRight="@dimen/margin_25" android:src="@drawable/notification"/>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:layout_width="@dimen/margin_130"
-                    android:layout_height="@dimen/margin_130"
-                    android:layout_gravity="center"
-                    android:src="@drawable/imggg" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="Alexander McCoy"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_20"
-                    android:textStyle="bold" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="4.1 mi Via Washington Blvd"
-                    android:textColor="@color/colorGray"
-                    android:textSize="@dimen/textsize_20"
-                    android:textStyle="bold" />
-
-
-                <ImageView
-                    android:layout_width="@dimen/margin_60"
-                    android:layout_height="@dimen/margin_60"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/padding_15"
-                    android:gravity="center"
-                    android:src="@drawable/tagg" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/margin_45"
-                    android:layout_gravity="center"
-                    android:text="\u20B9 10"
-                    android:textColor="@color/red"
-                    android:textSize="@dimen/textsize_30"
-                    android:textStyle="bold" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_45dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="Per Hour"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorGray"
-                    android:textSize="@dimen/textsize_15"
-                    android:textStyle="bold" />
-
-
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="Your Service has been Completed,\nhow was the experince with\nalexzander Please review him..!!"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_15"
-                    android:textStyle="bold" />
-
-
-
-
-
-                <RatingBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:rating="4"
-                    android:progressTint="@color/color_yellow"
-                    android:numStars="5"/>
-
-
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lines="5"
-                    android:maxLines="6"
-                    android:minLines="6"
-                    android:hint="Write Hear"
-                    android:paddingLeft="@dimen/margin_8"
-                    android:paddingTop="@dimen/margin_8"
-                    android:gravity="top|start"
-                    android:background="@drawable/pay_bg"
-                    android:layout_margin="@dimen/margin_20"/>
-
-
-                <LinearLayout
-                    android:layout_width="@dimen/margin_280"
-                    android:layout_height="@dimen/_45dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="@dimen/margin_20"
-                    android:layout_marginRight="@dimen/margin_20"
-                    android:layout_marginTop="@dimen/margin_25"
-                    android:onClick="backToSucess"
-                    android:background="@drawable/bg_redbutton"
-                    android:orientation="vertical">
-
-
-
-
-                    <TextView
-                        android:id="@+id/tv_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginTop="@dimen/margin_10"
-                        android:text="Submit"
-                        android:onClick="backToSucess"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/textsize_16"
-                        android:textStyle="bold" />
-
-
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.makeramen.roundedimageview.RoundedImageView android:layout_gravity="center" android:layout_width="@dimen/margin_130" android:layout_height="@dimen/margin_130" android:src="@drawable/imggg"/>
+                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Alexander McCoy"/>
+                <TextView android:textSize="@dimen/textsize_20" android:textStyle="bold" android:textColor="@color/colorGray" android:gravity="center" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="4.1 mi Via Washington Blvd"/>
+                <ImageView android:gravity="center" android:layout_gravity="center" android:layout_width="@dimen/margin_60" android:layout_height="@dimen/margin_60" android:layout_marginTop="@dimen/padding_15" android:src="@drawable/tagg"/>
+                <TextView android:textSize="@dimen/textsize_30" android:textStyle="bold" android:textColor="@color/red" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/margin_45" android:text="₹ 10"/>
+                <TextView android:textSize="@dimen/textsize_15" android:textStyle="bold" android:textColor="@color/colorGray" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/_45dp" android:text="Per Hour" android:textAllCaps="true"/>
+                <TextView android:textSize="@dimen/textsize_15" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your Service has been Completed,\10how was the experince with\10alexzander Please review him..!!" android:textAllCaps="true"/>
+                <RatingBar android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:rating="4" android:progressTint="@color/color_yellow"/>
+                <EditText android:gravity="top|left|center_vertical|center_horizontal|center|start" android:background="@drawable/pay_bg" android:paddingLeft="@dimen/margin_8" android:paddingTop="@dimen/margin_8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_20" android:hint="Write Hear" android:maxLines="6" android:lines="5" android:minLines="6"/>
+                <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/bg_redbutton" android:layout_width="@dimen/margin_280" android:layout_height="@dimen/_45dp" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_25" android:layout_marginRight="@dimen/margin_20" android:onClick="backToSucess">
+                    <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center" android:id="@+id/tv_login" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10" android:text="Submit" android:onClick="backToSucess" android:textAllCaps="true"/>
                 </LinearLayout>
-
-
-
-
             </LinearLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-
 </RelativeLayout>

@@ -1,24 +1,22 @@
 package com.tech.twestudentside.model;
 
 public class SliderPhotoItem {
-
-
     private String description;
     private String imageUrl;
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String description2) {
+        this.description = description2;
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return this.imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageUrl(String imageUrl2) {
+        this.imageUrl = imageUrl2;
     }
 }

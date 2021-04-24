@@ -1,210 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.NewBottomSheetFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_50"
-        android:background="@drawable/bottom_bg"
-        android:padding="@dimen/margin_10">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_50"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Book Appointment"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textsize_18"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txt_time_select"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textsize_16"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_time_slot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"
-                android:layoutDirection="rtl"
-                android:visibility="visible"
-                />
-
-
-            <HorizontalScrollView
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="horizontal">
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="@dimen/margin_35"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/round_shapebg_unselected"
-                        android:clickable="true"
-                        android:contextClickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:text="12-1"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        tools:ignore="RtlCompat" />
-
-
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="@dimen/margin_35"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="@dimen/padding_5"
-                        android:background="@drawable/round_shapebg"
-                        android:clickable="true"
-                        android:contextClickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:text="1-2"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        tools:ignore="RtlCompat" />
-
-
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="@dimen/margin_35"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="@dimen/padding_5"
-                        android:background="@drawable/round_shapebg_unselected"
-                        android:clickable="true"
-                        android:contextClickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:text="2-3"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        tools:ignore="RtlCompat" />
-
-
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="@dimen/margin_35"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="@dimen/padding_5"
-                        android:background="@drawable/round_shapebg_unselected"
-                        android:clickable="true"
-                        android:contextClickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:text="3-4"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        tools:ignore="RtlCompat" />
-
-
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="@dimen/margin_35"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="@dimen/padding_5"
-                        android:background="@drawable/round_shapebg_unselected"
-                        android:clickable="true"
-                        android:contextClickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:text="4-5"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        tools:ignore="RtlCompat" />
-
-
-
-
-
-            </LinearLayout>
-
-
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:background="@drawable/bottom_bg" android:padding="@dimen/margin_10" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_50">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_50">
+            <TextView android:textSize="@dimen/textsize_18" android:textStyle="bold" android:textColor="@color/colorBlack" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Book Appointment"/>
+            <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/colorBlack" android:id="@+id/txt_time_select" android:layout_width="match_parent" android:layout_height="wrap_content" android:text=""/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/recycler_time_slot" android:visibility="visible" android:scrollbars="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layoutDirection="rtl"/>
+            <HorizontalScrollView android:visibility="gone" android:scrollbars="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="14dp" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:background="@drawable/round_shapebg_unselected" android:focusable="true" android:clickable="true" android:layout_width="110dp" android:layout_height="@dimen/margin_35" android:text="12-1" android:textAlignment="center"/>
+                    <TextView android:textSize="14dp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:background="@drawable/round_shapebg" android:focusable="true" android:clickable="true" android:layout_width="110dp" android:layout_height="@dimen/margin_35" android:layout_marginLeft="@dimen/padding_5" android:text="1-2" android:textAlignment="center"/>
+                    <TextView android:textSize="14dp" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:background="@drawable/round_shapebg_unselected" android:focusable="true" android:clickable="true" android:layout_width="110dp" android:layout_height="@dimen/margin_35" android:layout_marginLeft="@dimen/padding_5" android:text="2-3" android:textAlignment="center"/>
+                    <TextView android:textSize="14dp" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:background="@drawable/round_shapebg_unselected" android:focusable="true" android:clickable="true" android:layout_width="110dp" android:layout_height="@dimen/margin_35" android:layout_marginLeft="@dimen/padding_5" android:text="3-4" android:textAlignment="center"/>
+                    <TextView android:textSize="14dp" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:background="@drawable/round_shapebg_unselected" android:focusable="true" android:clickable="true" android:layout_width="110dp" android:layout_height="@dimen/margin_35" android:layout_marginLeft="@dimen/padding_5" android:text="4-5" android:textAlignment="center"/>
+                </LinearLayout>
             </HorizontalScrollView>
-
-
-            <LinearLayout
-                android:id="@+id/bokkingSit"
-                android:layout_width="@dimen/margin_280"
-                android:layout_height="@dimen/_45dp"
-                android:layout_marginLeft="@dimen/margin_20"
-                android:layout_marginRight="@dimen/margin_20"
-                android:layout_marginTop="@dimen/margin_25"
-                android:layout_marginBottom="@dimen/margin_30"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:background="@drawable/edit_bgbutton"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Confirm"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/textsize_16"
-                    android:textStyle="bold" />
-
-
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@+id/bokkingSit" android:background="@drawable/edit_bgbutton" android:layout_width="@dimen/margin_280" android:layout_height="@dimen/_45dp" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_25" android:layout_marginRight="@dimen/margin_20" android:layout_marginBottom="@dimen/margin_30">
+                <TextView android:textSize="@dimen/textsize_16" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Confirm" android:textAllCaps="true"/>
             </LinearLayout>
-
-
-
-
-
         </LinearLayout>
-
-
     </RelativeLayout>
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/prok"
-        android:layout_width="@dimen/margin_90"
-        android:layout_height="@dimen/margin_90"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/margin_20"
-        android:src="@drawable/home_banner3" />
-
-
+    <com.makeramen.roundedimageview.RoundedImageView android:id="@+id/prok" android:layout_width="@dimen/margin_90" android:layout_height="@dimen/margin_90" android:layout_marginRight="@dimen/margin_20" android:src="@drawable/home_banner3" android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
 </RelativeLayout>

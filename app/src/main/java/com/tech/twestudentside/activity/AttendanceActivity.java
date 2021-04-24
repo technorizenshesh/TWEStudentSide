@@ -1,52 +1,36 @@
 package com.tech.twestudentside.activity;
 
-import android.annotation.SuppressLint;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import com.tech.twestudentside.R;
 import com.tech.twestudentside.fragments.DailyAttendanceFragment;
 import com.tech.twestudentside.fragments.MonthlyAttendanceFragment;
-import com.tech.twestudentside.fragments.Want_TutorFragment;
 import com.tech.twestudentside.fragments.WeeklyAttendanceFragment;
 import com.tech.twestudentside.listner.FragmentListener;
 
 public class AttendanceActivity extends AppCompatActivity implements FragmentListener, View.OnClickListener {
-
-
-    TextView daily_TabtxtId, weekly_TabtxtId, monthly_TabtxtId;
-
+    TextView daily_TabtxtId;
     FrameLayout frameLayoutAttendance;
+    TextView monthly_TabtxtId;
+    TextView weekly_TabtxtId;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attendance);
-
-        frameLayoutAttendance=findViewById(R.id.frameLayout_attendance);
-
-
+        setContentView((int) R.layout.activity_attendance);
+        this.frameLayoutAttendance = (FrameLayout) findViewById(R.id.frameLayout_attendance);
         loadFragment(new DailyAttendanceFragment(this));
-
-
-        daily_TabtxtId = findViewById(R.id.daily_TabtxtId);
-        weekly_TabtxtId = findViewById(R.id.weekly_txtId);
-        monthly_TabtxtId = findViewById(R.id.monthly_txtId);
-
-        daily_TabtxtId.setOnClickListener(this);
-        weekly_TabtxtId.setOnClickListener(this);
-        monthly_TabtxtId.setOnClickListener(this);
-
-
+        this.daily_TabtxtId = (TextView) findViewById(R.id.daily_TabtxtId);
+        this.weekly_TabtxtId = (TextView) findViewById(R.id.weekly_txtId);
+        this.monthly_TabtxtId = (TextView) findViewById(R.id.monthly_txtId);
+        this.daily_TabtxtId.setOnClickListener(this);
+        this.weekly_TabtxtId.setOnClickListener(this);
+        this.monthly_TabtxtId.setOnClickListener(this);
     }
 
     public void backAttendanceInit(View view) {
@@ -55,74 +39,39 @@ public class AttendanceActivity extends AppCompatActivity implements FragmentLis
     }
 
     public void onClick(View view) {
-
-        switch (view.getId()) {
-
-            case R.id.daily_TabtxtId:
-
-
-
-
-                daily_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_yellowbg));
-                weekly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
-                monthly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
-                daily_TabtxtId.setTextColor(Color.parseColor("#05346d"));
-                weekly_TabtxtId.setTextColor(Color.parseColor("#000000"));
-                monthly_TabtxtId.setTextColor(Color.parseColor("#000000"));
-
-                loadFragment(new DailyAttendanceFragment(this));
-
-
-                break;
-
-
-            case R.id.weekly_txtId:
-
-                daily_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
-                weekly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_yellowbg));
-                monthly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
-                daily_TabtxtId.setTextColor(Color.parseColor("#000000"));
-                weekly_TabtxtId.setTextColor(Color.parseColor("#05346d"));
-                monthly_TabtxtId.setTextColor(Color.parseColor("#000000"));
-
-
-
-                loadFragment(new WeeklyAttendanceFragment(this));
-
-
-                break;
-
-
-            case R.id.monthly_txtId:
-
-                daily_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
-                weekly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
-                monthly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_yellowbg));
-                daily_TabtxtId.setTextColor(Color.parseColor("#000000"));
-                weekly_TabtxtId.setTextColor(Color.parseColor("#000000"));
-                monthly_TabtxtId.setTextColor(Color.parseColor("#05346d"));
-
-
-
-                loadFragment(new MonthlyAttendanceFragment(this));
-
-
-                break;
-
-
+        int id = view.getId();
+        if (id == R.id.daily_TabtxtId) {
+            this.daily_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_yellowbg));
+            this.weekly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
+            this.monthly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
+            this.daily_TabtxtId.setTextColor(Color.parseColor("#05346d"));
+            this.weekly_TabtxtId.setTextColor(Color.parseColor("#000000"));
+            this.monthly_TabtxtId.setTextColor(Color.parseColor("#000000"));
+            loadFragment(new DailyAttendanceFragment(this));
+        } else if (id == R.id.monthly_txtId) {
+            this.daily_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
+            this.weekly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
+            this.monthly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_yellowbg));
+            this.daily_TabtxtId.setTextColor(Color.parseColor("#000000"));
+            this.weekly_TabtxtId.setTextColor(Color.parseColor("#000000"));
+            this.monthly_TabtxtId.setTextColor(Color.parseColor("#05346d"));
+            loadFragment(new MonthlyAttendanceFragment(this));
+        } else if (id == R.id.weekly_txtId) {
+            this.daily_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
+            this.weekly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_yellowbg));
+            this.monthly_TabtxtId.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_gray));
+            this.daily_TabtxtId.setTextColor(Color.parseColor("#000000"));
+            this.weekly_TabtxtId.setTextColor(Color.parseColor("#05346d"));
+            this.monthly_TabtxtId.setTextColor(Color.parseColor("#000000"));
+            loadFragment(new WeeklyAttendanceFragment(this));
         }
-
     }
 
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_attendance, fragment).commit();
-
     }
 
-
-    @Override
     public void click(Fragment fragment) {
         loadFragment(fragment);
-
     }
 }

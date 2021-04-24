@@ -4,13 +4,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class TutorCategoryModel {
-
-    @SerializedName("id")
-    @Expose
-    private String id;
     @SerializedName("category_name")
     @Expose
     private String categoryName;
+    @SerializedName("id")
+    @Expose
+
+    /* renamed from: id */
+    private String id;
     @SerializedName("image")
     @Expose
     private String image;
@@ -19,7 +20,7 @@ public class TutorCategoryModel {
     private String status;
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String id) {
@@ -27,28 +28,26 @@ public class TutorCategoryModel {
     }
 
     public String getCategoryName() {
-        return categoryName;
+        return this.categoryName;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategoryName(String categoryName2) {
+        this.categoryName = categoryName2;
     }
 
     public String getImage() {
-        return image;
+        return this.image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(String image2) {
+        this.image = image2;
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String status2) {
+        this.status = status2;
     }
-
-
 }

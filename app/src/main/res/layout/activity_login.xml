@@ -1,324 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context=".activity.LoginActivity"
-    >
-
-    <com.facebook.login.widget.LoginButton
-        android:visibility="gone"
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center_horizontal"
-        android:text="  connect_with_facebook" />
-
-    <ProgressBar
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerInParent="true"
-        android:id="@+id/progressBar"
-        android:background="@drawable/progresh_background"
-        android:elevation="6dp"
-        android:padding="5dp"
-        android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/colorPrimary"
-        android:visibility="gone"/>
-
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="@dimen/margin_25"
-            android:orientation="vertical">
-
-
-            <ImageView
-                android:layout_width="@dimen/margin_250"
-                android:layout_height="@dimen/margin_100"
-                android:adjustViewBounds="true"
-                android:layout_marginTop="@dimen/margin_50"
-                android:scaleType="fitCenter"
-                android:src="@drawable/logo" />
-
-
-
-            <LinearLayout
-                android:layout_width="@dimen/margin_250"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/edit_background"
-                android:layout_marginTop="@dimen/margin_50">
-
-
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:adjustViewBounds="true"
-                    android:padding="4dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/email" />
-
-
-                <EditText
-                    android:text="test@gmail.com"
-                    android:id="@+id/edt_email"
-                    android:layout_width="@dimen/margin_200"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginRight="10dp"
-                    android:inputType="text"
-                    android:textSize="@dimen/textsize14"
-                    android:adjustViewBounds="true"
-                    android:hint="Email"
-                    android:gravity="center_vertical"
-                    android:layout_margin="@dimen/margin_5"
-                    android:singleLine="true"
-                    android:padding="10dp"
-                    android:background="@drawable/edit_background"
-                    android:textColorHint="@color/colorBlack" />
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/colorWhite" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.facebook.login.widget.LoginButton android:layout_gravity="center_horizontal" android:id="@+id/loginButton" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  connect_with_facebook" android:layout_centerInParent="true"/>
+    <ProgressBar android:id="@+id/progressBar" android:background="@drawable/progresh_background" android:padding="5dp" android:visibility="gone" android:layout_width="40dp" android:layout_height="40dp" android:indeterminate="true" android:layout_centerInParent="true" android:elevation="6dp" android:indeterminateTint="@color/colorPrimary" android:indeterminateTintMode="src_atop"/>
+    <androidx.core.widget.NestedScrollView android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="@dimen/margin_25">
+            <ImageView android:layout_width="@dimen/margin_250" android:layout_height="@dimen/margin_100" android:layout_marginTop="@dimen/margin_50" android:src="@drawable/logo" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
+            <LinearLayout android:orientation="horizontal" android:background="@drawable/edit_background" android:layout_width="@dimen/margin_250" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_50">
+                <ImageView android:padding="4dp" android:layout_width="30dp" android:layout_height="30dp" android:layout_marginLeft="10dp" android:layout_marginTop="10dp" android:layout_marginBottom="5dp" android:src="@drawable/email" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
+                <EditText android:textSize="@dimen/textsize14" android:textColorHint="@color/colorBlack" android:gravity="center_vertical" android:id="@+id/edt_email" android:background="@drawable/edit_background" android:padding="10dp" android:layout_width="@dimen/margin_200" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_5" android:layout_marginLeft="10dp" android:layout_marginTop="7dp" android:layout_marginRight="10dp" android:adjustViewBounds="true" android:text="remo@gmail.com" android:hint="Email" android:singleLine="true" android:inputType="text"/>
             </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="@dimen/margin_250"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginRight="@dimen/margin_20"
-                android:layout_marginLeft="@dimen/margin_20"
-                android:background="@drawable/edit_background"
-                android:layout_marginTop="@dimen/margin_15">
-
-
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:adjustViewBounds="true"
-                    android:padding="4dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/password" />
-
-
-                <EditText
-                    android:text="123456"
-                    android:id="@+id/edt_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginRight="10dp"
-                    android:inputType="textPassword"
-                    android:textSize="@dimen/textsize14"
-                    android:adjustViewBounds="true"
-                    android:hint="Password"
-                    android:gravity="center_vertical"
-                    android:layout_margin="@dimen/margin_5"
-                    android:singleLine="true"
-                    android:padding="10dp"
-                    android:background="@drawable/edit_background"
-                    android:textColorHint="@color/colorBlack" />
-
+            <LinearLayout android:orientation="horizontal" android:background="@drawable/edit_background" android:layout_width="@dimen/margin_250" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_15" android:layout_marginRight="@dimen/margin_20">
+                <ImageView android:padding="4dp" android:layout_width="30dp" android:layout_height="30dp" android:layout_marginLeft="10dp" android:layout_marginTop="10dp" android:layout_marginBottom="5dp" android:src="@drawable/password" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
+                <EditText android:textSize="@dimen/textsize14" android:textColorHint="@color/colorBlack" android:gravity="center_vertical" android:id="@+id/edt_password" android:background="@drawable/edit_background" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_5" android:layout_marginLeft="10dp" android:layout_marginTop="7dp" android:layout_marginRight="10dp" android:adjustViewBounds="true" android:text="123456" android:hint="Password" android:singleLine="true" android:inputType="textPassword"/>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_forgot_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="8dp"
-                android:layout_marginTop="@dimen/margin_20"
-                android:paddingBottom="8dp"
-                android:text="Forgot Password?"
-                android:textAllCaps="true"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"/>
-
-            <LinearLayout
-                android:id="@+id/LL_submit"
-                android:layout_width="@dimen/margin_280"
-                android:layout_height="@dimen/_45dp"
-                android:layout_marginLeft="@dimen/margin_20"
-                android:layout_marginRight="@dimen/margin_20"
-                android:layout_marginTop="@dimen/margin_20"
-                android:gravity="center"
-                android:onClick="loginInit"
-                android:background="@drawable/edit_bgbutton"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:id="@+id/tv_login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Login"
-                    android:textAllCaps="true"
-                    android:onClick="loginInit"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-
+            <TextView android:textSize="14sp" android:textColor="@color/colorBlack" android:layout_gravity="center_horizontal" android:id="@+id/tv_forgot_password" android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20" android:text="Forgot Password?" android:textAllCaps="true"/>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/LL_submit" android:background="@drawable/edit_bgbutton" android:layout_width="@dimen/margin_280" android:layout_height="@dimen/_45dp" android:layout_marginLeft="@dimen/margin_20" android:layout_marginTop="@dimen/margin_20" android:layout_marginRight="@dimen/margin_20" android:onClick="loginInit">
+                <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:id="@+id/tv_login" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Login" android:onClick="loginInit" android:textAllCaps="true"/>
             </LinearLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/_14dp"
-                android:text="or Social Media"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textsize_13" />
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="270dp"
-                android:layout_height="@dimen/_45dp"
-                android:layout_marginTop="@dimen/margin_15"
-                app:cardBackgroundColor="@color/fb_blue"
-                app:cardCornerRadius="8dp">
-
-                <RelativeLayout
-                    android:id="@+id/RR_loign_faceBook"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:adjustViewBounds="true"
-                        android:padding="4dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/facebook" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_horizontal"
-                        android:padding="10dp"
-                        android:textStyle="bold"
-                        android:text="Login with Facebook"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp" />
-
+            <TextView android:textSize="@dimen/textsize_13" android:textColor="@color/colorBlack" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_14dp" android:text="or Social Media"/>
+            <androidx.cardview.widget.CardView android:layout_width="270dp" android:layout_height="@dimen/_45dp" android:layout_marginTop="@dimen/margin_15" app:cardBackgroundColor="@color/fb_blue" app:cardCornerRadius="8dp">
+                <RelativeLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@+id/RR_loign_faceBook" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:padding="4dp" android:layout_width="32dp" android:layout_height="32dp" android:layout_marginLeft="10dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp" android:src="@drawable/facebook" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
+                    <TextView android:textSize="16sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center_horizontal" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Login with Facebook" android:layout_centerVertical="true" android:textAllCaps="false"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="@dimen/_270dp"
-                android:layout_height="@dimen/_45dp"
-                android:layout_marginTop="@dimen/margin_15"
-                app:cardBackgroundColor="@color/google_colour"
-                app:cardCornerRadius="8dp">
-
-                <RelativeLayout
-                    android:id="@+id/RR_google_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:adjustViewBounds="true"
-                        android:padding="4dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/googleplus" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_horizontal"
-                        android:padding="10dp"
-                        android:text="Login with Google"
-                        android:textAllCaps="false"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp" />
-
+            <androidx.cardview.widget.CardView android:layout_width="@dimen/_270dp" android:layout_height="@dimen/_45dp" android:layout_marginTop="@dimen/margin_15" app:cardBackgroundColor="@color/google_colour" app:cardCornerRadius="8dp">
+                <RelativeLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@+id/RR_google_login" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:padding="4dp" android:layout_width="32dp" android:layout_height="32dp" android:layout_marginLeft="10dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp" android:src="@drawable/googleplus" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
+                    <TextView android:textSize="16sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center_horizontal" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Login with Google" android:layout_centerVertical="true" android:textAllCaps="false"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="@dimen/margin_20"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/_14dp"
-                    android:text="Don't have an account?"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize14" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/_14dp"
-                    android:layout_marginLeft="@dimen/margin_10"
-                    android:onClick="signupInit"
-                    android:text="Sign Up"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorGreen"
-                    android:textSize="@dimen/textsize14" />
-
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20">
+                <TextView android:textSize="@dimen/textsize14" android:textColor="@color/colorBlack" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_14dp" android:text="Don&apos;t have an account?"/>
+                <TextView android:textSize="@dimen/textsize14" android:textStyle="bold" android:textColor="@color/colorGreen" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10" android:layout_marginTop="@dimen/_14dp" android:text="Sign Up" android:onClick="signupInit"/>
             </LinearLayout>
-
-
-
-
-
-
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
-
-
 </RelativeLayout>

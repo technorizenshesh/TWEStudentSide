@@ -1,6 +1,5 @@
 package com.tech.twestudentside.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,98 +7,70 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
 import com.tech.twestudentside.R;
 import com.tech.twestudentside.model.TutorCategoryModel;
-
-
 import java.util.ArrayList;
 
-/**
- * A custom adapter to use with the RecyclerView widget.
- */
 public class tutor_category_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private Context mContext;
-    private ArrayList<TutorCategoryModel> modelList;
-    private tutor_category_Adapter.OnItemClickListener mItemClickListener;
+    /* access modifiers changed from: private */
+    public OnItemClickListener mItemClickListener;
+    /* access modifiers changed from: private */
+    public ArrayList<TutorCategoryModel> modelList;
 
-    public tutor_category_Adapter(Context context, ArrayList<TutorCategoryModel> modelList) {
-        this.mContext = context;
-        this.modelList = modelList;
+    public interface OnItemClickListener {
+        void onItemClick(View view, int i, TutorCategoryModel tutorCategoryModel);
     }
 
-    public void updateList(ArrayList<TutorCategoryModel> modelList) {
-        this.modelList = modelList;
+    public tutor_category_Adapter(Context context, ArrayList<TutorCategoryModel> modelList2) {
+        this.mContext = context;
+        this.modelList = modelList2;
+    }
+
+    public void updateList(ArrayList<TutorCategoryModel> modelList2) {
+        this.modelList = modelList2;
         notifyDataSetChanged();
     }
 
-    @Override
-    public tutor_category_Adapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_tutor_category, viewGroup, false);
-        return new tutor_category_Adapter.ViewHolder(view);
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_tutor_category, viewGroup, false));
     }
 
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        //Here you can fill your row view
-
-        if (holder instanceof tutor_category_Adapter.ViewHolder) {
-
-            final TutorCategoryModel model = getItem(position);
-
-            final tutor_category_Adapter.ViewHolder genericViewHolder = (tutor_category_Adapter.ViewHolder) holder;
-
-            String image_URL = model.getImage().toString();
-
-            if(image_URL !=null)
-            {
-                Glide.with(mContext).load(image_URL).placeholder(R.drawable.aa)
-                        .into(genericViewHolder.img_category);
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ViewHolder) {
+            ViewHolder genericViewHolder = (ViewHolder) holder;
+            String image_URL = getItem(position).getImage().toString();
+            if (image_URL != null) {
+                ((RequestBuilder) Glide.with(this.mContext).load(image_URL).placeholder(R.drawable.aa)).into(genericViewHolder.img_category);
             }
-            //genericViewHolder.txt_gender.setText(model.getName()); img_category
-
         }
     }
 
-    @Override
     public int getItemCount() {
-
-        return modelList.size();
+        return this.modelList.size();
     }
 
-    public void SetOnItemClickListener(final tutor_category_Adapter.OnItemClickListener mItemClickListener) {
-        this.mItemClickListener = mItemClickListener;
+    public void SetOnItemClickListener(OnItemClickListener mItemClickListener2) {
+        this.mItemClickListener = mItemClickListener2;
     }
 
     private TutorCategoryModel getItem(int position) {
-        return modelList.get(position);
-    }
-
-
-    public interface OnItemClickListener {
-
-        void onItemClick(View view, int position, TutorCategoryModel model);
-
+        return this.modelList.get(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        private ImageView img_category;
+        /* access modifiers changed from: private */
+        public ImageView img_category;
 
         public ViewHolder(final View itemView) {
             super(itemView);
-
-         this.img_category = itemView.findViewById(R.id.img_category);
-
+            this.img_category = (ImageView) itemView.findViewById(R.id.img_category);
             itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
                 public void onClick(View view) {
-
-                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
+                    tutor_category_Adapter.this.mItemClickListener.onItemClick(itemView, ViewHolder.this.getAdapterPosition(), (TutorCategoryModel) tutor_category_Adapter.this.modelList.get(ViewHolder.this.getAdapterPosition()));
                 }
             });
         }
     }
-
 }
-

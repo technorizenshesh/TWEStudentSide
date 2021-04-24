@@ -1,148 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MyClassActivity">
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_50"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_5"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_back"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/margin_10"
-                    android:adjustViewBounds="true"
-                    android:onClick="backMyHistory"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/back"
-                    android:visibility="visible" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/margin_20"
-                    android:layout_weight="1"
-                    android:gravity="start"
-                    android:text="My Classes"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_25"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center_vertical"
-                    android:text="$8426"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/margin_15"
-                    android:textStyle="bold"
-                    android:visibility="invisible"
-                    tools:ignore="RtlCompat" />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/current_TabId"
-                    android:layout_width="110dp"
-                    android:layout_height="45dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_pink"
-                    android:clickable="true"
-                    android:contextClickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:text="Current"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlCompat" />
-
-
-                <TextView
-                    android:id="@+id/past_TabId"
-                    android:layout_width="110dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_gray"
-                    android:clickable="true"
-                    android:contextClickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/margin_3"
-                    android:text="Past"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlCompat" />
-
-
-            </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical">
-
-
-        <FrameLayout
-            android:id="@+id/frameLayout_HistoryId"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="@dimen/margin_60"/>
-
-
-
-
-    </androidx.core.widget.NestedScrollView>
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_50">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_5">
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/iv_back" android:visibility="visible" android:layout_width="21dp" android:layout_height="21dp" android:layout_marginLeft="@dimen/margin_10" android:src="@drawable/back" android:scaleType="fitCenter" android:adjustViewBounds="true" android:onClick="backMyHistory"/>
+            <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="start" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:text="My Classes" android:layout_weight="1" android:textAlignment="textStart"/>
+            <TextView android:textSize="@dimen/margin_15" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center_vertical" android:layout_gravity="center" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$8426" android:textAlignment="textEnd"/>
         </LinearLayout>
-
-
-
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="15dp" android:weightSum="2">
+            <TextView android:textSize="14dp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@+id/current_TabId" android:background="@drawable/color_pink" android:focusable="true" android:clickable="true" android:layout_width="110dp" android:layout_height="45dp" android:text="Current" android:layout_weight="1" android:textAlignment="center"/>
+            <TextView android:textSize="14dp" android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center_vertical" android:id="@+id/past_TabId" android:background="@drawable/color_gray" android:padding="@dimen/margin_3" android:focusable="true" android:clickable="true" android:layout_width="110dp" android:layout_height="45dp" android:layout_marginLeft="10dp" android:text="Past" android:layout_weight="1" android:textAlignment="center"/>
+        </LinearLayout>
+        <androidx.core.widget.NestedScrollView android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@+id/frameLayout_HistoryId" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="20dp" android:layout_marginBottom="@dimen/margin_60"/>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </RelativeLayout>

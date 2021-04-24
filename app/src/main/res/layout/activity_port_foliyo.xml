@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    android:fitsSystemWindows="true"
-    tools:context=".activity.PortFoliyoActivity">
-
+    android:fitsSystemWindows="true">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -24,34 +21,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/margin_15">
-
+                android:layout_marginTop="@dimen/margin_15"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/iv_back"
                     android:layout_width="21dp"
                     android:layout_height="21dp"
-                    android:adjustViewBounds="true"
                     android:layout_marginLeft="@dimen/margin_10"
+                    android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:src="@drawable/back" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="@dimen/margin_30"
                     android:text="Photos"
                     android:textAlignment="center"
-                    android:layout_marginRight="@dimen/margin_30"
-                    android:layout_gravity="center_horizontal"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize_20"
                     android:textStyle="bold" />
-
-
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,33 +51,28 @@
                 android:layout_marginTop="@dimen/textsize_20"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="this is the demo screen of Google 360\nview when will use the Google 360 view\n Api. it will change and fully\nautomaticaly according the Google\n360 view"
-                    android:textAlignment="center"
-                    android:visibility="invisible"
                     android:layout_gravity="center_horizontal"
+                    android:text="this is the demo screen of Google 360\10view when will use the Google 360 view\10 Api. it will change and fully\10automaticaly according the Google\10360 view"
+                    android:textAlignment="center"
                     android:textColor="@color/colorGray"
                     android:textSize="@dimen/textsize_16"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_15"
                     android:text="(01/05)"
                     android:textAlignment="center"
-                    android:layout_marginTop="@dimen/margin_15"
-                    android:layout_gravity="center_horizontal"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize_20"
                     android:textStyle="bold" />
-
-
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,41 +81,29 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-
-
-
-
                 <com.smarteist.autoimageslider.SliderView
                     android:id="@+id/imageSlider1"
                     android:layout_width="@dimen/margin_300"
                     android:layout_height="@dimen/margin_250"
-                    app:sliderAutoCycleEnabled="true"
-                    app:sliderStartAutoCycle="true"
-                    app:sliderAnimationDuration="600"
                     android:background="@drawable/portfolio1"
-                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleEnabled="true"
                     app:sliderIndicatorAnimationDuration="100"
                     app:sliderIndicatorEnabled="true"
-                    app:sliderIndicatorGravity="start|bottom"
                     app:sliderIndicatorMargin="15dp"
-                    app:sliderIndicatorOrientation="horizontal"
                     app:sliderIndicatorPadding="3dp"
                     app:sliderIndicatorRadius="2dp"
                     app:sliderIndicatorSelectedColor="@color/red"
-                    app:sliderIndicatorUnselectedColor="#FFF"
-                    app:sliderScrollTimeInSec="1" />
-
-
-
-
+                    app:sliderIndicatorUnselectedColor="#fff"
+                    app:sliderScrollTimeInSec="1"
+                    app:sliderStartAutoCycle="true" />
             </LinearLayout>
-
-
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -139,74 +114,57 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:scaleType="fitXY"
-                        app:riv_corner_radius_top_left="10dip"
-                        app:riv_corner_radius_top_right="10dip"
-                        app:riv_mutate_background="true"
-                        android:src="@drawable/portfolio1">
-                    </com.makeramen.roundedimageview.RoundedImageView>
-
+                        android:src="@drawable/portfolio1"
+                        app:riv_corner_radius_top_left="10dp"
+                        app:riv_corner_radius_top_right="10dp"
+                        app:riv_mutate_background="true" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:layout_width="130dp"
                         android:layout_height="130dp"
-                        android:scaleType="fitXY"
                         android:layout_marginLeft="@dimen/margin_15"
-                        app:riv_corner_radius_top_left="10dip"
-                        app:riv_corner_radius_top_right="10dip"
-                        app:riv_mutate_background="true"
-                        android:src="@drawable/portfolio2">
-                    </com.makeramen.roundedimageview.RoundedImageView>
-
+                        android:scaleType="fitXY"
+                        android:src="@drawable/portfolio2"
+                        app:riv_corner_radius_top_left="10dp"
+                        app:riv_corner_radius_top_right="10dp"
+                        app:riv_mutate_background="true" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:layout_width="130dp"
                         android:layout_height="130dp"
-                        android:scaleType="fitXY"
                         android:layout_marginLeft="@dimen/margin_15"
-                        app:riv_corner_radius_top_left="10dip"
-                        app:riv_corner_radius_top_right="10dip"
-                        app:riv_mutate_background="true"
-                        android:src="@drawable/portfoliyo3">
-                    </com.makeramen.roundedimageview.RoundedImageView>
-
+                        android:scaleType="fitXY"
+                        android:src="@drawable/portfoliyo3"
+                        app:riv_corner_radius_top_left="10dp"
+                        app:riv_corner_radius_top_right="10dp"
+                        app:riv_mutate_background="true" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:layout_width="130dp"
                         android:layout_height="130dp"
-                        android:scaleType="fitXY"
                         android:layout_marginLeft="@dimen/margin_15"
-                        app:riv_corner_radius_top_left="10dip"
-                        app:riv_corner_radius_top_right="10dip"
-                        app:riv_mutate_background="true"
-                        android:src="@drawable/math">
-                    </com.makeramen.roundedimageview.RoundedImageView>
-
+                        android:scaleType="fitXY"
+                        android:src="@drawable/math"
+                        app:riv_corner_radius_top_left="10dp"
+                        app:riv_corner_radius_top_right="10dp"
+                        app:riv_mutate_background="true" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:layout_width="130dp"
                         android:layout_height="130dp"
-                        android:scaleType="fitXY"
                         android:layout_marginLeft="@dimen/margin_15"
-                        app:riv_corner_radius_top_left="10dip"
-                        app:riv_corner_radius_top_right="10dip"
-                        app:riv_mutate_background="true"
                         android:layout_marginRight="@dimen/margin_30"
-                        android:src="@drawable/portfolio1">
-                    </com.makeramen.roundedimageview.RoundedImageView>
-
+                        android:scaleType="fitXY"
+                        android:src="@drawable/portfolio1"
+                        app:riv_corner_radius_top_left="10dp"
+                        app:riv_corner_radius_top_right="10dp"
+                        app:riv_mutate_background="true" />
                 </LinearLayout>
 
             </HorizontalScrollView>
 
-
-
-
-
-
         </LinearLayout>
 
-
     </androidx.core.widget.NestedScrollView>
-
 
 </RelativeLayout>

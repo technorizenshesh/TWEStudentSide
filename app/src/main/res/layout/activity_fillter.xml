@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    tools:context=".activity.FillterActivity">
-
-
-
-    <LinearLayout
+    >
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        >
 
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -23,58 +20,54 @@
                 android:layout_marginTop="@dimen/margin_15"
                 android:orientation="horizontal">
 
-
                 <ImageView
                     android:id="@+id/iv_back"
                     android:layout_width="21dp"
                     android:layout_height="21dp"
-                    android:adjustViewBounds="true"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/margin_10"
+                    android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:src="@drawable/back" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fillter"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:paddingLeft="@dimen/margin_15"
+                    android:text="Fillter"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize_25"
                     android:textStyle="bold" />
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clear All"
                     android:layout_gravity="center"
-                    android:paddingRight="@dimen/margin_15"
                     android:gravity="end"
+                    android:paddingRight="@dimen/margin_15"
+                    android:text="Clear All"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize_16" />
 
                 <ImageView
                     android:layout_width="@dimen/margin_35"
                     android:layout_height="@dimen/margin_35"
-                    android:adjustViewBounds="true"
                     android:layout_gravity="center"
+                    android:adjustViewBounds="true"
                     android:paddingRight="@dimen/margin_15"
                     android:scaleType="fitCenter"
                     android:src="@drawable/filter" />
-
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_20"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <RelativeLayout
                     android:id="@+id/relative_searchBtn"
@@ -89,8 +82,8 @@
                         android:id="@+id/imgLeftMenu"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:adjustViewBounds="true"
                         android:layout_marginLeft="@dimen/margin_10"
+                        android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:src="@drawable/outline" />
 
@@ -99,15 +92,12 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_10"
+                        android:layout_toRightOf="@+id/imgLeftMenu"
                         android:background="@color/colorWhite"
                         android:hint="Search by state or zip code"
-                        android:layout_toRightOf="@+id/imgLeftMenu"
                         android:inputType="text"
                         android:textColor="@color/colorBlack" />
-
                 </RelativeLayout>
-
-
             </LinearLayout>
 
             <androidx.core.widget.NestedScrollView
@@ -119,638 +109,509 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:paddingLeft="@dimen/margin_15"
+                            android:text="Teacher Attributes"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Attributes"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:paddingLeft="@dimen/margin_15"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/txt1Tab"
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Background Check"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/color_pink"
-                    android:textColor="@color/colorWhite"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-
-                <TextView
-                    android:id="@+id/txt3Tab"
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Students Favourite"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:padding="@dimen/margin_3"
-                    android:clickable="true"
-                    android:layout_marginLeft="10dp"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_gray"
-                    android:textColor="@color/colorBlack"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lesson Location"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:paddingLeft="@dimen/margin_15"
-                    android:gravity="center"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:weightSum="3">
-
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Online"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/color_pink"
-                    android:textColor="@color/colorWhite"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Teacher Studio"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:layout_gravity="center_horizontal"
-                    android:contextClickable="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_gray"
-                    android:textColor="@color/colorBlack"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Student's Home"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:layout_marginLeft="10dp"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_gray"
-                    android:textColor="@color/colorBlack"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-
-
-            </LinearLayout>
-
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Availablity"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:paddingLeft="@dimen/margin_15"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:layout_margin="15dp">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="15dp"
-                    android:weightSum="7">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:text="S"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
-                        android:textSize="14dp"
-                        android:clickable="true"
-                        android:contextClickable="true"
-                        android:layout_weight="1"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/color_pink"
-                        android:textColor="@color/colorWhite"
-                        android:gravity="center_vertical"
-                        tools:ignore="RtlCompat"
-                        android:focusable="true" />
+                        android:layout_margin="15dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
+                        <TextView
+                            android:id="@+id/txt1Tab_Background"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_pink"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Background Check"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:text="M"
-                        android:textAlignment="center"
-                        android:textSize="14dp"
-                        android:clickable="true"
+                        <TextView
+                            android:id="@+id/txt3Tab_Students"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_gray"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/margin_3"
+                            android:text="Students Favourite"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_5"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/margin_15"
+                            android:text="Lesson Location"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:contextClickable="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/color_gray"
-                        android:textColor="@color/colorBlack"
-                        android:gravity="center_vertical"
-                        tools:ignore="RtlCompat"
-                        android:focusable="true" />
+                        android:layout_margin="15dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
+                        <TextView
+                            android:id="@+id/txt_online"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_pink"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Online"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:text="T"
-                        android:textAlignment="center"
-                        android:textSize="14dp"
-                        android:clickable="true"
-                        android:layout_marginLeft="10dp"
-                        android:contextClickable="true"
-                        android:layout_weight="1"
-                        android:background="@drawable/color_gray"
-                        android:textColor="@color/colorBlack"
-                        android:gravity="center_vertical"
-                        tools:ignore="RtlCompat"
-                        android:focusable="true" />
+                        <TextView
+                            android:id="@+id/txt_Teacher"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_gray"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Teacher Studio"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14dp" />
 
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:text="W"
-                        android:textAlignment="center"
-                        android:textSize="14dp"
-                        android:clickable="true"
-                        android:layout_marginLeft="10dp"
-                        android:contextClickable="true"
-                        android:layout_weight="1"
-                        android:background="@drawable/color_gray"
-                        android:textColor="@color/colorBlack"
-                        android:gravity="center_vertical"
-                        tools:ignore="RtlCompat"
-                        android:focusable="true" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:text="TH"
-                        android:textAlignment="center"
-                        android:textSize="14dp"
-                        android:clickable="true"
-                        android:layout_marginLeft="10dp"
-                        android:contextClickable="true"
-                        android:layout_weight="1"
-                        android:background="@drawable/color_gray"
-                        android:textColor="@color/colorBlack"
-                        android:gravity="center_vertical"
-                        tools:ignore="RtlCompat"
-                        android:focusable="true" />
-
+                        <TextView
+                            android:id="@+id/txt_Student_home"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_gray"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Student&apos;s Home"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14dp" />
+                    </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:text="F"
-                        android:textAlignment="center"
-                        android:textSize="14dp"
-                        android:clickable="true"
-                        android:layout_marginLeft="10dp"
-                        android:contextClickable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@drawable/color_gray"
+                        android:paddingLeft="@dimen/margin_15"
+                        android:text="Availablity"
                         android:textColor="@color/colorBlack"
-                        android:gravity="center_vertical"
-                        tools:ignore="RtlCompat"
-                        android:focusable="true" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="15dp"
+                        android:orientation="vertical">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="15dp"
+                            android:orientation="horizontal"
+                            android:weightSum="7">
+
+                            <TextView
+                                android:id="@+id/txt_s"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="1"
+                                android:background="@drawable/color_pink"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:text="S"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txt_m"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/color_gray"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:text="M"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_t"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/color_gray"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:text="T"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_w"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/color_gray"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:text="W"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_th"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/color_gray"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:text="TH"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_fr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/color_gray"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:text="F"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_st"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin_40"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/color_gray"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:text="St"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/margin_40"
-                        android:text="S"
-                        android:textAlignment="center"
-                        android:textSize="14dp"
-                        android:clickable="true"
-                        android:layout_marginLeft="10dp"
-                        android:contextClickable="true"
-                        android:layout_weight="1"
-                        android:background="@drawable/color_gray"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingLeft="@dimen/margin_15"
+                        android:text="Price"
                         android:textColor="@color/colorBlack"
-                        android:gravity="center_vertical"
-                        tools:ignore="RtlCompat"
-                        android:focusable="true" />
-
-
-
-
-                </LinearLayout>
-
-
-
-
-
-            </LinearLayout>
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Price"
-                    android:layout_gravity="center"
-                    android:paddingLeft="@dimen/margin_15"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-
-
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:absoluteMaxValue="150"
-                        app:absoluteMinValue="20"/>
-
-
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Teacher Gender"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:paddingLeft="@dimen/margin_15"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:weightSum="7">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/margin_40"
-                    android:text="Male"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/color_pink"
-                    android:textColor="@color/colorWhite"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/margin_40"
-                    android:text="Female"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:layout_gravity="center_horizontal"
-                    android:contextClickable="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_gray"
-                    android:textColor="@color/colorBlack"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-            </LinearLayout>
-
-
-
-
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Student Age"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:paddingLeft="@dimen/margin_15"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Child (12&amp;under)"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/color_pink"
-                    android:textColor="@color/colorWhite"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Teen(13-17)"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:padding="@dimen/margin_3"
-                    android:clickable="true"
-                    android:layout_marginLeft="10dp"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_gray"
-                    android:textColor="@color/colorBlack"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/margin_15"
-                android:layout_marginRight="@dimen/margin_15"
-                android:layout_marginTop="@dimen/margin_5"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Adult (18-65)"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:clickable="true"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/color_gray"
-                    android:textColor="@color/colorBlack"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="40dp"
-                    android:text="Senior(65+)"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:padding="@dimen/margin_3"
-                    android:clickable="true"
-                    android:layout_marginLeft="10dp"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:background="@drawable/color_gray"
-                    android:textColor="@color/colorBlack"
-                    android:gravity="center_vertical"
-                    tools:ignore="RtlCompat"
-                    android:focusable="true" />
-
-
-
-
-            </LinearLayout>
-
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Range"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_10"
-                android:paddingLeft="@dimen/margin_15"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin_30"
-                android:layout_margin="@dimen/margin_20"
-                android:thumbTint="@color/red"
-                android:layout_gravity="center"
-                android:theme="@style/Widget.AppCompat.SeekBar"/>
-
-
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Range"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_10"
-                android:paddingLeft="@dimen/margin_15"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-
-            <RatingBar
-                android:id="@+id/MyRating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:isIndicator="true"
-                android:layout_gravity="center_vertical"
-                android:rating="4"
-                android:layout_marginLeft="@dimen/margin_15"
-                android:progressTint="@color/color_yellow"
-                android:numStars="5"
-                android:stepSize="0.1" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin_50"
-                android:layout_marginLeft="@dimen/margin_20"
-                android:layout_marginRight="@dimen/margin_20"
-                android:layout_marginTop="@dimen/margin_20"
-                android:background="@drawable/bg_redbutton"
-                android:orientation="vertical">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:orientation="vertical">
+                        app:absoluteMinValue="20" />
 
                     <TextView
-                        android:id="@+id/tv_login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginTop="@dimen/margin_5"
-                        android:text="Show"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:paddingLeft="@dimen/margin_15"
+                        android:text="Teacher Gender"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="15dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
+
+                        <TextView
+                            android:id="@+id/txt_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/margin_40"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_pink"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Male"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/margin_40"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_gray"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Female"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:paddingLeft="@dimen/margin_15"
+                        android:text="Student Age"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="15dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/txt_child"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_pink"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Child (12&amp;under)"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_Teen"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_gray"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/margin_3"
+                            android:text="Teen(13-17)"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="@dimen/margin_15"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:layout_marginRight="@dimen/margin_15"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/txt_Adult"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_gray"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:text="Adult (18-65)"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txt_Senior"
+                            android:layout_width="110dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/color_gray"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/margin_3"
+                            android:text="Senior(65+)"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:paddingLeft="@dimen/margin_15"
+                        android:text="Range"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_30"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin_20"
+                        android:theme="@style/Widget.AppCompat.SeekBar"
+                        android:thumbTint="@color/red" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:paddingLeft="@dimen/margin_15"
+                        android:text="Range"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RatingBar
+                        android:id="@+id/MyRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/margin_15"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressTint="@color/color_yellow"
+                        android:rating="4"
+                        android:stepSize="0.1" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_50"
+                        android:layout_marginLeft="@dimen/margin_20"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:layout_marginRight="@dimen/margin_20"
+                        android:background="@drawable/bg_redbutton"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_login"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_5"
+                                android:gravity="center"
+                                android:text="Show"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
-
-
-            </LinearLayout>
-
-
+            </androidx.core.widget.NestedScrollView>
         </LinearLayout>
+    </RelativeLayout>
+</layout>
 
-    </androidx.core.widget.NestedScrollView>
-
-
-    </LinearLayout>
-
-
-</RelativeLayout>

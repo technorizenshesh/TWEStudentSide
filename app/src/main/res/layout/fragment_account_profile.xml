@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@color/colorBackground" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ProgressBar android:id="@+id/progressBar" android:background="@drawable/progresh_background" android:padding="5dp" android:visibility="gone" android:layout_width="40dp" android:layout_height="40dp" android:indeterminate="true" android:layout_centerInParent="true" android:elevation="6dp" android:indeterminateTint="@color/colorPrimary" android:indeterminateTintMode="src_atop"/>
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_15">
+                <ImageView android:layout_gravity="center" android:id="@+id/iv_back" android:layout_width="21dp" android:layout_height="21dp" android:layout_marginLeft="@dimen/margin_10" android:src="@drawable/back" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
+                <TextView android:textSize="@dimen/textsize_25" android:textStyle="bold" android:textColor="@color/colorBlack" android:layout_gravity="center" android:paddingLeft="@dimen/margin_15" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Profile" android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16" android:layout_marginTop="@dimen/margin_16" android:layout_marginRight="@dimen/margin_16">
+                <com.makeramen.roundedimageview.RoundedImageView android:layout_gravity="center" android:id="@+id/img_profile" android:layout_width="@dimen/margin_80" android:layout_height="@dimen/margin_80" android:src="@drawable/logo" app:riv_corner_radius="@dimen/margin_20"/>
+                <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10">
+                    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/margin_35">
+                        <TextView android:textSize="@dimen/margin_16" android:textColor="@color/colorBlack" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_16" android:text="UserName :"/>
+                        <TextView android:textSize="@dimen/margin_16" android:layout_gravity="center" android:id="@+id/txt_userName" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_20" android:text="Jameson Dunn"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/margin_35" android:layout_marginTop="@dimen/margin_10">
+                        <TextView android:textSize="@dimen/margin_16" android:textColor="@color/colorBlack" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_16" android:text="Name :"/>
+                        <TextView android:textSize="@dimen/margin_16" android:layout_gravity="center" android:id="@+id/txt_name" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_20" android:text="Jameson Dunn"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/margin_35" android:layout_marginTop="@dimen/margin_10">
+                        <TextView android:textSize="@dimen/margin_16" android:textColor="@color/colorBlack" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_16" android:text="Email :"/>
+                        <TextView android:textSize="@dimen/margin_16" android:layout_gravity="center" android:id="@+id/txt_email" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_20" android:text="Jameson Dunn"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/margin_35" android:layout_marginTop="@dimen/margin_10">
+                        <TextView android:textSize="@dimen/margin_16" android:textColor="@color/colorBlack" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_16" android:text="Phone :"/>
+                        <TextView android:textSize="@dimen/margin_16" android:layout_gravity="center" android:id="@+id/txt_phone" android:layout_width="wrap_content" android:layout_height="35dp" android:layout_marginLeft="@dimen/margin_20" android:text="Jameson Dunn"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/margin_35" android:layout_marginTop="@dimen/margin_10">
+                        <TextView android:textSize="@dimen/margin_16" android:textColor="@color/colorBlack" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_16" android:text="address :"/>
+                        <TextView android:textSize="@dimen/margin_16" android:layout_gravity="center" android:id="@+id/txt_address" android:layout_width="wrap_content" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_20" android:text=""/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

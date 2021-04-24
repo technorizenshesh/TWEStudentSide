@@ -1,15 +1,16 @@
 package com.tech.twestudentside.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +19,17 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import com.tech.twestudentside.R;
 
-public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
+public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
@@ -33,11 +40,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     Boolean [] checkBoxState;
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    private static final String TAG = "fireBaseToken";
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // Checking for first time launch - before calling setContentView()
@@ -46,7 +52,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             launchHomeScreen();
             finish();
         }
-
         */
 
         // Making notification bar transparent
@@ -55,10 +60,29 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         setContentView(R.layout.activity_welcome);
+
+
+        try {
+            PackageInfo info = this.getPackageManager().getPackageInfo(this.getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String hashKey = new String(Base64.encode(md.digest(), 0));
+                Log.i(TAG, "printHashKey() Hash Key: " + hashKey);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            Toast.makeText(this, ""+e, Toast.LENGTH_SHORT).show();
+            // Log.e(TAG, "printHashKey()", e);
+        } catch (Exception e) {
+            Toast.makeText(this, ""+e, Toast.LENGTH_SHORT).show();
+            //  Log.e(TAG, "printHashKey()", e);
+        }
+
+
         mContext=WelcomeActivity.this;
         viewPager = findViewById(R.id.view_pager);
         tvSkip = findViewById(R.id.btn_next);
-       // tvSignIn = findViewById(R.id.tvSignIn);
+        // tvSignIn = findViewById(R.id.tvSignIn);
         dotsLayout = findViewById(R.id.layoutDots);
 
         // btnSkip = (Button) findViewById(R.id.btn_skip);
@@ -68,7 +92,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         // layouts of all welcome sliders
         // add few more layouts if you want
         layouts = new int[] {
-                R.layout.intro_screen4,
                 R.layout.intro_screen1,
                 R.layout.intro_screen2,
                 R.layout.intro_screen3
@@ -85,7 +108,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
         tvSkip.setOnClickListener(this);
-       // tvSignIn.setOnClickListener(this);
+        // tvSignIn.setOnClickListener(this);
 
     }
 
@@ -152,18 +175,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_skip:
-              /*  Intent intentSkip = new Intent(mContext,HomeActivity.class);
-                startActivity(intentSkip);
-                finish();*/
-                break;
-
-            case R.id.btn_next:
-                Intent intentSign = new Intent(WelcomeActivity.this,Activity_LoginOption.class);
-                startActivity(intentSign);
-                finish();
-                break;
+        if (v.getId() == R.id.btn_next) {
+            Intent intentSign = new Intent(WelcomeActivity.this, Activity_LoginOption.class);
+            startActivity(intentSign);
+            finish();
         }
 
     }

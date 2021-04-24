@@ -4,55 +4,56 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class GetFavModelTutorDetailsFav {
-
-    @SerializedName("id")
-    @Expose
-    private String id;
-    @SerializedName("username")
-    @Expose
-    private String username;
-    @SerializedName("mobile")
-    @Expose
-    private String mobile;
-    @SerializedName("email")
-    @Expose
-    private String email;
-    @SerializedName("password")
-    @Expose
-    private String password;
-    @SerializedName("otp")
-    @Expose
-    private String otp;
-    @SerializedName("image")
-    @Expose
-    private String image;
     @SerializedName("address")
     @Expose
     private String address;
+    @SerializedName("date_time")
+    @Expose
+    private String dateTime;
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("id")
+    @Expose
+
+    /* renamed from: id */
+    private String id;
+    @SerializedName("image")
+    @Expose
+    private String image;
     @SerializedName("lat")
     @Expose
     private String lat;
     @SerializedName("lon")
     @Expose
     private String lon;
+    @SerializedName("mobile")
+    @Expose
+    private String mobile;
+    @SerializedName("otp")
+    @Expose
+    private String otp;
+    @SerializedName("password")
+    @Expose
+    private String password;
     @SerializedName("register_id")
     @Expose
     private String registerId;
     @SerializedName("social_id")
     @Expose
     private String socialId;
-    @SerializedName("type")
-    @Expose
-    private String type;
     @SerializedName("status")
     @Expose
     private String status;
-    @SerializedName("date_time")
+    @SerializedName("type")
     @Expose
-    private String dateTime;
+    private String type;
+    @SerializedName("username")
+    @Expose
+    private String username;
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String id) {
@@ -60,115 +61,114 @@ public class GetFavModelTutorDetailsFav {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String username2) {
+        this.username = username2;
     }
 
     public String getMobile() {
-        return mobile;
+        return this.mobile;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setMobile(String mobile2) {
+        this.mobile = mobile2;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email2) {
+        this.email = email2;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password2) {
+        this.password = password2;
     }
 
     public String getOtp() {
-        return otp;
+        return this.otp;
     }
 
-    public void setOtp(String otp) {
-        this.otp = otp;
+    public void setOtp(String otp2) {
+        this.otp = otp2;
     }
 
     public String getImage() {
-        return image;
+        return this.image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(String image2) {
+        this.image = image2;
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String address2) {
+        this.address = address2;
     }
 
     public String getLat() {
-        return lat;
+        return this.lat;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLat(String lat2) {
+        this.lat = lat2;
     }
 
     public String getLon() {
-        return lon;
+        return this.lon;
     }
 
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setLon(String lon2) {
+        this.lon = lon2;
     }
 
     public String getRegisterId() {
-        return registerId;
+        return this.registerId;
     }
 
-    public void setRegisterId(String registerId) {
-        this.registerId = registerId;
+    public void setRegisterId(String registerId2) {
+        this.registerId = registerId2;
     }
 
     public String getSocialId() {
-        return socialId;
+        return this.socialId;
     }
 
-    public void setSocialId(String socialId) {
-        this.socialId = socialId;
+    public void setSocialId(String socialId2) {
+        this.socialId = socialId2;
     }
 
     public String getType() {
-        return type;
+        return this.type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String type2) {
+        this.type = type2;
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String status2) {
+        this.status = status2;
     }
 
     public String getDateTime() {
-        return dateTime;
+        return this.dateTime;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setDateTime(String dateTime2) {
+        this.dateTime = dateTime2;
     }
-
 }

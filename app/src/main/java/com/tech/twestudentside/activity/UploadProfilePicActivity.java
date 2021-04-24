@@ -1,21 +1,14 @@
 package com.tech.twestudentside.activity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,7 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import com.facebook.places.model.PlaceFields;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -37,7 +32,6 @@ import com.tech.twestudentside.adapter.CountrySpinnerAdapter;
 import com.tech.twestudentside.utils.FileUtil;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
@@ -45,230 +39,176 @@ import java.util.List;
 
 import id.zelory.compressor.Compressor;
 
-public class UploadProfilePicActivity extends AppCompatActivity {
 
+public class UploadProfilePicActivity extends AppCompatActivity {
+    public static File compressActualFile;
+    public static File compressedImage;
+    public static File imageFilePath;
     LinearLayout LL_calender;
     LinearLayout LL_user_profile;
-    private int mYear, mMonth,mDay;
-    String dob ="";
-    TextView txt_dob;
-    TextView txt_age;
-    EditText edt_about;
-    Spinner spinnergender;
-    private String code[] ={"Male","Female"};
-    private int flags[]= {R.drawable.logo,R.drawable.logo,R.drawable.logo,R.drawable.logo};
-
     private Bitmap bitmap;
-    private Uri resultUri;
-    public static File imageFilePath, compressedImage, compressActualFile;
+    /* access modifiers changed from: private */
+    public String[] code = {"Male", "Female"};
+    String dob = "";
+    EditText edt_about;
+    private int[] flags = {R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo};
+    String gender = "";
     private ImageView img_userProfile;
-    boolean isProduct=false;
-    String gender="";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    boolean isProduct = false;
+    /* access modifiers changed from: private */
+    public int mDay;
+    /* access modifiers changed from: private */
+    public int mMonth;
+    /* access modifiers changed from: private */
+    public int mYear;
+    private Uri resultUri;
+    Spinner spinnergender;
+    TextView txt_age;
+    TextView txt_dob;
+
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);}
-        setContentView(R.layout.activity_upload_profile_pic);
-
-        LL_calender = findViewById(R.id.LL_calender);
-        txt_dob = findViewById(R.id.txt_dob);
-        txt_age = findViewById(R.id.txt_age);
-        spinnergender = findViewById(R.id.spinnergender);
-        edt_about = findViewById(R.id.edt_about);
-        LL_user_profile = findViewById(R.id.LL_user_profile);
-        img_userProfile = findViewById(R.id.img_userProfile);
-
-
-        CountrySpinnerAdapter customAdapter=new CountrySpinnerAdapter(UploadProfilePicActivity.this,flags,code);
-        spinnergender.setAdapter(customAdapter);
-
-        LL_calender.setOnClickListener(new View.OnClickListener() {
-            @Override
+            getWindow().getDecorView().setSystemUiVisibility(1280);
+        }
+        setContentView((int) R.layout.activity_upload_profile_pic);
+        this.LL_calender = (LinearLayout) findViewById(R.id.LL_calender);
+        this.txt_dob = (TextView) findViewById(R.id.txt_dob);
+        this.txt_age = (TextView) findViewById(R.id.txt_age);
+        this.spinnergender = (Spinner) findViewById(R.id.spinnergender);
+        this.edt_about = (EditText) findViewById(R.id.edt_about);
+        this.LL_user_profile = (LinearLayout) findViewById(R.id.LL_user_profile);
+        this.img_userProfile = (ImageView) findViewById(R.id.img_userProfile);
+        this.spinnergender.setAdapter(new CountrySpinnerAdapter(this, this.flags, this.code));
+        this.LL_calender.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                final Calendar c = Calendar.getInstance();
-                mYear = c.get(Calendar.YEAR);
-                mMonth = c.get(Calendar.MONTH);
-                mDay = c.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(UploadProfilePicActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-
-                                view.setVisibility(View.VISIBLE);
-                                dob = (dayOfMonth+"-"+(monthOfYear+1)+"-"+year);
-                                txt_dob.setText(dob);
-
-                                String age = getAge(year,(monthOfYear+1),dayOfMonth);
-
-                                txt_age.setText(age+" Year");
-
-                            }
-                        }, mYear, mMonth, mDay);
-
-                //datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
-
-                datePickerDialog.show();
-
+                Calendar c = Calendar.getInstance();
+                int unused = UploadProfilePicActivity.this.mYear = c.get(1);
+                int unused2 = UploadProfilePicActivity.this.mMonth = c.get(2);
+                int unused3 = UploadProfilePicActivity.this.mDay = c.get(5);
+                new DatePickerDialog(UploadProfilePicActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        view.setVisibility(View.VISIBLE);
+                        UploadProfilePicActivity uploadProfilePicActivity = UploadProfilePicActivity.this;
+                        uploadProfilePicActivity.dob = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        UploadProfilePicActivity.this.txt_dob.setText(UploadProfilePicActivity.this.dob);
+                        String age = UploadProfilePicActivity.this.getAge(year, monthOfYear + 1, dayOfMonth);
+                        TextView textView = UploadProfilePicActivity.this.txt_age;
+                        textView.setText(age + " Year");
+                    }
+                }, UploadProfilePicActivity.this.mYear, UploadProfilePicActivity.this.mMonth, UploadProfilePicActivity.this.mDay).show();
             }
         });
-
-        LL_user_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
+        this.LL_user_profile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Dexter.withActivity(UploadProfilePicActivity.this).withPermissions("android.permission.CAMERA", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE").withListener(new MultiplePermissionsListener() {
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+                            UploadProfilePicActivity.this.startActivityForResult(CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).getIntent(UploadProfilePicActivity.this), 1);
+                            return;
+                        }
+                        UploadProfilePicActivity.this.showSettingDialogue();
+                    }
 
-                Dexter.withActivity(UploadProfilePicActivity.this)
-                        .withPermissions(Manifest.permission.CAMERA,
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .withListener(new MultiplePermissionsListener() {
-                            @Override
-                            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                if (report.areAllPermissionsGranted()) {
-                                    Intent intent = CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).getIntent(UploadProfilePicActivity.this);
-                                    startActivityForResult(intent, 1);
-                                } else {
-                                    showSettingDialogue();
-                                }
-                            }
-
-                            @Override
-                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                token.continuePermissionRequest();
-                            }
-                        }).check();
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).check();
             }
         });
-
-        spinnergender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-
-                gender  =code[pos];
-
+        this.spinnergender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
+                UploadProfilePicActivity uploadProfilePicActivity = UploadProfilePicActivity.this;
+                uploadProfilePicActivity.gender = uploadProfilePicActivity.code[pos];
             }
-            public void onNothingSelected(AdapterView<?> parent) {
 
+            public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
     }
 
-    private void showSettingDialogue() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(UploadProfilePicActivity.this);
-        builder.setTitle("Need Permissions");
-        builder.setMessage("This app needs permission to use this feature. You can grant them in app settings.");
-        builder.setPositiveButton("GOTO SETTINGS", new DialogInterface.OnClickListener() {
-            @Override
+    /* access modifiers changed from: private */
+    public void showSettingDialogue() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle((CharSequence) "Need Permissions");
+        builder.setMessage((CharSequence) "This app needs permission to use this feature. You can grant them in app settings.");
+        builder.setPositiveButton((CharSequence) "GOTO SETTINGS", (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();
-                openSetting();
+                UploadProfilePicActivity.this.openSetting();
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
+        builder.setNegativeButton((CharSequence) "Cancel", (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();
             }
         });
         builder.show();
-
     }
 
-    private void openSetting() {
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        Uri uri = Uri.fromParts("package", this.getPackageName(), null);
-        intent.setData(uri);
+    /* access modifiers changed from: private */
+    public void openSetting() {
+        Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+        intent.setData(Uri.fromParts("package", getPackageName(), (String) null));
         startActivityForResult(intent, 101);
     }
 
-
     public void signupProfilePic(View view) {
-
-        String about=edt_about.getText().toString();
-
-        if(!isProduct)
-        {
-            Toast.makeText(this, "Please Enter Profile Image.", Toast.LENGTH_SHORT).show();
-
-        }else if(dob.equalsIgnoreCase(""))
-        {
-            Toast.makeText(this, "Please Enter Dob", Toast.LENGTH_SHORT).show();
-
-        }else  if(about.equalsIgnoreCase(""))
-        {
-            Toast.makeText(this, "Please Enter about", Toast.LENGTH_SHORT).show();
-        }else
-        {
-
-            Intent intent= new Intent(UploadProfilePicActivity.this, TutorSelectionActivity.class);
-            intent.putExtra("DOB",dob);
-            intent.putExtra("Gender",gender);
-            intent.putExtra("about",about);
+        String about = this.edt_about.getText().toString();
+        if (!this.isProduct) {
+            Toast.makeText(this, "Please Enter Profile Image.",  Toast.LENGTH_LONG).show();
+        } else if (this.dob.equalsIgnoreCase("")) {
+            Toast.makeText(this, "Please Enter Dob",  Toast.LENGTH_LONG).show();
+        } else if (about.equalsIgnoreCase("")) {
+            Toast.makeText(this, "Please Enter about",  Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(this, TutorSelectionActivity.class);
+            intent.putExtra("DOB", this.dob);
+            intent.putExtra("Gender", this.gender);
+            intent.putExtra(PlaceFields.ABOUT, about);
             startActivity(intent);
             finish();
         }
     }
 
-    private String getAge(int year, int month, int day){
-
-        Calendar dob = Calendar.getInstance();
+    /* access modifiers changed from: private */
+    public String getAge(int year, int month, int day) {
+        Calendar dob2 = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
-
-        dob.set(year, month, day);
-        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+        dob2.set(year, month, day);
+        int age = today.get(1) - dob2.get(1);
+        if (today.get(6) < dob2.get(6)) {
             age--;
         }
-        Integer ageInt = new Integer(age);
-        String ageS = ageInt.toString();
-
-        return ageS;
+        return new Integer(age).toString();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         CropImage.ActivityResult result = CropImage.getActivityResult(data);
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
-                resultUri = result.getUri();
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), resultUri);
-                    // Glide.with(this).load(bitmap).circleCrop().into(img_userProfile);
-                    imageFilePath = FileUtil.from(this, resultUri);
-                    img_userProfile.setImageResource(R.drawable.check_one);
-                    isProduct = true;
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    compressedImage = new Compressor(this)
-                            .setMaxWidth(640)
-                            .setMaxHeight(480)
-                            .setQuality(75)
-                            .setCompressFormat(Bitmap.CompressFormat.WEBP)
-                            .setDestinationDirectoryPath(Environment.getExternalStoragePublicDirectory(
-                                    Environment.DIRECTORY_PICTURES).getAbsolutePath())
-                            .compressToFile(imageFilePath);
-                    Log.e("ActivityTag", "imageFilePAth: " + compressedImage);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
+        if (requestCode != 1) {
+            return;
+        }
+        if (resultCode == -1) {
+            this.resultUri = result.getUri();
+            try {
+                this.bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), this.resultUri);
+                imageFilePath = FileUtil.from(this, this.resultUri);
+                this.img_userProfile.setImageResource(R.drawable.check_one);
+                this.isProduct = true;
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+         try {
+                compressedImage = new Compressor(this).setMaxWidth(640).setMaxHeight(480).setQuality(75).setCompressFormat(Bitmap.CompressFormat.WEBP).setDestinationDirectoryPath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath()).compressToFile(imageFilePath);
+                Log.e("ActivityTag", "imageFilePAth: " + compressedImage);
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                Toast.makeText(this, e2.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        } else if (resultCode == 204) {
+            result.getError();
         }
     }
-
-
 }

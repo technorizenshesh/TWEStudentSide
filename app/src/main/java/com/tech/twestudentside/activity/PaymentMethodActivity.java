@@ -1,17 +1,14 @@
 package com.tech.twestudentside.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.tech.twestudentside.R;
 
 public class PaymentMethodActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_method);
     }
@@ -22,7 +19,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
     }
 
     public void paymentMethodBtn(View view) {
-        startActivity(new Intent(PaymentMethodActivity.this,AddPaymentMethodsActivity.class));
+        startActivity(new Intent(this, AddPaymentMethodsActivity.class));
         finish();
     }
 }

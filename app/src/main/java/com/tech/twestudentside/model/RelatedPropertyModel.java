@@ -5,18 +5,18 @@ public class RelatedPropertyModel {
     String name;
 
     public int getImage() {
-        return image;
+        return this.image;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setImage(int image2) {
+        this.image = image2;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name2) {
+        this.name = name2;
     }
 }

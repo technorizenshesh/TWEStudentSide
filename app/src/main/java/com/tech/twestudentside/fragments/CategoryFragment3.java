@@ -1,25 +1,20 @@
 package com.tech.twestudentside.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.tech.twestudentside.Preference;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.tech.twestudentside.R;
+import com.tech.twestudentside.Preference;
 import com.tech.twestudentside.activity.UploadProfilePicActivity;
 import com.tech.twestudentside.adapter.tutor_subject_Adapter;
 import com.tech.twestudentside.listner.FragmentListener;
@@ -27,168 +22,90 @@ import com.tech.twestudentside.model.TutorSubjectDataModel;
 import com.tech.twestudentside.model.TutorSubjectMode;
 import com.tech.twestudentside.utils.RetrofitClients;
 import com.tech.twestudentside.utils.SessionManager;
-
 import java.util.ArrayList;
 import java.util.Objects;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CategoryFragment3 extends Fragment {
-
-    FragmentListener listener;
-
-    private SessionManager sessionManager;
-    private String android_id;
-    private ProgressBar progressBar;
-
     private LinearLayout LL_choose_sub;
-    private RecyclerView recycler_choose_subject;
+    private String android_id;
+    FragmentListener listener;
     tutor_subject_Adapter mAdapter;
-    private ArrayList<TutorSubjectDataModel> modelList = new ArrayList<>();
+    /* access modifiers changed from: private */
+    public ArrayList<TutorSubjectDataModel> modelList = new ArrayList<>();
+    /* access modifiers changed from: private */
+    public ProgressBar progressBar;
+    private RecyclerView recycler_choose_subject;
+    private SessionManager sessionManager;
 
-    public CategoryFragment3(FragmentListener listener) {
-        this.listener=listener;
+    public CategoryFragment3(FragmentListener listener2) {
+        this.listener = listener2;
     }
 
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_category3, container, false);
-
-       /* category_layoutcard3=view.findViewById(R.id.category_layoutcard3);
-        category_layoutcard3.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), UploadProfilePicActivity.class));
-                Objects.requireNonNull(getActivity()).finish();
-            }
-        });*/
-
-       // category_layoutcard3=view.findViewById(R.id.category_layoutcard3);
-        progressBar=view.findViewById(R.id.progressBar);
-        recycler_choose_subject=view.findViewById(R.id.recycler_choose_subject);
-         LL_choose_sub=view.findViewById(R.id.LL_choose_sub);
-        sessionManager = new SessionManager(getActivity());
-
-        modelList.clear();
-
-        LL_choose_sub.setOnClickListener(new View.OnClickListener() {
-            @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_category3, container, false);
+        this.progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        this.recycler_choose_subject = (RecyclerView) view.findViewById(R.id.recycler_choose_subject);
+        this.LL_choose_sub = (LinearLayout) view.findViewById(R.id.LL_choose_sub);
+        this.sessionManager = new SessionManager((Activity) getActivity());
+        this.modelList.clear();
+        this.LL_choose_sub.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                startActivity(new Intent(getActivity(), UploadProfilePicActivity.class));
-                Objects.requireNonNull(getActivity()).finish();
-
+                CategoryFragment3.this.startActivity(new Intent(CategoryFragment3.this.getActivity(), UploadProfilePicActivity.class));
+                ((FragmentActivity) Objects.requireNonNull(CategoryFragment3.this.getActivity())).finish();
             }
         });
-
-        /*category_layoutcard3.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), FeeCalculatorActivity.class));
-                Objects.requireNonNull(getActivity()).finish();
-            }
-        });*/
-
-        if (sessionManager.isNetworkAvailable()) {
-
-            //LL_submit.setEnabled(false);
-            progressBar.setVisibility(View.VISIBLE);
-
+        if (this.sessionManager.isNetworkAvailable()) {
+            this.progressBar.setVisibility(View.VISIBLE);
             tutorSubject();
-
-        }else {
-            Toast.makeText(getActivity(), R.string.checkInternet, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), R.string.checkInternet, Toast.LENGTH_LONG).show();
         }
-
-
         return view;
     }
 
-
     private void tutorSubject() {
-
-        String Category_id =  Preference.get(getActivity(),Preference.KEY_tutor_category_id);
-        String Sub_Category_id =  Preference.get(getActivity(),Preference.KEY_tutor_category_sub_id);
-
-        Call<TutorSubjectMode> call = RetrofitClients
-                .getInstance()
-                .getApi()
-                .get_tutor_subject(Category_id,Sub_Category_id);
-
-        call.enqueue(new Callback<TutorSubjectMode>() {
-            @Override
+        RetrofitClients.getInstance().getApi().get_tutor_subject(Preference.get(getActivity(), Preference.KEY_tutor_category_id), Preference.get(getActivity(), Preference.KEY_tutor_category_sub_id)).enqueue(new Callback<TutorSubjectMode>() {
             public void onResponse(Call<TutorSubjectMode> call, Response<TutorSubjectMode> response) {
-
                 try {
-
                     TutorSubjectMode finallyPr = response.body();
-
-                    progressBar.setVisibility(View.GONE);
-
-                    //JSONObject jsonObject = new JSONObject(response.body().string());
-
-                    String status   = finallyPr.getStatus ();
+                    CategoryFragment3.this.progressBar.setVisibility(View.GONE);
+                    String status = finallyPr.getStatus();
                     String message = finallyPr.getMessage();
-
                     if (status.equalsIgnoreCase("1")) {
-
-                        modelList = (ArrayList<TutorSubjectDataModel>) finallyPr.getResult();
-
-                        setAdapter(modelList);
-
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
-                        //LL_submit.setEnabled(true);
+                        ArrayList unused = CategoryFragment3.this.modelList = (ArrayList) finallyPr.getResult();
+                        CategoryFragment3.this.setAdapter(CategoryFragment3.this.modelList);
+                        Toast.makeText(CategoryFragment3.this.getActivity(), message, Toast.LENGTH_LONG).show();
+                        return;
                     }
-
+                    Toast.makeText(CategoryFragment3.this.getActivity(), message, Toast.LENGTH_LONG).show();
+                    CategoryFragment3.this.progressBar.setVisibility(View.GONE);
                 } catch (Exception e) {
                     e.printStackTrace();
-
                 }
             }
 
-            @Override
             public void onFailure(Call<TutorSubjectMode> call, Throwable t) {
-                progressBar.setVisibility(View.GONE);
-                //    LL_submit.setEnabled(true);
-                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                CategoryFragment3.this.progressBar.setVisibility(View.GONE);
+                Toast.makeText(CategoryFragment3.this.getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
-    private void setAdapter(ArrayList<TutorSubjectDataModel> modelList) {
-
-        mAdapter = new tutor_subject_Adapter(getActivity(), modelList);
-
-        recycler_choose_subject.setHasFixedSize(true);
-
-        // use a linear layout manager
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-
-        recycler_choose_subject.setLayoutManager(linearLayoutManager);
-
-        recycler_choose_subject.setAdapter(mAdapter);
-
-        mAdapter.SetOnItemClickListener(new tutor_subject_Adapter.OnItemClickListener() {
-            @Override
+    /* access modifiers changed from: private */
+    public void setAdapter(ArrayList<TutorSubjectDataModel> modelList2) {
+        this.mAdapter = new tutor_subject_Adapter(getActivity(), modelList2);
+        this.recycler_choose_subject.setHasFixedSize(true);
+        this.recycler_choose_subject.setLayoutManager(new LinearLayoutManager(getActivity()));
+        this.recycler_choose_subject.setAdapter(this.mAdapter);
+        this.mAdapter.SetOnItemClickListener(new tutor_subject_Adapter.OnItemClickListener() {
             public void onItemClick(View view, int position, TutorSubjectDataModel model) {
-
             }
         });
     }

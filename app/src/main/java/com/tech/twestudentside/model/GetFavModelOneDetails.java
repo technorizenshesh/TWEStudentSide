@@ -4,25 +4,92 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class GetFavModelOneDetails {
-
-    @SerializedName("id")
-    @Expose
-    private String id;
-    @SerializedName("user_id")
-    @Expose
-    private String userId;
-    @SerializedName("profile_image")
-    @Expose
-    private String profileImage;
     @SerializedName("about")
     @Expose
     private String about;
-    @SerializedName("location")
+    @SerializedName("affiliations")
     @Expose
-    private String location;
+    private String affiliations;
+    @SerializedName("award")
+    @Expose
+    private String award;
+    @SerializedName("certifiateimage")
+    @Expose
+    private String certifiateimage;
+    @SerializedName("certifiateimage2")
+    @Expose
+    private String certifiateimage2;
+    @SerializedName("certification")
+    @Expose
+    private String certification;
+    @SerializedName("check_status")
+    @Expose
+    private String checkStatus;
+    @SerializedName("date_time")
+    @Expose
+    private String dateTime;
     @SerializedName("dob")
     @Expose
     private String dob;
+    @SerializedName("education")
+    @Expose
+    private String education;
+    @SerializedName("end_time")
+    @Expose
+    private String endTime;
+    @SerializedName("friday")
+    @Expose
+    private String friday;
+    @SerializedName("full_course_time")
+    @Expose
+    private String fullCourseTime;
+    @SerializedName("gender")
+    @Expose
+    private String gender;
+    @SerializedName("id")
+    @Expose
+
+    /* renamed from: id */
+    private String f452id;
+    @SerializedName("language")
+    @Expose
+    private String language;
+    @SerializedName("location")
+    @Expose
+    private String location;
+    @SerializedName("monday")
+    @Expose
+    private String monday;
+    @SerializedName("per_hour_payment")
+    @Expose
+    private String perHourPayment;
+    @SerializedName("profile_image")
+    @Expose
+    private String profileImage;
+    @SerializedName("saturday")
+    @Expose
+    private String saturday;
+    @SerializedName("start_time")
+    @Expose
+    private String startTime;
+    @SerializedName("sunday")
+    @Expose
+    private String sunday;
+    @SerializedName("teach_distance")
+    @Expose
+    private String teachDistance;
+    @SerializedName("thursday")
+    @Expose
+    private String thursday;
+    @SerializedName("time_slot")
+    @Expose
+    private String timeSlot;
+    @SerializedName("time_zone")
+    @Expose
+    private String timeZone;
+    @SerializedName("tuesday")
+    @Expose
+    private String tuesday;
     @SerializedName("tutorcategory")
     @Expose
     private String tutorcategory;
@@ -32,357 +99,285 @@ public class GetFavModelOneDetails {
     @SerializedName("tutorsubject")
     @Expose
     private String tutorsubject;
-    @SerializedName("education")
+    @SerializedName("user_id")
     @Expose
-    private String education;
-    @SerializedName("gender")
-    @Expose
-    private String gender;
-    @SerializedName("language")
-    @Expose
-    private String language;
-    @SerializedName("award")
-    @Expose
-    private String award;
-    @SerializedName("certification")
-    @Expose
-    private String certification;
-    @SerializedName("certifiateimage")
-    @Expose
-    private String certifiateimage;
-    @SerializedName("certifiateimage2")
-    @Expose
-    private String certifiateimage2;
-    @SerializedName("affiliations")
-    @Expose
-    private String affiliations;
-    @SerializedName("where_to_teach")
-    @Expose
-    private String whereToTeach;
-    @SerializedName("teach_distance")
-    @Expose
-    private String teachDistance;
-    @SerializedName("start_time")
-    @Expose
-    private String startTime;
-    @SerializedName("end_time")
-    @Expose
-    private String endTime;
-    @SerializedName("time_slot")
-    @Expose
-    private String timeSlot;
-    @SerializedName("time_zone")
-    @Expose
-    private String timeZone;
-    @SerializedName("monday")
-    @Expose
-    private String monday;
-    @SerializedName("tuesday")
-    @Expose
-    private String tuesday;
+    private String userId;
     @SerializedName("wednesday")
     @Expose
     private String wednesday;
-    @SerializedName("thursday")
+    @SerializedName("where_to_teach")
     @Expose
-    private String thursday;
-    @SerializedName("friday")
-    @Expose
-    private String friday;
-    @SerializedName("saturday")
-    @Expose
-    private String saturday;
-    @SerializedName("sunday")
-    @Expose
-    private String sunday;
-    @SerializedName("per_hour_payment")
-    @Expose
-    private String perHourPayment;
-    @SerializedName("full_course_time")
-    @Expose
-    private String fullCourseTime;
-    @SerializedName("check_status")
-    @Expose
-    private String checkStatus;
-    @SerializedName("date_time")
-    @Expose
-    private String dateTime;
+    private String whereToTeach;
 
     public String getId() {
-        return id;
+        return this.f452id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.f452id = id;
     }
 
     public String getUserId() {
-        return userId;
+        return this.userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserId(String userId2) {
+        this.userId = userId2;
     }
 
     public String getProfileImage() {
-        return profileImage;
+        return this.profileImage;
     }
 
-    public void setProfileImage(String profileImage) {
-        this.profileImage = profileImage;
+    public void setProfileImage(String profileImage2) {
+        this.profileImage = profileImage2;
     }
 
     public String getAbout() {
-        return about;
+        return this.about;
     }
 
-    public void setAbout(String about) {
-        this.about = about;
+    public void setAbout(String about2) {
+        this.about = about2;
     }
 
     public String getLocation() {
-        return location;
+        return this.location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation(String location2) {
+        this.location = location2;
     }
 
     public String getDob() {
-        return dob;
+        return this.dob;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDob(String dob2) {
+        this.dob = dob2;
     }
 
     public String getTutorcategory() {
-        return tutorcategory;
+        return this.tutorcategory;
     }
 
-    public void setTutorcategory(String tutorcategory) {
-        this.tutorcategory = tutorcategory;
+    public void setTutorcategory(String tutorcategory2) {
+        this.tutorcategory = tutorcategory2;
     }
 
     public String getTutorsubcategory() {
-        return tutorsubcategory;
+        return this.tutorsubcategory;
     }
 
-    public void setTutorsubcategory(String tutorsubcategory) {
-        this.tutorsubcategory = tutorsubcategory;
+    public void setTutorsubcategory(String tutorsubcategory2) {
+        this.tutorsubcategory = tutorsubcategory2;
     }
 
     public String getTutorsubject() {
-        return tutorsubject;
+        return this.tutorsubject;
     }
 
-    public void setTutorsubject(String tutorsubject) {
-        this.tutorsubject = tutorsubject;
+    public void setTutorsubject(String tutorsubject2) {
+        this.tutorsubject = tutorsubject2;
     }
 
     public String getEducation() {
-        return education;
+        return this.education;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    public void setEducation(String education2) {
+        this.education = education2;
     }
 
     public String getGender() {
-        return gender;
+        return this.gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGender(String gender2) {
+        this.gender = gender2;
     }
 
     public String getLanguage() {
-        return language;
+        return this.language;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguage(String language2) {
+        this.language = language2;
     }
 
     public String getAward() {
-        return award;
+        return this.award;
     }
 
-    public void setAward(String award) {
-        this.award = award;
+    public void setAward(String award2) {
+        this.award = award2;
     }
 
     public String getCertification() {
-        return certification;
+        return this.certification;
     }
 
-    public void setCertification(String certification) {
-        this.certification = certification;
+    public void setCertification(String certification2) {
+        this.certification = certification2;
     }
 
     public String getCertifiateimage() {
-        return certifiateimage;
+        return this.certifiateimage;
     }
 
-    public void setCertifiateimage(String certifiateimage) {
-        this.certifiateimage = certifiateimage;
+    public void setCertifiateimage(String certifiateimage3) {
+        this.certifiateimage = certifiateimage3;
     }
 
     public String getCertifiateimage2() {
-        return certifiateimage2;
+        return this.certifiateimage2;
     }
 
-    public void setCertifiateimage2(String certifiateimage2) {
-        this.certifiateimage2 = certifiateimage2;
+    public void setCertifiateimage2(String certifiateimage22) {
+        this.certifiateimage2 = certifiateimage22;
     }
 
     public String getAffiliations() {
-        return affiliations;
+        return this.affiliations;
     }
 
-    public void setAffiliations(String affiliations) {
-        this.affiliations = affiliations;
+    public void setAffiliations(String affiliations2) {
+        this.affiliations = affiliations2;
     }
 
     public String getWhereToTeach() {
-        return whereToTeach;
+        return this.whereToTeach;
     }
 
-    public void setWhereToTeach(String whereToTeach) {
-        this.whereToTeach = whereToTeach;
+    public void setWhereToTeach(String whereToTeach2) {
+        this.whereToTeach = whereToTeach2;
     }
 
     public String getTeachDistance() {
-        return teachDistance;
+        return this.teachDistance;
     }
 
-    public void setTeachDistance(String teachDistance) {
-        this.teachDistance = teachDistance;
+    public void setTeachDistance(String teachDistance2) {
+        this.teachDistance = teachDistance2;
     }
 
     public String getStartTime() {
-        return startTime;
+        return this.startTime;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setStartTime(String startTime2) {
+        this.startTime = startTime2;
     }
 
     public String getEndTime() {
-        return endTime;
+        return this.endTime;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setEndTime(String endTime2) {
+        this.endTime = endTime2;
     }
 
     public String getTimeSlot() {
-        return timeSlot;
+        return this.timeSlot;
     }
 
-    public void setTimeSlot(String timeSlot) {
-        this.timeSlot = timeSlot;
+    public void setTimeSlot(String timeSlot2) {
+        this.timeSlot = timeSlot2;
     }
 
     public String getTimeZone() {
-        return timeZone;
+        return this.timeZone;
     }
 
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
+    public void setTimeZone(String timeZone2) {
+        this.timeZone = timeZone2;
     }
 
     public String getMonday() {
-        return monday;
+        return this.monday;
     }
 
-    public void setMonday(String monday) {
-        this.monday = monday;
+    public void setMonday(String monday2) {
+        this.monday = monday2;
     }
 
     public String getTuesday() {
-        return tuesday;
+        return this.tuesday;
     }
 
-    public void setTuesday(String tuesday) {
-        this.tuesday = tuesday;
+    public void setTuesday(String tuesday2) {
+        this.tuesday = tuesday2;
     }
 
     public String getWednesday() {
-        return wednesday;
+        return this.wednesday;
     }
 
-    public void setWednesday(String wednesday) {
-        this.wednesday = wednesday;
+    public void setWednesday(String wednesday2) {
+        this.wednesday = wednesday2;
     }
 
     public String getThursday() {
-        return thursday;
+        return this.thursday;
     }
 
-    public void setThursday(String thursday) {
-        this.thursday = thursday;
+    public void setThursday(String thursday2) {
+        this.thursday = thursday2;
     }
 
     public String getFriday() {
-        return friday;
+        return this.friday;
     }
 
-    public void setFriday(String friday) {
-        this.friday = friday;
+    public void setFriday(String friday2) {
+        this.friday = friday2;
     }
 
     public String getSaturday() {
-        return saturday;
+        return this.saturday;
     }
 
-    public void setSaturday(String saturday) {
-        this.saturday = saturday;
+    public void setSaturday(String saturday2) {
+        this.saturday = saturday2;
     }
 
     public String getSunday() {
-        return sunday;
+        return this.sunday;
     }
 
-    public void setSunday(String sunday) {
-        this.sunday = sunday;
+    public void setSunday(String sunday2) {
+        this.sunday = sunday2;
     }
 
     public String getPerHourPayment() {
-        return perHourPayment;
+        return this.perHourPayment;
     }
 
-    public void setPerHourPayment(String perHourPayment) {
-        this.perHourPayment = perHourPayment;
+    public void setPerHourPayment(String perHourPayment2) {
+        this.perHourPayment = perHourPayment2;
     }
 
     public String getFullCourseTime() {
-        return fullCourseTime;
+        return this.fullCourseTime;
     }
 
-    public void setFullCourseTime(String fullCourseTime) {
-        this.fullCourseTime = fullCourseTime;
+    public void setFullCourseTime(String fullCourseTime2) {
+        this.fullCourseTime = fullCourseTime2;
     }
 
     public String getCheckStatus() {
-        return checkStatus;
+        return this.checkStatus;
     }
 
-    public void setCheckStatus(String checkStatus) {
-        this.checkStatus = checkStatus;
+    public void setCheckStatus(String checkStatus2) {
+        this.checkStatus = checkStatus2;
     }
 
     public String getDateTime() {
-        return dateTime;
+        return this.dateTime;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setDateTime(String dateTime2) {
+        this.dateTime = dateTime2;
     }
-
-
 }
-
-
-
-

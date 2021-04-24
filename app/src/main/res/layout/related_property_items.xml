@@ -1,150 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rechtengalshap">
-
-
-
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/icon"
-            android:layout_width="@dimen/margin_170"
-            android:layout_height="135dp"
-            android:scaleType="fitXY"
-            android:layout_gravity="center"
-            app:riv_corner_radius_top_left="10dip"
-            app:riv_corner_radius_top_right="10dip"
-            app:riv_mutate_background="true"
-            android:src="@drawable/math"/>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY"
-                android:padding="@dimen/margin_10"
-                android:src="@drawable/available"/>
-
-
-
-            <ImageView
-                android:layout_width="@dimen/margin_25"
-                android:layout_height="@dimen/margin_25"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="@dimen/margin_35"
-                android:src="@drawable/heart"
-                />
-
-
-
-
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <RelativeLayout android:background="@drawable/rechtengalshap" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.makeramen.roundedimageview.RoundedImageView android:layout_gravity="center" android:id="@+id/icon" android:layout_width="@dimen/margin_170" android:layout_height="135dp" android:src="@drawable/math" android:scaleType="fitXY" app:riv_corner_radius_top_left="10dp" app:riv_corner_radius_top_right="10dp" app:riv_mutate_background="true"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:padding="@dimen/margin_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/available" android:scaleType="fitXY"/>
+            <ImageView android:layout_width="@dimen/margin_25" android:layout_height="@dimen/margin_25" android:layout_marginLeft="@dimen/margin_35" android:layout_marginTop="8dp" android:src="@drawable/heart"/>
         </LinearLayout>
-
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/margin_5"
-            android:layout_marginTop="@dimen/margin_125"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/recomnd_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Recomended"
-                android:padding="@dimen/margin_3">
-
-            </TextView>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/icon_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Neil Woods "
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorBlack"
-                    android:padding="@dimen/margin_3">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/recomnd_sellprice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$750/m"
-                    android:textColor="@color/red"
-                    android:layout_marginLeft="@dimen/margin_20"
-                    android:padding="@dimen/margin_3">
-
-                </TextView>
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/margin_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_125">
+            <TextView android:id="@+id/recomnd_name" android:padding="@dimen/margin_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Recomended"/>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="15sp" android:textStyle="bold" android:textColor="@color/colorBlack" android:id="@+id/icon_name" android:padding="@dimen/margin_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Neil Woods "/>
+                <TextView android:textColor="@color/red" android:id="@+id/recomnd_sellprice" android:padding="@dimen/margin_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:text="$750/m"/>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RatingBar
-                    android:id="@+id/MyRating"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:isIndicator="true"
-                    android:layout_gravity="center_vertical"
-                    android:rating="4"
-                    android:progressTint="@color/color_yellow"
-                    android:numStars="5"
-                    android:stepSize="0.1" />
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5.0(44)"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginLeft="@dimen/margin_20"
-                    android:gravity="start" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <RatingBar android:layout_gravity="center_vertical" android:id="@+id/MyRating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:rating="4" android:stepSize="0.1" android:isIndicator="true" android:progressTint="@color/color_yellow" style="?android:attr/ratingBarStyleSmall"/>
+                <TextView android:textColor="@color/colorBlack" android:gravity="start" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_20" android:text="5.0(44)" android:textAlignment="textStart"/>
             </LinearLayout>
-
         </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
     </RelativeLayout>
-
 </RelativeLayout>

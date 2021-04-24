@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    android:fitsSystemWindows="true"
-    tools:context=".activity.TrandingActivity">
+    android:fitsSystemWindows="true">
 
     <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_centerInParent="true"
-        android:id="@+id/progressBar"
         android:background="@drawable/progresh_background"
         android:elevation="6dp"
-        android:padding="5dp"
         android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
         android:indeterminateTint="@color/colorPrimary"
-        android:visibility="gone"/>
+        android:indeterminateTintMode="src_atop"
+        android:padding="5dp"
+        android:visibility="gone" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -32,12 +32,10 @@
             android:layout_marginBottom="@dimen/margin_50"
             android:orientation="vertical">
 
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true">
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -54,7 +52,6 @@
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:src="@drawable/back" />
-
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -78,7 +75,6 @@
                         android:padding="@dimen/margin_5"
                         android:scaleType="fitCenter" />
 
-
                     <ImageView
                         android:layout_width="@dimen/margin_40"
                         android:layout_height="@dimen/margin_40"
@@ -89,7 +85,6 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/call1" />
 
-
                     <ImageView
                         android:layout_width="@dimen/margin_40"
                         android:layout_height="@dimen/margin_40"
@@ -98,21 +93,17 @@
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:src="@drawable/msg" />
-
-
                 </LinearLayout>
-
             </RelativeLayout>
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/profile_img"
                     android:layout_width="@dimen/margin_150"
                     android:layout_height="@dimen/margin_150"
-                    android:id="@+id/profile_img"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:src="@drawable/home_banner3" />
@@ -126,7 +117,6 @@
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:src="@drawable/available" />
-
             </RelativeLayout>
 
             <LinearLayout
@@ -138,7 +128,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:paddingTop="@dimen/margin_10">
-
 
                 <TextView
                     android:id="@+id/txt_tutor_name"
@@ -170,7 +159,6 @@
                         android:rating="4"
                         android:stepSize="0.1" />
 
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -187,7 +175,6 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:orientation="horizontal">
-
 
                     <TextView
                         android:id="@+id/txt_year_count"
@@ -207,7 +194,6 @@
                         android:layout_marginLeft="@dimen/margin_22"
                         android:src="@drawable/bg_point_circle" />
 
-
                     <TextView
                         android:id="@+id/distance"
                         android:layout_width="wrap_content"
@@ -215,10 +201,9 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/margin_10"
                         android:gravity="center"
-                        android:text="2Km away"
+                        android:text="0 Km"
                         android:textColor="@color/edit_darkBlue"
                         android:textSize="@dimen/textsize14" />
-
 
                     <ImageView
                         android:layout_width="@dimen/padding_8"
@@ -226,7 +211,6 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/margin_22"
                         android:src="@drawable/bg_point_circle" />
-
 
                     <TextView
                         android:id="@+id/txt_gender"
@@ -238,8 +222,6 @@
                         android:text="Female"
                         android:textColor="@color/edit_darkBlue"
                         android:textSize="@dimen/textsize14" />
-
-
                 </LinearLayout>
 
                 <TextView
@@ -248,14 +230,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="\u20B9750"
+                    android:text="₹750"
                     android:textColor="@color/color_txtBlue"
                     android:textSize="@dimen/textsize_20"
                     android:textStyle="bold" />
-
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -279,7 +258,6 @@
                         android:layout_margin="@dimen/margin_15"
                         android:orientation="vertical">
 
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -290,10 +268,11 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/txt_abouts"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="start"
-                            android:text="@string/olvia_parker"
+                            android:text=""
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/textsize_16" />
 
@@ -308,13 +287,11 @@
                             android:text="Read More"
                             android:textColor="@color/red"
                             android:textSize="@dimen/textsize_15"
-                            android:textStyle="bold" />
-
-
+                            android:textStyle="bold"
+                            android:visibility="gone" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -340,7 +317,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-
                     <ImageView
                         android:layout_width="@dimen/margin_25"
                         android:layout_height="@dimen/margin_25"
@@ -352,6 +328,7 @@
                         app:tint="@color/red" />
 
                     <TextView
+                        android:id="@+id/txt_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -359,12 +336,9 @@
                         android:gravity="center"
                         android:text="Brooklyn, New York, USA"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/textsize_20"
+                        android:textSize="@dimen/margin_16"
                         android:textStyle="bold" />
-
-
                 </LinearLayout>
-
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -381,21 +355,28 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+                        <fragment
+                            android:id="@+id/map"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_gravity="center_horizontal"
                             android:padding="@dimen/margin_5"
-                            android:src="@drawable/map_file" />
-
+                            android:src="@drawable/map_file"
+                            android:visibility="gone" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <ImageView
                                 android:layout_width="@dimen/margin_80"
@@ -403,24 +384,17 @@
                                 android:onClick="MapOpenInit"
                                 android:padding="@dimen/margin_10"
                                 android:src="@drawable/yellow_map" />
-
-
                         </LinearLayout>
-
-
                     </RelativeLayout>
-
-
                 </androidx.cardview.widget.CardView>
-
-
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -446,9 +420,7 @@
                     android:text="View All"
                     android:textColor="@color/red"
                     android:textSize="@dimen/textsize_15" />
-
             </RelativeLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -456,7 +428,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:onClick="PhotoGalleryInit"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -471,8 +444,6 @@
                         android:onClick="PhotoGalleryInit"
                         android:src="@drawable/new_one"
                         app:riv_corner_radius="@dimen/margin_10" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -488,7 +459,6 @@
                         android:onClick="PhotoGalleryInit"
                         android:orientation="horizontal">
 
-
                         <com.makeramen.roundedimageview.RoundedImageView
                             android:layout_width="@dimen/margin_80"
                             android:layout_height="@dimen/margin_80"
@@ -496,16 +466,13 @@
                             android:src="@drawable/new_one"
                             app:riv_corner_radius="@dimen/margin_10" />
 
-
                         <com.makeramen.roundedimageview.RoundedImageView
                             android:layout_width="@dimen/margin_80"
                             android:layout_height="@dimen/margin_80"
                             android:onClick="PhotoGalleryInit"
                             android:src="@drawable/new_one"
                             app:riv_corner_radius="@dimen/margin_10" />
-
                     </LinearLayout>
-
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -514,7 +481,6 @@
                         android:onClick="PhotoGalleryInit"
                         android:orientation="horizontal">
 
-
                         <com.makeramen.roundedimageview.RoundedImageView
                             android:layout_width="@dimen/margin_80"
                             android:layout_height="@dimen/margin_80"
@@ -528,15 +494,9 @@
                             android:onClick="PhotoGalleryInit"
                             android:src="@drawable/new_one"
                             app:riv_corner_radius="@dimen/margin_10" />
-
-
                     </LinearLayout>
-
                 </LinearLayout>
-
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -544,7 +504,6 @@
                 android:background="@drawable/edit_background"
                 android:orientation="horizontal"
                 android:padding="@dimen/textsize_15">
-
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -569,16 +528,13 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14dp" />
 
-
                 <ImageView
-                    android:visibility="gone"
                     android:layout_width="@dimen/margin_15"
                     android:layout_height="@dimen/textsize_15"
                     android:layout_gravity="center"
-                    android:src="@drawable/drop_down" />
-
+                    android:src="@drawable/drop_down"
+                    android:visibility="gone" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -586,7 +542,6 @@
                 android:background="@drawable/edit_background"
                 android:orientation="horizontal"
                 android:padding="@dimen/textsize_15">
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -599,8 +554,8 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14dp" />
 
-     <TextView
-         android:id="@+id/txt_Education"
+                <TextView
+                    android:id="@+id/txt_Education"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -611,16 +566,13 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14dp" />
 
-
                 <ImageView
-                    android:visibility="gone"
                     android:layout_width="@dimen/margin_15"
                     android:layout_height="@dimen/textsize_15"
                     android:layout_gravity="center"
-                    android:src="@drawable/drop_down" />
-
+                    android:src="@drawable/drop_down"
+                    android:visibility="gone" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -628,7 +580,6 @@
                 android:background="@drawable/edit_background"
                 android:orientation="horizontal"
                 android:padding="@dimen/textsize_15">
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -641,8 +592,8 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14dp" />
 
- <TextView
-     android:id="@+id/txt_Language"
+                <TextView
+                    android:id="@+id/txt_Language"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -653,16 +604,13 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14dp" />
 
-
                 <ImageView
-                    android:visibility="gone"
                     android:layout_width="@dimen/margin_15"
                     android:layout_height="@dimen/textsize_15"
                     android:layout_gravity="center"
-                    android:src="@drawable/drop_down" />
-
+                    android:src="@drawable/drop_down"
+                    android:visibility="gone" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -670,7 +618,6 @@
                 android:background="@drawable/edit_background"
                 android:orientation="horizontal"
                 android:padding="@dimen/textsize_15">
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -695,16 +642,13 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14dp" />
 
-
                 <ImageView
-                    android:visibility="gone"
                     android:layout_width="@dimen/margin_15"
                     android:layout_height="@dimen/textsize_15"
                     android:layout_gravity="center"
-                    android:src="@drawable/drop_down" />
-
+                    android:src="@drawable/drop_down"
+                    android:visibility="gone" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -712,7 +656,6 @@
                 android:background="@drawable/edit_background"
                 android:orientation="horizontal"
                 android:padding="@dimen/textsize_15">
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -737,14 +680,12 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14dp" />
 
-
                 <ImageView
-                    android:visibility="gone"
                     android:layout_width="@dimen/margin_15"
                     android:layout_height="@dimen/textsize_15"
                     android:layout_gravity="center"
-                    android:src="@drawable/drop_down" />
-
+                    android:src="@drawable/drop_down"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <RelativeLayout
@@ -777,9 +718,7 @@
                     android:text="View All"
                     android:textColor="@color/red"
                     android:textSize="@dimen/textsize_15" />
-
             </RelativeLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -820,10 +759,7 @@
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:src="@drawable/men" />
-
-
                             </LinearLayout>
-
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -832,42 +768,34 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-
-
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingLeft="10dp"
-                                    android:text="Watson Dan Micheal"
-                                    android:textColor="@color/colorBlack"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold" />
-
-
-
-
-
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingLeft="10dp"
+                                        android:text="Watson Dan Micheal"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
                                 </LinearLayout>
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingLeft="10dp"
-                                    android:paddingTop="@dimen/margin_5"
-                                    android:text="Villa Owner"
-                                    android:textColor="@color/colorBlack"
-                                    android:textSize="14sp" />
-
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingLeft="10dp"
+                                        android:paddingTop="@dimen/margin_5"
+                                        android:text="Villa Owner"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="14sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -877,8 +805,6 @@
                                         android:text="24 years"
                                         android:textColor="@color/colorGray"
                                         android:textSize="14sp" />
-
-
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -899,7 +825,6 @@
                                         android:rating="4"
                                         android:stepSize="0.1" />
 
-
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -909,13 +834,8 @@
                                         android:textAlignment="textStart"
                                         android:textColor="@color/colorBlack" />
                                 </LinearLayout>
-
-
                             </LinearLayout>
-
-
                         </LinearLayout>
-
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -924,16 +844,9 @@
                             android:text="@string/lorem_ipsum"
                             android:textColor="@color/colorGray"
                             android:textSize="@dimen/textsize_16" />
-
-
                     </LinearLayout>
-
-
                 </androidx.cardview.widget.CardView>
-
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="@dimen/margin_190"
@@ -946,7 +859,6 @@
                 android:onClick="lessonInitTranding"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -958,8 +870,6 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/textsize13"
                     android:textStyle="bold" />
-
-
             </LinearLayout>
 
             <TextView
@@ -970,12 +880,9 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:layout_weight="1"
                 android:text="Related Tutors"
-                android:textAlignment="textStart"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/textsize_16"
-                android:textStyle="bold"
-                tools:ignore="RtlCompat" />
-
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -983,8 +890,20 @@
                 android:layout_margin="@dimen/textsize_20"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/txt_empty_tutor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="No Tutors"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textsize_15"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
 
-                <!--Recycler View widget-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_viewTranding2"
                     android:layout_width="wrap_content"
@@ -992,17 +911,9 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="@dimen/margin_15"
-                    android:scrollbars="horizontal" />
-
-
+                    android:scrollbars="horizontal"
+                    android:visibility="gone" />
             </LinearLayout>
-
-
         </LinearLayout>
-
-
     </androidx.core.widget.NestedScrollView>
-
-
 </RelativeLayout>
-
