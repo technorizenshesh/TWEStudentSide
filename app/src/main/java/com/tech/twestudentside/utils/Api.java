@@ -1,5 +1,6 @@
 package com.tech.twestudentside.utils;
 
+import com.tech.twestudentside.model.BookingHistory;
 import com.tech.twestudentside.model.ChatConversation;
 import com.tech.twestudentside.model.GetCalculaterModel;
 import com.tech.twestudentside.model.GetChat;
@@ -81,6 +82,12 @@ public interface Api {
     @FormUrlEncoded
     @POST("get_address")
     Call<getAddress> get_address(@Field("user_id") String str);
+
+    @FormUrlEncoded
+    @POST("booking_history")
+    Call<BookingHistory> booking_history(
+            @Field("student_id") String student_id
+    );
 
     @FormUrlEncoded
     @POST("get_chat")

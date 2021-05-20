@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tech.twestudentside.R;
+import com.tech.twestudentside.model.BookingHistoryModel;
 import com.tech.twestudentside.model.BookingHistoryStatusModel;
 
 
@@ -27,16 +28,16 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
     private Button btn_yes;
     private Context mContext;
     private AlertDialog alertDialog;
-    private ArrayList<BookingHistoryStatusModel> modelList;
+    private ArrayList<BookingHistoryModel> modelList;
     private OnItemClickListener mItemClickListener;
     private View promptsView;
 
-    public BookingHistoryRecyclerViewAdapter(Context context, ArrayList<BookingHistoryStatusModel> modelList) {
+    public BookingHistoryRecyclerViewAdapter(Context context, ArrayList<BookingHistoryModel> modelList) {
         this.mContext = context;
         this.modelList = modelList;
     }
 
-    public void updateList(ArrayList<BookingHistoryStatusModel> modelList) {
+    public void updateList(ArrayList<BookingHistoryModel> modelList) {
         this.modelList = modelList;
         notifyDataSetChanged();
     }
@@ -51,13 +52,17 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         //Here you can fill your row view
         if (holder instanceof ViewHolder) {
-            final BookingHistoryStatusModel model = getItem(position);
+            final BookingHistoryModel model = getItem(position);
             final ViewHolder genericViewHolder = (ViewHolder) holder;
 
-           /* genericViewHolder.tutor_name.setText(model.getName());
+            genericViewHolder.tutor_name.setText(model.getTutorDetails().getUsername());
+            genericViewHolder.tutor_distance.setText(model.getTutorDetails().getTeachDistance());
+            genericViewHolder.tutor_gender.setText(model.getTutorDetails().getGender());
+            genericViewHolder.tutor_Status.setText(model.getStatus());
+
+           /*
             genericViewHolder.tutor_Old_year.setText(model.getName());
-            genericViewHolder.tutor_distance.setText(model.getName());
-            genericViewHolder.tutor_gender.setText(model.getName());
+
             genericViewHolder.txt_address.setText(model.getName());*/
 
         }
@@ -74,14 +79,14 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
         this.mItemClickListener = mItemClickListener;
     }
 
-    private BookingHistoryStatusModel getItem(int position) {
+    private BookingHistoryModel getItem(int position) {
         return modelList.get(position);
     }
 
 
     public interface OnItemClickListener {
 
-        void onItemClick(View view, int position, BookingHistoryStatusModel model);
+        void onItemClick(View view, int position, BookingHistoryModel model);
 
     }
 
@@ -91,7 +96,7 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
         private TextView tutor_Old_year;
         private TextView tutor_distance;
         private TextView tutor_gender;
-        private TextView txt_address;
+        private TextView tutor_Status;
 
 
         public ViewHolder(final View itemView) {
@@ -101,7 +106,7 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
             this.tutor_Old_year=itemView.findViewById(R.id.tutor_Old_year);
             this.tutor_distance=itemView.findViewById(R.id.tutor_distance);
             this.tutor_gender=itemView.findViewById(R.id.tutor_gender);
-            this.txt_address=itemView.findViewById(R.id.txt_address);
+            this.tutor_Status=itemView.findViewById(R.id.tutor_Status);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

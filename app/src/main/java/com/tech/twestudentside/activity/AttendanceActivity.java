@@ -14,6 +14,7 @@ import com.tech.twestudentside.fragments.WeeklyAttendanceFragment;
 import com.tech.twestudentside.listner.FragmentListener;
 
 public class AttendanceActivity extends AppCompatActivity implements FragmentListener, View.OnClickListener {
+
     TextView daily_TabtxtId;
     FrameLayout frameLayoutAttendance;
     TextView monthly_TabtxtId;
@@ -22,7 +23,7 @@ public class AttendanceActivity extends AppCompatActivity implements FragmentLis
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.activity_attendance);
+        setContentView(R.layout.activity_attendance);
         this.frameLayoutAttendance = (FrameLayout) findViewById(R.id.frameLayout_attendance);
         loadFragment(new DailyAttendanceFragment(this));
         this.daily_TabtxtId = (TextView) findViewById(R.id.daily_TabtxtId);

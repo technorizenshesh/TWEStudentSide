@@ -36,10 +36,10 @@ public class ForgetPassword extends AppCompatActivity {
     private SessionManager sessionManager;
     private TextView txt_login;
 
-    /* access modifiers changed from: protected */
+    /*  */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) R.layout.activity_forget_password);
+        setContentView(R.layout.activity_forget_password);
         this.android_id = Settings.Secure.getString(getContentResolver(), "android_id");
         setUi();
     }
