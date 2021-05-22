@@ -25,6 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FavouriteFragment extends Fragment {
+
     FragmentListener listener;
     GetFav_Adapter mAdapter;
     ArrayList<GetFavModelOne> modelList = new ArrayList<>();
@@ -70,7 +71,10 @@ public class FavouriteFragment extends Fragment {
     }
 
     public void getFavApi() {
-        RetrofitClients.getInstance().getApi().get_fav(Preference.get(getActivity(), Preference.KEY_USER_ID)).enqueue(new Callback<GetFavModel>() {
+
+       String UserId = Preference.get(getActivity(), Preference.KEY_USER_ID);
+
+        RetrofitClients.getInstance().getApi().get_fav(UserId).enqueue(new Callback<GetFavModel>() {
             public void onResponse(Call<GetFavModel> call, Response<GetFavModel> response) {
                 try {
                     GetFavModel finallyPr = response.body();

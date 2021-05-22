@@ -2,16 +2,20 @@ package com.tech.twestudentside.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tech.twestudentside.PaymentGetway.PaymentCashFreeActivity;
 import com.tech.twestudentside.R;
+import com.tech.twestudentside.activity.ChoosePaymentActivity;
 import com.tech.twestudentside.model.BookingHistoryModel;
 import com.tech.twestudentside.model.BookingHistoryStatusModel;
 
@@ -58,7 +62,26 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
             genericViewHolder.tutor_name.setText(model.getTutorDetails().getUsername());
             genericViewHolder.tutor_distance.setText(model.getTutorDetails().getTeachDistance());
             genericViewHolder.tutor_gender.setText(model.getTutorDetails().getGender());
+
             genericViewHolder.tutor_Status.setText(model.getStatus());
+
+            if (model.getStatus().equalsIgnoreCase("Accept"))
+            {
+                genericViewHolder.LL_Payment.setVisibility(View.VISIBLE);
+
+            }else
+            {
+                genericViewHolder.LL_Payment.setVisibility(View.GONE);
+            }
+
+            genericViewHolder.LL_Payment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    mContext.startActivity(new Intent(mContext, ChoosePaymentActivity.class));
+                }
+            });
+
 
            /*
             genericViewHolder.tutor_Old_year.setText(model.getName());
@@ -97,6 +120,7 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
         private TextView tutor_distance;
         private TextView tutor_gender;
         private TextView tutor_Status;
+        private LinearLayout LL_Payment;
 
 
         public ViewHolder(final View itemView) {
@@ -107,6 +131,7 @@ public class BookingHistoryRecyclerViewAdapter extends RecyclerView.Adapter<Recy
             this.tutor_distance=itemView.findViewById(R.id.tutor_distance);
             this.tutor_gender=itemView.findViewById(R.id.tutor_gender);
             this.tutor_Status=itemView.findViewById(R.id.tutor_Status);
+            this.LL_Payment=itemView.findViewById(R.id.LL_Payment);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

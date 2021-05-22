@@ -175,6 +175,21 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("tutor_booking")
-    Call<ResponseBody> tutor_booking(@Field("tutor_id") String str, @Field("student_id") String str2, @Field("reserve_type") String str3, @Field("monday") String str4, @Field("tuesday") String str5, @Field("wednesday") String str6, @Field("thursday") String str7, @Field("friday") String str8, @Field("saturday") String str9, @Field("sunday") String str10, @Field("timezone") String str11, @Field("startdate") String str12, @Field("pakage_type") String str13, @Field("totalprice") String str14, @Field("payment_type") String str15);
+    Call<ResponseBody> tutor_booking(
+            @Field("tutor_id") String str,
+            @Field("student_id") String str2,
+            @Field("reserve_type") String str3,
+            @Field("monday") String str4,
+            @Field("tuesday") String str5,
+            @Field("wednesday") String str6,
+            @Field("thursday") String str7,
+            @Field("friday") String str8,
+            @Field("saturday") String str9,
+            @Field("sunday") String str10,
+            @Field("timezone") String str11,
+            @Field("startdate") String str12,
+            @Field("pakage_type") String str13,
+            @Field("totalprice") String str14,
+            @Field("payment_type") String str15);
 
 }

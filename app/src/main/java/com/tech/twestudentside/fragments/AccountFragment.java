@@ -27,6 +27,7 @@ import com.tech.twestudentside.utils.Api;
 import com.tech.twestudentside.utils.SessionManager;
 
 public class AccountFragment extends Fragment implements View.OnClickListener {
+
     ImageView iv_back;
     LinearLayout layout_walletId;
     FragmentListener listener;

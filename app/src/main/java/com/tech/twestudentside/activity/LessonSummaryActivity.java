@@ -27,6 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LessonSummaryActivity extends AppCompatActivity {
+
     String PaymentType = "cash";
     /* access modifiers changed from: private */
     public AlertDialog alertDialog;
@@ -146,6 +147,7 @@ public class LessonSummaryActivity extends AppCompatActivity {
                     LessonSummaryActivity.this.result = jsonObject.getString("result");
                     if (status.equalsIgnoreCase("1")) {
                         LessonSummaryActivity.this.startActivity(new Intent(LessonSummaryActivity.this, HomeActvity.class));
+                        finish();
                     } else {
                         Toast.makeText(LessonSummaryActivity.this, LessonSummaryActivity.this.result, Toast.LENGTH_LONG).show();
                     }

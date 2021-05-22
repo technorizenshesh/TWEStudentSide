@@ -57,6 +57,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+
     private static final int RC_SIGN_IN = 1;
     private static final String TAG = "fireBaseToken";
     /* access modifiers changed from: private */

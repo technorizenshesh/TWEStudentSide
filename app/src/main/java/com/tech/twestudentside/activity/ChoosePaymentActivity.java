@@ -20,7 +20,7 @@ import com.tech.twestudentside.utils.SessionManager;
 public class ChoosePaymentActivity extends AppCompatActivity {
 
     String Pakage_price = "";
-    String PaymentType = "cash";
+    String PaymentType = "online";
     private CardView card_cash;
     private CardView card_cash_free;
     private LinearLayout ll_cash;
@@ -33,6 +33,7 @@ public class ChoosePaymentActivity extends AppCompatActivity {
     private TextView totla_price;
 
     /* access modifiers changed from: protected */
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_choose_payment);

@@ -10,6 +10,7 @@ import com.tech.twestudentside.R;
 import com.tech.twestudentside.Preference;
 
 public class Activity_otp extends AppCompatActivity {
+
     String PhoneNumber = "7020764458";
     TextView txt_mobile;
 

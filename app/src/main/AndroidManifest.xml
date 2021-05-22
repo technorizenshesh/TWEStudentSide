@@ -33,6 +33,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".activity.ForgetPassword" />
+        <activity android:name=".PaymentGetway.PaymentCashFreeActivity" />
         <activity android:name=".activity.TrackingPageActivity" />
         <activity android:name=".activity.TutorTrackngActivity" />
         <activity android:name=".activity.TutorPaymentDetailsActivity" />

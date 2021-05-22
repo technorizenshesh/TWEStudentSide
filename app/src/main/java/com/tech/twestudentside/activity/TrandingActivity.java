@@ -121,13 +121,13 @@ public class TrandingActivity extends AppCompatActivity implements OnMapReadyCal
         this.recyclerView1 = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         this.recyclerView1.setItemAnimator(new DefaultItemAnimator());
-     /*   if (this.sessionManager.isNetworkAvailable()) {
+     if (this.sessionManager.isNetworkAvailable()) {
             this.progressBar.setVisibility(View.VISIBLE);
             getHomeDetailsApi();
-            getRelatedApi();
+          //  getRelatedApi();
         } else {
             Toast.makeText(this, R.string.checkInternet, Toast.LENGTH_LONG).show();
-        }*/
+        }
         GPSTracker gPSTracker = new GPSTracker(this);
         this.gpsTracker = gPSTracker;
         if (gPSTracker.canGetLocation()) {
@@ -163,7 +163,8 @@ public class TrandingActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     private void getHomeDetailsApi() {
-        RetrofitClients.getInstance().getApi().get_student_details(Preference.get(this, Preference.KEY_Tutor_id)).enqueue(new Callback<Get_detailsModel>() {
+       String UserId= Preference.get(this, Preference.KEY_Tutor_id);
+        RetrofitClients.getInstance().getApi().get_student_details(UserId).enqueue(new Callback<Get_detailsModel>() {
             public void onResponse(Call<Get_detailsModel> call, Response<Get_detailsModel> response) {
                 try {
                     Get_detailsModel finallyPr = response.body();
