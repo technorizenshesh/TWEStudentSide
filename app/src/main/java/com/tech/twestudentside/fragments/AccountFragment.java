@@ -31,6 +31,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     ImageView iv_back;
     LinearLayout layout_walletId;
     FragmentListener listener;
+
     LinearLayout llProfile;
     LinearLayout ll_booking_history_status;
     FirebaseAuth mAuth;
